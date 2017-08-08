@@ -1,2 +1,3 @@
-# senaite.lims
-Modern, mobile first LIMS
+# SENAITE LIMS
+
+Modern, mobile first LIMS based on Bika

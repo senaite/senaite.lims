@@ -1,12 +1,24 @@
+# -*- coding: utf-8 -*-
+
+import os
 from setuptools import setup, find_packages
 
 version = '1.0.0'
+
+def read(*rnames):
+    return open(
+        os.path.join(os.path.dirname(__file__), *rnames)).read() + "\n"
 
 setup(
     name='senaite.lims',
     version=version,
     description="SENAITE – A modern, mobile-first LIMS",
-    long_description=open("README.md").read(),
+    long_description=read("README.md").read() + \
+                     read("docs/CHANGELOG.txt") + \
+                     "\n\n" + \
+                     "Authors and maintainers\n" + \
+                     "-----------------------\n" + \
+                     "- RIDING BYTES, http://ridingbytes.com",
     # Get more strings from
     # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[

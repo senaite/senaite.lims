@@ -1,0 +1,75 @@
+#!/bin/bash
+
+BASE=${buildout:directory}
+I18N=$BASE/bin/i18ndude
+
+SRC=src
+LOCALES=$SRC/senaite/lims/locales
+
+# we need to merge the bika.po and plone.po for jarn.jsi18n usage
+BIKA_SRC=$BASE/lib/bika.lims
+BIKA_LOCALES=$BIKA_SRC/bika/lims/locales
+
+function die() {
+    echo "ERROR: $1"
+}
+
+# Check if we have i18n in place
+if test ! -x $I18N; then
+    echo "You must install i18ndude in your buildout: https://pypi.python.org/pypi/i18ndude"
+    echo "See https://github.com/collective/collective.developermanual/blob/master/source/i18n/localization.txt"
+    die "i18ndude not installed"
+fi
+
+################################################################################
+# PROCESSING SENAITE DOMAIN
+################################################################################
+DOMAIN=senaite
+echo "Processing Domain $DOMAIN"
+# Re-scan the source code for new strings and create a temporary $DOMAIN-tmp.pot
+$I18N rebuild-pot --pot $LOCALES/$DOMAIN-tmp.pot --exclude "build" --create $DOMAIN $SRC
+# Merge the manual translations of $DOMAIN-manual.pot into the temporary $DOMAIN-tmp.pot
+$I18N merge --pot $LOCALES/$DOMAIN-tmp.pot --merge $LOCALES/$DOMAIN-manual.pot
+# Merge the content translations of $DOMAIN-manual.pot into the temporary $DOMAIN-tmp.pot
+$I18N merge --pot $LOCALES/$DOMAIN-tmp.pot --merge $LOCALES/$DOMAIN-content.pot
+# Overwrite the existing $DOMAIN.pot
+mv $LOCALES/$DOMAIN-tmp.pot $LOCALES/$DOMAIN.pot
+# Synchronize all .po files with the new $DOMAIN.pot
+$I18N sync --pot $LOCALES/$DOMAIN.pot $LOCALES/*/LC_MESSAGES/$DOMAIN.po
+echo "Processing Domain $DOMAIN [DONE]"
+
+################################################################################
+# PROCESSING BIKA DOMAIN
+################################################################################
+DOMAIN=bika
+echo "Processing Domain $DOMAIN"
+# Flush the english (transifex source language) po files
+# If we don't do this, new $DOMAIN-manual.pot translations won't be synced.
+echo -n "" > $LOCALES/en/LC_MESSAGES/$DOMAIN.po
+# Re-scan the source code for new strings and create a temporary $DOMAIN-tmp.pot
+$I18N rebuild-pot --pot $LOCALES/$DOMAIN-tmp.pot --exclude "build" --create $DOMAIN bika
+# Merge the manual translations of $DOMAIN-manual.pot into the temporary $DOMAIN-tmp.pot
+$I18N merge --pot $LOCALES/$DOMAIN-tmp.pot --merge $LOCALES/$DOMAIN-manual.pot
+# Overwrite the existing $DOMAIN.pot
+mv $LOCALES/$DOMAIN-tmp.pot $LOCALES/$DOMAIN.pot
+# Synchronize all .po files with the new $DOMAIN.pot
+$I18N sync --pot $LOCALES/$DOMAIN.pot $LOCALES/*/LC_MESSAGES/$DOMAIN.po
+echo "Domain $DOMAIN [DONE]"
+
+################################################################################
+# PROCESSING PLONE DOMAIN
+################################################################################
+DOMAIN=plone
+echo "Processing Domain $DOMAIN"
+# Flush the english (transifex source language) po files
+# If we don't do this, new $DOMAIN-manual.pot translations won't be synced.
+echo -n "" > $LOCALES/en/LC_MESSAGES/$DOMAIN.po
+# Re-scan the source code for new strings and create a temporary $DOMAIN-tmp.pot
+$I18N rebuild-pot --pot $LOCALES/$DOMAIN-tmp.pot --exclude "build" --create $DOMAIN bika/lims/profiles
+# Merge the manual translations of $DOMAIN-manual.pot into the temporary $DOMAIN-tmp.pot
+$I18N merge --pot $LOCALES/$DOMAIN-tmp.pot --merge $LOCALES/$DOMAIN-manual.pot
+# Overwrite the existing $DOMAIN.pot
+mv $LOCALES/$DOMAIN-tmp.pot $LOCALES/$DOMAIN.pot
+# Synchronize all .po files with the new $DOMAIN.pot
+$I18N sync --pot $LOCALES/$DOMAIN.pot $LOCALES/*/LC_MESSAGES/$DOMAIN.po
+echo "Domain $DOMAIN [DONE]"

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+GTAGS=$(which gtags)
+
+function has_command() {
+    TX=$(which tx)
+    if test ! -x $1 || test -z $1; then
+        return -1
+    else
+        return 0
+    fi
+}
+
+if ! has_command $GTAGS; then
+    die "Command `gtags` not found in path"
+fi
+
+
+function die() {
+    echo "ERROR: $1"
+}
+
+# Find source files
+find . -name "*.py" -o -name "*.cpy" > gtags.files
+
+# Generate Tags
+$GTAGS -f gtags.files
+
+# Remove temporary files
+rm gtags.files

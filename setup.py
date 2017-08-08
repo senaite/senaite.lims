@@ -39,7 +39,13 @@ setup(
     ],
     extras_require={
         'test': [
+            'Products.PloneTestCase',
+            'Products.SecureMailHost',
+            'plone.app.robotframework',
             'plone.app.testing',
+            'robotframework-debuglibrary',
+            'robotframework-selenium2library',
+            'robotsuite',
             'unittest2',
         ]
     },

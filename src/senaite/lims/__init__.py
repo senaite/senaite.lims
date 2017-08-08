@@ -6,9 +6,9 @@ import logging
 from zope.i18nmessageid import MessageFactory
 
 # Defining a Message Factory for when this product is internationalized.
-lisconMessageFactory = MessageFactory('senaite')
+senaiteMessageFactory = MessageFactory('senaite')
 
-logger = logging.getLogger("senaite")
+logger = logging.getLogger("SENAITE")
 
 
 def initialize(context):

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+
+  <object name="senaite"
+          meta_type="Filesystem Directory View"
+          directory="senaite.lims:skins/senaite"/>
+
+  <skin-path name="*">
+    <layer name="senaite" insert-after="custom"/>
+  </skin-path>
+
+</object>

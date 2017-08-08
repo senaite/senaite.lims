@@ -1,0 +1,47 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    xmlns:monkey="http://namespaces.plone.org/monkey"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="senaite">
+
+  <five:registerPackage package="." initialize=".initialize"/>
+
+  <!--  NB: We override bika and plone translations. Therefore, we have to ensure that -->
+  <!-- this packages' zcml is loaded before the others. -->
+  <i18n:registerTranslations directory="locales"/>
+
+  <!-- Package Includes -->
+  <include package=".jsonapi"/>
+  <include package=".jsonapi.v1" />
+
+  <!-- Filesystem directory view -->
+  <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
+
+  <!-- Register static directory for JS/CSS resources -->
+  <browser:resourceDirectory
+    name="senaite.lims.static"
+    directory="static"
+    layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Installation Profile -->
+  <genericsetup:registerProfile
+      name="default"
+      title="SENAITE LIMS"
+      directory="profiles/default"
+      description='SENAITE LIMS Extension Profile'
+      provides="Products.GenericSetup.interfaces.EXTENSION"/>
+
+  <!-- Run Setup Script -->
+  <genericsetup:importStep
+      name="senaite.lims.setupHandler"
+      title="SENAITE LIMS: Run Setup Handler"
+      description="Run various configuration actions"
+      handler="senaite.lims.setuphandlers.setupHandler">
+  </genericsetup:importStep>
+
+</configure>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<metadata>
+  <version>1000</version>
+  <dependencies>
+      <dependency>profile-senaite.lims:default</dependency>
+  </dependencies>
+</metadata>

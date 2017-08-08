@@ -101,3 +101,4 @@ ENV/
 .mypy_cache/
 bin
 .mr.developer.cfg
+src/bika.lims

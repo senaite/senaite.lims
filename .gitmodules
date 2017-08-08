@@ -1,0 +1,3 @@
+[submodule "lib/bika.lims"]
+	path = lib/bika.lims
+	url = git@github.com:bikalims/bika.lims.git

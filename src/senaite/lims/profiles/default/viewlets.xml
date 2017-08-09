@@ -9,6 +9,7 @@
   <!-- Hidden vielets in plone.portalfooter -->
   <hidden manager="plone.portalfooter" skinname="Plone Default">
     <viewlet name="plone.colophon"/>
+    <viewlet name="plone.site_actions"/>
   </hidden>
 
 </object>

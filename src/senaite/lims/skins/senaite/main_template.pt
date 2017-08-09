@@ -72,7 +72,7 @@
 
           <tal:notajax tal:condition="not:ajax_load">
             <div id="portal-column-one"
-                 class="col-md-3"
+                 class="col-md-2"
                  metal:define-slot="column_one_slot"
                  tal:condition="sl"
                  tal:attributes="class classes/one">
@@ -82,7 +82,7 @@
             </div>
           </tal:notajax>
 
-          <div id="portal-column-content" class="col-md-6"
+          <div id="portal-column-content" class="col-md-8"
                tal:attributes="class classes/content">
 
             <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" tal:condition="not:ajax_load" />
@@ -165,7 +165,7 @@
 
           <tal:notajax tal:condition="not:ajax_load">
             <div id="portal-column-two"
-                 class="col-md-3"
+                 class="col-md-2"
                  metal:define-slot="column_two_slot"
                  tal:condition="sr"
                  tal:attributes="class classes/two">

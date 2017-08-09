@@ -1,29 +1,37 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
-  <!-- jQuery 1.12.4 and jQuery-migrate 1.4.1 -->
+  <!-- jQuery -->
   <javascript
       cacheable="True" compression="none" cookable="True"
       enabled="True" inline="False" expression="" insert-before="*"
       bundle="default" id="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js" />
   <javascript
+      id="++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js"
       cacheable="True" compression="none" cookable="True"
       enabled="True" inline="False" expression="" insert-before="*"
-      bundle="default" id="++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js" />
+      bundle="default"/>
   <!-- remove plone.app.jquery -->
-  <javascript remove="True" id="++resource++plone.app.jquery.js" />
+  <javascript remove="True" id="++resource++plone.app.jquery.js"/>
 
   <!-- Senaite Bootstrap Integration -->
   <javascript
       id="++resource++senaite.lims.bootstrap.js/bootstrap-integration.js"
-      cacheable="True" compression="safe" cookable="True"
-      enabled="True" expression=""  inline="False"/>
+      authenticated="False" cacheable="True" compression="safe" cookable="True"
+      enabled="True" expression="" inline="False"/>
 
   <!-- Bootstrap 3.3.7 -->
   <javascript
       id="++resource++senaite.lims.bootstrap.js/bootstrap.min.js"
-      cacheable="True" compression="safe" cookable="True"
-      enabled="True" expression=""  inline="False"/>
+      authenticated="False" cacheable="True" compression="safe" cookable="True"
+      enabled="True" expression="" inline="False"/>
+
+  <!-- Bika JS -->
+  <javascript
+      id="++resource++senaite.lims.bika.js/bika.lims.analysisrequest.js"
+      authenticated="True" cacheable="True" compression="safe" cookable="True"
+      enabled="True" expression="" inline="False" insert-after="*"/>
+  <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.js"/>
 
   <!-- Bika LIMS JS Cleanup (fix in bika.lims) -->
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.analyses.js" />

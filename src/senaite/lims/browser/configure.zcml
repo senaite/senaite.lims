@@ -6,5 +6,6 @@
   <!-- Package Includes -->
   <include package=".jquery"/>
   <include package=".bootstrap"/>
+  <include package=".bika"/>
 
 </configure>

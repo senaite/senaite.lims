@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite">
+
+  <!-- Register static directory for JS resources -->
+  <browser:resourceDirectory
+      name="senaite.lims.bika.js"
+      directory="js"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Register static directory for CSS resources -->
+  <browser:resourceDirectory
+      name="senaite.lims.bika.css"
+      directory="css"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+</configure>

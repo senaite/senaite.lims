@@ -52,24 +52,24 @@ class BootstrapView(BrowserView):
         elif sl and sr:
             # In case we have both columns, content takes 50% of the whole
             # width and the rest 50% is spread between the columns
-            columns['one'] = "col-md-3"
-            columns['content'] = "col-md-6"
-            columns['two'] = "col-md-3"
+            columns['one'] = "col-md-2"
+            columns['content'] = "col-md-8"
+            columns['two'] = "col-md-2"
 
         elif (sr and not sl) and not isRTL:
             # We have right column and we are NOT in RTL language
-            columns['content'] = "col-md-9"
-            columns['two'] = "col-md-3"
+            columns['content'] = "col-md-10"
+            columns['two'] = "col-md-2"
 
         elif (sl and not sr) and isRTL:
             # We have left column and we are in RTL language
-            columns['one'] = "col-md-3"
-            columns['content'] = "col-md-9"
+            columns['one'] = "col-md-2"
+            columns['content'] = "col-md-10"
 
         elif (sl and not sr) and not isRTL:
             # We have left column and we are in NOT RTL language
-            columns['one'] = "col-md-3"
-            columns['content'] = "col-md-9"
+            columns['one'] = "col-md-2"
+            columns['content'] = "col-md-10"
 
         # # append cell to each css-string
         # for key, value in columns.items():

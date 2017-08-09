@@ -29,11 +29,11 @@ function fixArchetypesForms(){
     });
 
 
-    $('.ArchetypesSelectionWidget .formQuestion.label').each(function(){
-        $(this).removeClass('label');
-    }
-                                                            );
-
+    $('.ArchetypesSelectionWidget .formQuestion.label').each(
+        function(){
+            $(this).removeClass('label');
+        }
+    );
 
     /* Move add-on control-panel inputs inside labels*/
     $('input[type=checkbox]').each(function(){
@@ -81,7 +81,7 @@ $(document).ready(function(){
     var foundPrimary = false;
     $('div.formControls input[type="submit"]').each(function(){
         var input = $(this);
-        var button = $('<button type="submit" class="btn btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
+        var button = $('<button type="submit" class="btn btn-xs btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
                        input.attr('value') + '</button>');
 
         if(input.hasClass('context') && !foundPrimary){
@@ -92,7 +92,7 @@ $(document).ready(function(){
     });
 
     /* Add btn class to the rest form buttons */
-    $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
+    $('input[type="submit"], input[type="button"]').addClass('btn btn-xs btn-default');
 
     /* Edit form tabs */
     $('form ul.formTabs').each(function(){
@@ -136,7 +136,7 @@ $(document).ready(function(){
 
     /* forms */
     $('form').addClass('form');
-    $('form input[type=text]').addClass('form-control');
+    $('form input[type=text]').addClass('form-control').addClass('input-sm');
     $('form input[type=password]').addClass('form-control');
     $('form textarea').addClass('form-control');
     $('form select').addClass('form-control');

@@ -5,7 +5,14 @@
 
  <stylesheet
     id="++resource++senaite.lims.bootstrap.css/bootstrap.min.css"
-    applyPrefix="True"
+    applyPrefix="True" insert-after="reset.css"
+    media="" rel="stylesheet" rendering="link"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="1" expression=""/>
+
+ <stylesheet
+    id="++resource++senaite.lims.bootstrap.css/bootstrap-integration.css"
+    applyPrefix="True" insert-after="++resource++senaite.lims.bootstrap.css/bootstrap.min.css"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>

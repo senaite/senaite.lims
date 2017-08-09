@@ -4,6 +4,7 @@
     i18n_domain="senaite">
 
   <!-- Package Includes -->
+  <include package=".jquery"/>
   <include package=".bootstrap"/>
 
 </configure>

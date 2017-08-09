@@ -17,23 +17,18 @@
 
   <!-- Package Includes -->
   <include package=".jsonapi"/>
-  <include package=".jsonapi.v1" />
+  <include package=".jsonapi.v1"/>
+  <include package=".browser"/>
 
   <!-- Filesystem directory view -->
   <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
-
-  <!-- Register static directory for JS/CSS resources -->
-  <browser:resourceDirectory
-    name="senaite.lims.static"
-    directory="static"
-    layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
   <!-- Installation Profile -->
   <genericsetup:registerProfile
       name="default"
       title="SENAITE LIMS"
       directory="profiles/default"
-      description='SENAITE LIMS Extension Profile'
+      description="SENAITE LIMS Extension Profile"
       provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
   <!-- Run Setup Script -->
@@ -41,7 +36,6 @@
       name="senaite.lims.setupHandler"
       title="SENAITE LIMS: Run Setup Handler"
       description="Run various configuration actions"
-      handler="senaite.lims.setuphandlers.setupHandler">
-  </genericsetup:importStep>
+      handler="senaite.lims.setuphandlers.setupHandler"/>
 
 </configure>

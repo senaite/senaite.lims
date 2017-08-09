@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<object>
+
+  <!-- Hidden vielets in plone.portalheader -->
+  <hidden manager="plone.portalheader" skinname="Plone Default">
+    <viewlet name="plone.searchbox"/>
+  </hidden>
+
+  <!-- Hidden vielets in plone.portalfooter -->
+  <hidden manager="plone.portalfooter" skinname="Plone Default">
+    <viewlet name="plone.colophon"/>
+  </hidden>
+
+</object>

@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite">
+
+  <include package="z3c.jbot"/>
+
+  <browser:jbot
+      layer="senaite.lims.interfaces.ISenaiteLIMS"
+      directory="templates"/>
+
+  <browser:page
+      name="bootstrapview"
+      for="*"
+      class=".views.BootstrapView"
+      allowed_interface=".interfaces.IBootstrapView"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Register static directory for JS resources -->
+  <browser:resourceDirectory
+      name="senaite.lims.bootstrap.js"
+      directory="js"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Register static directory for CSS resources -->
+  <browser:resourceDirectory
+      name="senaite.lims.bootstrap.css"
+      directory="css"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Register static directory for FONT resources -->
+  <browser:resourceDirectory
+      name="senaite.lims.bootstrap.fonts"
+      directory="fonts"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+</configure>

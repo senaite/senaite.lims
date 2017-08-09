@@ -23,16 +23,16 @@ function fixArchetypesForms(){
 
     $('.ArchetypesSelectionWidget label').each(function(){
         var radio = $(this).prev();
-	if ($(radio).attr("type")=='radio'){
-	    $(this).prepend(radio);
-	}
+        if ($(radio).attr("type")=='radio'){
+            $(this).prepend(radio);
+        }
     });
 
 
     $('.ArchetypesSelectionWidget .formQuestion.label').each(function(){
-	 $(this).removeClass('label');
+        $(this).removeClass('label');
     }
-    );
+                                                            );
 
 
     /* Move add-on control-panel inputs inside labels*/
@@ -71,9 +71,9 @@ $(document).ready(function(){
         message.removeClass('portalMessage');
         var replacement = $(
             '<div data-alert="alert" class="alert ' + message[0].className + '">' +
-                    '<strong>' + message.find('dt').html() + '</strong> ' +
-                    message.find('dd').html() +
-            '</div>');
+                '<strong>' + message.find('dt').html() + '</strong> ' +
+                message.find('dd').html() +
+                '</div>');
         message.replaceWith(replacement);
     });
 
@@ -82,7 +82,7 @@ $(document).ready(function(){
     $('div.formControls input[type="submit"]').each(function(){
         var input = $(this);
         var button = $('<button type="submit" class="btn btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
-            input.attr('value') + '</button>');
+                       input.attr('value') + '</button>');
 
         if(input.hasClass('context') && !foundPrimary){
             button.addClass('btn-primary');
@@ -166,17 +166,17 @@ $(document).ready(function(){
     /* Text format selector for RichText fields */
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
     /*
-    $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
-        $(this).addClass('open');
-    }, function(){
-        $(this).removeClass('open');
-    });
-    $('ul#navigation li[data-dropdown="dropdown"] ul').hover(function(){}, function(){
-        $(this).parent().removeClass('open');
-    });
-    $('ul#navigation li[data-dropdown="dropdown"] a').click(function(){
-        window.location = $(this).attr('href');
-    });
+      $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
+      $(this).addClass('open');
+      }, function(){
+      $(this).removeClass('open');
+      });
+      $('ul#navigation li[data-dropdown="dropdown"] ul').hover(function(){}, function(){
+      $(this).parent().removeClass('open');
+      });
+      $('ul#navigation li[data-dropdown="dropdown"] a').click(function(){
+      window.location = $(this).attr('href');
+      });
     */
     /* Make the portal_messages redish in case of error */
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');

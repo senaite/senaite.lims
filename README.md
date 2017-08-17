@@ -6,6 +6,10 @@
 
 SENAITE is a modern, mobile first version of the web based open source LIMS Bika.
 
+## What does SENAITE mean?
+
+[SENAITE](http://senaite.com) is a beautiful trigonal, oil-green to greenish black [crystal](https://www.mindat.org/min-3617.html), with almost the hardness of a diamond. Although the crytal is described with a complex formula, it still has clear and straight shapes. Therefore, it reflects nicely the complexity of the LIMS, while providing a modern, intuitive and friendly [UI](https://en.wikipedia.org/wiki/User_interface_design)/[UX](https://en.wikipedia.org/wiki/User_experience).
+
 ## Installation
 
 Please follow these steps to install Plone:

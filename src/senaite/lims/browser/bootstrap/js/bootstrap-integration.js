@@ -94,35 +94,12 @@ $(document).ready(function(){
     /* Add btn class to the rest form buttons */
     $('input[type="submit"], input[type="button"]').addClass('btn btn-xs btn-default');
 
-    /* Edit form tabs */
-    $('form ul.formTabs').each(function(){
-        var ul = $(this);
-        ul.addClass('nav');
-        ul.addClass('nav-tabs');
-        ul.removeClass('formTabs');
-        ul.find('li').removeClass('formTab firstFormTab lastFormTab');
-
-        ul.find('li:first').addClass('active');
-        ul.find('li').click(function(){
-            $(this).parent().find('li').removeClass('active');
-            $(this).addClass('active');
-            /* Fix forms after showing */
-            fixArchetypesForms();
-        });
-        ul.find('li a span').each(function(){
-            var span = $(this);
-            var a = span.parent().html(span.html());
-        });
-    });
-
-
 
     /* Plone's default class for tables */
-    $('table.listing').addClass('table').addClass('table-striped');
+    $('bika-listing-table').addClass('table').addClass('table-condensed');
 
     /* Fix archetypes forms if there's any */
     fixArchetypesForms();
-
 
     /* Convert all 'hiddenStructure' classes to 'hidden' */
     $('.hiddenStructure').addClass('hidden');
@@ -132,7 +109,6 @@ $(document).ready(function(){
     var hiddenviewlet = $('<span>This viewlet is hidden and will not be shown</span>');
     $(hiddenviewlet).addClass('text-danger');
     $('.template-manage-viewlets .hiddenViewlet').prepend(hiddenviewlet);
-
 
     /* forms */
     $('form').addClass('form');
@@ -148,7 +124,6 @@ $(document).ready(function(){
     /* Date fields */
     $('#fieldset-dates').addClass('form-inline');
     $('.date-field').parent().addClass('form-inline');
-
 
     /* Content-tree input */
     $('.autocompleteInputWidget').on('DOMSubtreeModified', function(){

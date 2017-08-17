@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 
+from cgi import escape
+
 from Acquisition import aq_inner
 from zExceptions import NotFound
 
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.CMFPlone.utils import safe_unicode
 
+from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewlet
 from zope.publisher.interfaces.browser import IBrowserRequest
 
@@ -23,6 +27,14 @@ class SenaiteLogoViewlet(LogoViewlet):
 
 class SenaiteGlobalSectionsViewlet(GlobalSectionsViewlet):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.sections.pt')
+
+    def update(self):
+        super(SenaiteGlobalSectionsViewlet, self).update()
+        portal_state = getMultiAdapter((self.context, self.request),
+                                       name=u'plone_portal_state')
+        self.navigation_root_url = portal_state.navigation_root_url()
+        self.portal_title = escape(
+            safe_unicode(portal_state.navigation_root_title()))
 
 
 class SenaitePathBarViewlet(PathBarViewlet):

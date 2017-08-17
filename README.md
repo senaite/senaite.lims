@@ -38,8 +38,7 @@ https://docs.plone.org/4/en/manage/installing/installing_addons.html
         <br>
         <p>Founder of SENAITE</p>
       </td>
-    </tr>
-    <td align="center" valign="top">
+      <td align="center" valign="top">
         <img width="150" height="150" src="https://github.com/rockfruit.png?s=150">
         <br>
         <a href="https://github.com/rockfruit">Campbell MC Kellar-Basset</a>

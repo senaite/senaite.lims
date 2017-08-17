@@ -1,6 +1,7 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
     i18n_domain="senaite">
 
   <!-- Bootstrap Helper View -->
@@ -84,6 +85,14 @@
       name="viewlets"
       class=".viewlets.ViewletView"
       permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Navigation Portlet -->
+  <include package="plone.app.portlets"/>
+
+  <plone:portletRenderer
+      portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
+      class=".portlets.SenaiteNavigationPortletRenderer"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
   <!-- Register static directory for JS resources -->

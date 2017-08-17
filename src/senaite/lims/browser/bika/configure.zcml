@@ -11,9 +11,9 @@
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
   <!-- Register static directory for CSS resources -->
-  <browser:resourceDirectory
-      name="senaite.lims.bika.css"
-      directory="css"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+  <!-- <browser:resourceDirectory -->
+  <!--     name="senaite.lims.bika.css" -->
+  <!--     directory="css" -->
+  <!--     layer="senaite.lims.interfaces.ISenaiteLIMS"/> -->
 
 </configure>

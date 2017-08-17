@@ -3,17 +3,53 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="senaite">
 
-  <include package="z3c.jbot"/>
-
-  <browser:jbot
-      layer="senaite.lims.interfaces.ISenaiteLIMS"
-      directory="templates"/>
-
   <browser:page
       name="bootstrapview"
       for="*"
       class=".views.BootstrapView"
       allowed_interface=".interfaces.IBootstrapView"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Content Menu -->
+  <adapter
+      name="plone.contentmenu"
+      for="*
+           senaite.lims.interfaces.ISenaiteLIMS
+           *"
+      factory=".adapters.SenaiteContentMenuProvider"
+      provides="zope.contentprovider.interfaces.IContentProvider"
+      />
+
+  <!-- Logo Viewlet -->
+  <browser:viewlet
+      name="plone.logo"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SenaiteLogoViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Content views (tabs) -->
+  <browser:viewlet
+      name="plone.contentviews"
+      manager="plone.app.layout.viewlets.interfaces.IContentViews"
+      class=".viewlets.SenaiteContentViewsViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Breadcrumbs -->
+  <browser:viewlet
+      name="plone.path_bar"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+      class=".viewlets.SenaitePathBarViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Personal bar -->
+  <browser:viewlet
+      name="plone.personal_bar"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SenaitePersonalBarViewlet"
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 

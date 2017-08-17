@@ -1,5 +1,5 @@
 <a metal:define-macro="portal_logo"
-   id="portal-logo"
+   id="portal-logo senaite-logo"
    class="brand"
    title="Home"
    accesskey="1"

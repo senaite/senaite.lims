@@ -36,7 +36,6 @@ setup(
         'archetypes.schemaextender',
         'bika.lims',
         'setuptools',
-        'z3c.jbot',
     ],
     extras_require={
         'test': [

@@ -21,11 +21,9 @@ of your `buildout.cfg`:
 Also see this section of the Plone documentation for further details:
 https://docs.plone.org/4/en/manage/installing/installing_addons.html
 
-
 ## License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fsenaite%2Fsenaite.lims.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fsenaite%2Fsenaite.lims?ref=badge_large)
-
 
 <h2 align="center">Core Team</h2>
 
@@ -40,6 +38,16 @@ https://docs.plone.org/4/en/manage/installing/installing_addons.html
         <br>
         <p>Founder of SENAITE</p>
       </td>
+    </tr>
+    <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/rockfruit.png?s=150">
+        <br>
+        <a href="https://github.com/rockfruit">Campbell MC Kellar-Basset</a>
+        <p>Core</p>
+        <br>
+        <p>Bika LIMS specialist and early adopter of SENAITE</p>
+      </td>
+    </tr>
   </tbody>
 </table>
 

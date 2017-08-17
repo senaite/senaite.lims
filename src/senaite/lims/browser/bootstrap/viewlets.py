@@ -3,6 +3,7 @@
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from plone.app.layout.viewlets.common import LogoViewlet
+from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from plone.app.layout.viewlets.common import ContentViewsViewlet
 from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
@@ -12,8 +13,8 @@ class SenaiteLogoViewlet(LogoViewlet):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.logo.pt')
 
 
-class SenaiteContentViewsViewlet(ContentViewsViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.contentviews.pt')
+class SenaiteGlobalSectionsViewlet(GlobalSectionsViewlet):
+    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.sections.pt')
 
 
 class SenaitePathBarViewlet(PathBarViewlet):
@@ -22,3 +23,7 @@ class SenaitePathBarViewlet(PathBarViewlet):
 
 class SenaitePersonalBarViewlet(PersonalBarViewlet):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.personal_bar.pt')
+
+
+class SenaiteContentViewsViewlet(ContentViewsViewlet):
+    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.contentviews.pt')

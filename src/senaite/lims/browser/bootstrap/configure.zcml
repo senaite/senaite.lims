@@ -29,6 +29,14 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
+  <!-- Global sections -->
+  <browser:viewlet
+      name="plone.global_sections"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SenaiteGlobalSectionsViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
   <!-- Content views (tabs) -->
   <browser:viewlet
       name="plone.contentviews"

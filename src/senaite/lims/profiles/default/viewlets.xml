@@ -3,6 +3,8 @@
 
   <!-- Hidden vielets in plone.portalheader -->
   <hidden manager="plone.portalheader" skinname="Plone Default">
+    <viewlet name="plone.logo"/>
+    <viewlet name="plone.personal_bar"/>
     <viewlet name="plone.searchbox"/>
   </hidden>
 

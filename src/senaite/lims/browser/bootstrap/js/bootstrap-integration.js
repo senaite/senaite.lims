@@ -66,14 +66,26 @@ function fixArchetypesForms(){
 $(document).ready(function(){
 
     /* Automatically generated portal status messages */
-    $('dl.portalMessage #kssPortalMessage').each(function(){
+
+    // $("#kssPortalMessage").remove();
+    $('dl.portalMessage').not("#kssPortalMessage").each(function(){
         var message = $(this);
         message.removeClass('portalMessage');
-        var replacement = $(
-            '<div data-alert="alert" class="alert ' + message[0].className + '">' +
-                '<strong>' + message.find('dt').html() + '</strong> ' +
-                message.find('dd').html() +
-                '</div>');
+
+        var replacement = $("<div role='alert' class='alert'>");
+        replacement.addClass("alert-" + message[0].className);
+        replacement.append("<strong>" + message.find('dt').html() + "</strong>");
+        replacement.append("<div>" + message.find('dd').html() + "</div>");
+
+        message.replaceWith(replacement);
+    });
+
+    $('#portal-alert').each(function(){
+        var message = $(this);
+        var replacement = $("<div role='alert' class='alert alert-danger alert-dismissible'>");
+        var button = $("<button type='button' class='close' data-dismiss='alert' aria-label='close'><span aria-hidden='true'>&times;</span></button>");
+        replacement.append(button);
+        replacement.append(message.children());
         message.replaceWith(replacement);
     });
 
@@ -93,7 +105,6 @@ $(document).ready(function(){
 
     /* Add btn class to the rest form buttons */
     $('input[type="submit"], input[type="button"]').addClass('btn btn-xs btn-default');
-
 
     /* Plone's default class for tables */
     $('bika-listing-table').addClass('table').addClass('table-condensed');
@@ -140,19 +151,7 @@ $(document).ready(function(){
 
     /* Text format selector for RichText fields */
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
-    /*
-      $('ul#navigation li[data-dropdown="dropdown"]').hover(function(){
-      $(this).addClass('open');
-      }, function(){
-      $(this).removeClass('open');
-      });
-      $('ul#navigation li[data-dropdown="dropdown"] ul').hover(function(){}, function(){
-      $(this).parent().removeClass('open');
-      });
-      $('ul#navigation li[data-dropdown="dropdown"] a').click(function(){
-      window.location = $(this).attr('href');
-      });
-    */
+
     /* Make the portal_messages redish in case of error */
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');
 });

@@ -5,7 +5,7 @@
 
  <stylesheet
     id="++resource++senaite.lims.bootstrap.css/bootstrap.min.css"
-    applyPrefix="True" insert-after="reset.css"
+    applyPrefix="True" insert-before="*"
     media="" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>
@@ -19,7 +19,19 @@
 
  <!-- Deactivate CSS stylesheets that come with Sunburst theme -->
  <stylesheet title=""
+    id="reset.css"
+    media="screen" rel="stylesheet" rendering="link"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="0" expression=""/>
+
+ <stylesheet title=""
     id="public.css"
+    media="screen" rel="stylesheet" rendering="link"
+    cacheable="True" compression="safe" cookable="True"
+    enabled="0" expression=""/>
+
+ <stylesheet title=""
+    id="ploneCustom.css"
     media="screen" rel="stylesheet" rendering="link"
     cacheable="True" compression="safe" cookable="True"
     enabled="0" expression=""/>

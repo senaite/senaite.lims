@@ -93,16 +93,25 @@
                   <div metal:define-macro="content"
                        tal:define="show_border context/@@plone/showEditableBorder; show_border python:show_border and not ajax_load"
                        tal:attributes="class python:show_border and 'documentEditable' or ''">
+
                     <div class="row">
                       <div class="col-md-12">
                         <div id="editing-bar"
                              tal:condition="show_border"
                              tal:content="structure provider:plone.contentviews" />
+                      </div>
+                    </div>
 
+                    <div class="row">
+                      <div class="col-md-12">
                         <div metal:use-macro="context/global_statusmessage/macros/portal_message">
                           Status message
                         </div>
+                      </div>
+                    </div>
 
+                    <div class="row">
+                      <div class="col-md-12">
                         <metal:slot define-slot="body">
                           <div id="content">
 

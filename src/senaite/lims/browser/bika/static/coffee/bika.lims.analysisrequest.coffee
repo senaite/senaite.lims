@@ -1,5 +1,8 @@
 ### Please use this command to compile this file into the parent `js` directory:
     coffee --no-header -w -o ../js -c bika.lims.analysisrequest.coffee
+
+    SENAITE Changes:
+      - something with referencewidgets, but I forgot. Needs to be diffed with the original again!
 ###
 
 ###*

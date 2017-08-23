@@ -3,34 +3,43 @@
 
   <!-- jQuery -->
   <javascript
-      cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" insert-before="*"
-      bundle="default" id="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js" />
-  <javascript
       id="++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js"
       cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" insert-before="*"
-      bundle="default"/>
-  <!-- remove plone.app.jquery -->
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-before="*"/>
+
+  <!-- jQuery Migration -->
+  <javascript
+      id="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js"
+      cacheable="True" compression="none" cookable="True"
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-after="++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js"/>
+
+  <!-- remove builtin plone.app.jquery -->
   <javascript remove="True" id="++resource++plone.app.jquery.js"/>
 
-  <!-- Bootstrap 3.3.7 -->
+  <!-- Bootstrap -->
   <javascript
       id="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"
-      authenticated="False" cacheable="True" compression="safe" cookable="True"
-      enabled="True" expression="" inline="False"/>
+      cacheable="True" compression="none" cookable="True"
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-after="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js"/>
 
   <!-- Senaite Bootstrap Integration -->
   <javascript
       id="++resource++senaite.lims.bootstrap.static/js/bootstrap-integration.js"
-      authenticated="False" cacheable="True" compression="safe" cookable="True"
-      enabled="True" expression="" inline="False"/>
+      cacheable="True" compression="none" cookable="True"
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-after="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"/>
 
-  <!-- Bika JS -->
+  <!-- Bika Analysisrequest JS -->
   <javascript
       id="++resource++senaite.lims.bika.static/js/bika.lims.analysisrequest.js"
-      authenticated="True" cacheable="True" compression="safe" cookable="True"
-      enabled="True" expression="" inline="False" insert-after="*"/>
+      cacheable="True" compression="none" cookable="True"
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-after="*"/>
+
+  <!-- remove default bika.lims.analysisrequest.js -->
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.js"/>
 
   <!-- Bika LIMS JS Cleanup (fix in bika.lims) -->

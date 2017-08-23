@@ -14,15 +14,15 @@
   <!-- remove plone.app.jquery -->
   <javascript remove="True" id="++resource++plone.app.jquery.js"/>
 
-  <!-- Senaite Bootstrap Integration -->
+  <!-- Bootstrap 3.3.7 -->
   <javascript
-      id="++resource++senaite.lims.bootstrap.js/bootstrap-integration.js"
+      id="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"
       authenticated="False" cacheable="True" compression="safe" cookable="True"
       enabled="True" expression="" inline="False"/>
 
-  <!-- Bootstrap 3.3.7 -->
+  <!-- Senaite Bootstrap Integration -->
   <javascript
-      id="++resource++senaite.lims.bootstrap.js/bootstrap.min.js"
+      id="++resource++senaite.lims.bootstrap.static/js/bootstrap-integration.js"
       authenticated="False" cacheable="True" compression="safe" cookable="True"
       enabled="True" expression="" inline="False"/>
 

@@ -1,8 +1,21 @@
+/* Bika Style overwrites */
+#manage-ar-fields {
+    vertical-align: middle!important;
+}
+.context_action_link {
+    top: 0;
+}
+
+
+/* /Bika Style overwrites */
+
+
 /* Top Navigation */
 .topbar-nav {
     margin-top: 20px;
 }
-/* Top Navigation */
+/* /Top Navigation */
+
 
 /* Sidebar Navigation */
 .sidebar-nav .navbar .navbar-collapse {
@@ -44,7 +57,7 @@
 .sidebar-nav .nav-level-5 li a {
     padding-left: 75px;
 }
-/* Sidebar Navigation */
+/* /Sidebar Navigation */
 
 
 /* Fixture for jqueryui.combogrid.css */

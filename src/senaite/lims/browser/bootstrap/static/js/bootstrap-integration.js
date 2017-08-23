@@ -65,6 +65,13 @@ function fixArchetypesForms(){
 
 $(document).ready(function(){
 
+    /* Bika LIMS Customizations */
+
+    // remove all inline styles in headlines
+    $("h1>span").attr("style", "");
+
+    /* /Bika LIMS Customizations */
+
     /* Convert input[type=buttons] to button tags */
     var foundPrimary = false;
     $('div.formControls input[type="submit"]').each(function(){

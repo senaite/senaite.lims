@@ -36,9 +36,9 @@
       workflow_actions from analysisrequest/sample/samplepartition objects.
       It is not possible to abort a transition using "workflow_script_*".
       The recommended way is to set a guard instead.
-      
+
       The guard expression should be able to look up a view to facilitate more complex guard code, but when a guard returns False the transition isn't even listed as available. It is listed after saving the fields.
-      
+
       TODO This should be using content_status_modify!  modifying the href
       is silly.
        */

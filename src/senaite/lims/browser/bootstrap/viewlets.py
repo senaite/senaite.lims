@@ -20,6 +20,7 @@ from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from plone.app.layout.viewlets.common import ContentViewsViewlet
 from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
+from plone.app.layout.viewlets.common import FooterViewlet
 
 
 class SenaiteLogoViewlet(LogoViewlet):
@@ -56,6 +57,10 @@ class SenaiteContentViewsViewlet(ContentViewsViewlet):
 
 class SenaiteColophonViewlet(ViewletBase):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.colophon.pt')
+
+
+class SenaiteFooterViewlet(FooterViewlet):
+    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.footer.pt')
 
 
 class ViewletView(BrowserView):

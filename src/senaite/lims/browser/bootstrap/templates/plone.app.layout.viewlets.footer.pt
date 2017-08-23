@@ -1,0 +1,36 @@
+<footer i18n:domain="senaite"
+        id="senaite-footer">
+
+  <div class="footer-bottom">
+    <div class="container-fluid">
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+
+          <p class="muted pull-left">
+            <span i18n:translate="description_copyright" tal:omit-tag="">
+              <abbr title="Copyright" i18n:name="copyright" i18n:attributes="title title_copyright;">&copy;</abbr>
+              2017-<tal:year i18n:name="current_year" tal:content="view/year" />
+              <span i18n:name="senaitefoundation" tal:omit-tag="">
+                <a href="http://senaite.com/foundation"
+                   i18n:translate="label_senaite_foundation">SENAITE Foundation</a>
+              </span>
+            </span>
+          </p>
+
+          <div class="pull-right">
+            <ul class="nav nav-pills social-icon pull-right">
+              <li><a href="#" title="github" target="_blank"><i class="fa fa-github"></i></a></li>
+              <li><a href="#" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#" title="slack" target="_blank"><i class="fa fa-slack"></i></a></li>
+              <li><a href="#" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li> <!-- change the link to social page and edit title-->
+              <li><a href="#" title="google plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>

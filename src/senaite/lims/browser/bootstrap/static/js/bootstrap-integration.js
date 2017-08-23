@@ -65,30 +65,6 @@ function fixArchetypesForms(){
 
 $(document).ready(function(){
 
-    /* Automatically generated portal status messages */
-
-    // $("#kssPortalMessage").remove();
-    $('dl.portalMessage').not("#kssPortalMessage").each(function(){
-        var message = $(this);
-        message.removeClass('portalMessage');
-
-        var replacement = $("<div role='alert' class='alert'>");
-        replacement.addClass("alert-" + message[0].className);
-        replacement.append("<strong>" + message.find('dt').html() + "</strong>");
-        replacement.append("<div>" + message.find('dd').html() + "</div>");
-
-        message.replaceWith(replacement);
-    });
-
-    $('#portal-alert').each(function(){
-        var message = $(this);
-        var replacement = $("<div role='alert' class='alert alert-danger alert-dismissible'>");
-        var button = $("<button type='button' class='close' data-dismiss='alert' aria-label='close'><span aria-hidden='true'>&times;</span></button>");
-        replacement.append(button);
-        replacement.append(message.children());
-        message.replaceWith(replacement);
-    });
-
     /* Convert input[type=buttons] to button tags */
     var foundPrimary = false;
     $('div.formControls input[type="submit"]').each(function(){

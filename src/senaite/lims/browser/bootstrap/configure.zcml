@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="senaite">
 
   <!-- Bootstrap Helper View -->
@@ -122,5 +123,8 @@
       name="senaite.lims.bootstrap.vendor"
       directory="vendor"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Filesystem directory view -->
+  <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
 
 </configure>

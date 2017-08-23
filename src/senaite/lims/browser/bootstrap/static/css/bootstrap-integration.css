@@ -5,6 +5,17 @@
 .context_action_link {
     top: 0;
 }
+#analysisrequest_manage_add_form ul {
+    padding: 0;
+}
+#analysisrequest_manage_add_form ul li input {
+    margin: 0;
+}
+#analysisrequest_manage_add_form ul li {
+    padding: 0.5em;
+    height: auto;
+    font-size: 100%;
+}
 
 
 /* /Bika Style overwrites */

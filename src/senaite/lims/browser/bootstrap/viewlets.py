@@ -14,6 +14,7 @@ from zope.viewlet.interfaces import IViewlet
 from zope.publisher.interfaces.browser import IBrowserRequest
 
 from plone.app.customerize import registration
+from plone.app.layout.viewlets.common import ViewletBase
 from plone.app.layout.viewlets.common import LogoViewlet
 from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from plone.app.layout.viewlets.common import ContentViewsViewlet
@@ -51,6 +52,10 @@ class SenaitePersonalNavBarViewlet(PersonalBarViewlet):
 
 class SenaiteContentViewsViewlet(ContentViewsViewlet):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.contentviews.pt')
+
+
+class SenaiteColophonViewlet(ViewletBase):
+    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.colophon.pt')
 
 
 class ViewletView(BrowserView):

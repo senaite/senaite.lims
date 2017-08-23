@@ -2,15 +2,14 @@
 <object>
 
   <!-- Hidden vielets in plone.portalheader -->
-  <hidden manager="plone.portalheader" skinname="Plone Default">
+  <hidden manager="plone.portalheader" skinname="Plone Default" purge="True">
     <viewlet name="plone.logo"/>
     <viewlet name="plone.personal_bar"/>
     <viewlet name="plone.searchbox"/>
   </hidden>
 
   <!-- Hidden vielets in plone.portalfooter -->
-  <hidden manager="plone.portalfooter" skinname="Plone Default">
-    <viewlet name="plone.colophon"/>
+  <hidden manager="plone.portalfooter" skinname="Plone Default" purge="True">
     <viewlet name="plone.site_actions"/>
   </hidden>
 

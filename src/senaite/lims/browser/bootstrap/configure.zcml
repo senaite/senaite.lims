@@ -79,6 +79,14 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
+  <!-- Colophon Viewlet -->
+  <browser:viewlet
+      name="plone.colophon"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".viewlets.SenaiteColophonViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
   <!-- Viewlet Traverser View -->
   <browser:page
       for="*"

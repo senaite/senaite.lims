@@ -16,6 +16,9 @@
     height: auto;
     font-size: 100%;
 }
+.dashboard-info-panel-number {
+    padding-left: 20px!important;
+}
 
 
 /* /Bika Style overwrites */

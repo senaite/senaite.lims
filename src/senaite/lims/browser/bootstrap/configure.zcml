@@ -95,22 +95,16 @@
       class=".portlets.SenaiteNavigationPortletRenderer"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Register static directory for JS resources -->
+  <!-- Register static directory for STATIC files-->
   <browser:resourceDirectory
-      name="senaite.lims.bootstrap.js"
-      directory="js"
+      name="senaite.lims.bootstrap.static"
+      directory="static"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Register static directory for CSS resources -->
+  <!-- Register static directory for VENDOR files -->
   <browser:resourceDirectory
-      name="senaite.lims.bootstrap.css"
-      directory="css"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Register static directory for FONT resources -->
-  <browser:resourceDirectory
-      name="senaite.lims.bootstrap.fonts"
-      directory="fonts"
+      name="senaite.lims.bootstrap.vendor"
+      directory="vendor"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
 </configure>

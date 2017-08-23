@@ -28,7 +28,7 @@
 
   <!-- Bika JS -->
   <javascript
-      id="++resource++senaite.lims.bika.js/bika.lims.analysisrequest.js"
+      id="++resource++senaite.lims.bika.static/js/bika.lims.analysisrequest.js"
       authenticated="True" cacheable="True" compression="safe" cookable="True"
       enabled="True" expression="" inline="False" insert-after="*"/>
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.js"/>

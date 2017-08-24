@@ -32,13 +32,30 @@
       enabled="True" inline="False" expression="" bundle="default"
       insert-after="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"/>
 
+  <!-- Bika Site JS -->
+  <javascript
+      id="++resource++senaite.lims.bika.static/js/bika.lims.site.js"
+      cacheable="True" compression="none" cookable="True"
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-before="++resource++bika.lims.js/bika.lims.loader.js"/>
+  <!-- remove default bika.lims.analysisrequest.js -->
+  <javascript remove="True" id="++resource++bika.lims.js/bika.lims.site.js"/>
+
+  <!-- Bika Common JS -->
+  <javascript
+      id="++resource++senaite.lims.bika.static/js/bika.lims.common.js"
+      cacheable="True" compression="none" cookable="True"
+      enabled="True" inline="False" expression="" bundle="default"
+      insert-before="++resource++bika.lims.js/bika.lims.loader.js"/>
+  <!-- remove default bika.lims.common.js -->
+  <javascript remove="True" id="++resource++bika.lims.js/bika.lims.common.js"/>
+
   <!-- Bika Analysisrequest JS -->
   <javascript
       id="++resource++senaite.lims.bika.static/js/bika.lims.analysisrequest.js"
       cacheable="True" compression="none" cookable="True"
       enabled="True" inline="False" expression="" bundle="default"
-      insert-after="*"/>
-
+      insert-before="++resource++bika.lims.js/bika.lims.loader.js"/>
   <!-- remove default bika.lims.analysisrequest.js -->
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.js"/>
 
@@ -68,13 +85,7 @@
       id="jquery.highlightsearchterms.js"
       enabled="0"/>
   <javascript
-      id="nodeutilities.js"
-      enabled="0"/>
-  <javascript
       id="register_function.js"
-      enabled="0"/>
-  <javascript
-      id="plone_javascript_variables.js"
       enabled="0"/>
   <javascript
       id="select_all.js"
@@ -87,6 +98,9 @@
       enabled="0"/>
   <javascript
       id="toc.js"
+      enabled="0"/>
+  <javascript
+      id="kss-bbb.js"
       enabled="0"/>
 
   <!-- Bika LIMS JS Cleanup (fix in bika.lims) -->

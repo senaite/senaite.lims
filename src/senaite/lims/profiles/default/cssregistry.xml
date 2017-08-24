@@ -25,67 +25,52 @@
     enabled="1" expression=""/>
 
  <!-- Deactivate CSS stylesheets that come with Sunburst theme -->
- <stylesheet title=""
+ <stylesheet
     id="reset.css"
     enabled="0"/>
-
- <stylesheet title=""
-    id="base.css"
-    enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
+     id="base.css"
+     enabled="0"/>
+ <stylesheet
     id="print.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="authoring.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="RTL.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="forms.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="invisible.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="member.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="controlpanel.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="navtree.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="public.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="ploneCustom.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="columns.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="mobile.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="IEFixes.css"
     enabled="0"/>
-
- <stylesheet title=""
+ <stylesheet
     id="deprecated.css"
     enabled="0"/>
 

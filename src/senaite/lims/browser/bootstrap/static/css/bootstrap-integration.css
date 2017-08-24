@@ -2,6 +2,12 @@
 .hiddenStructure {
     display: none;
 }
+.contentActions {
+    padding-top: 1em;
+}
+div.portletAssignments .managedPortletActions form {
+    display: inline;
+}
 /* /Plone Style overwrites */
 
 /* Bika Style overwrites */

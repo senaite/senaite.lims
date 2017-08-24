@@ -71,7 +71,22 @@
       id="nodeutilities.js"
       enabled="0"/>
   <javascript
-      id="registerfunctions.js"
+      id="register_function.js"
+      enabled="0"/>
+  <javascript
+      id="plone_javascript_variables.js"
+      enabled="0"/>
+  <javascript
+      id="select_all.js"
+      enabled="0"/>
+  <javascript
+      id="first_input_focus.js"
+      enabled="0"/>
+  <javascript
+      id="accessibility.js"
+      enabled="0"/>
+  <javascript
+      id="toc.js"
       enabled="0"/>
 
   <!-- Bika LIMS JS Cleanup (fix in bika.lims) -->

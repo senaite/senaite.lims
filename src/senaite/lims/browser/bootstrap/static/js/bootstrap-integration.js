@@ -65,6 +65,8 @@ function fixArchetypesForms(){
 $(document).ready(function(){
     console.log("** SENAITE BOOTSTRAP INTEGRATION **");
 
+    // remove bika spinner
+    $("bika-spinner").remove();
     /* LOADER */
     $(document).on({
         ajaxStart: function() {

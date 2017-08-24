@@ -10,14 +10,20 @@
         Document Actions
       </p>
 
-      <ul tal:define="normalizeString nocall: context/@@plone/normalizeString">
+      <ul class="nav nav-pills pull-right"
+          tal:define="normalizeString nocall: context/@@plone/normalizeString">
         <li tal:repeat="daction view/actions"
             tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
           <a href=""
              tal:attributes="href daction/url;
                              target daction/link_target|nothing;
-                             title daction/description"
-             tal:content="daction/title">
+                             title daction/description">
+            <img tal:condition="daction/icon"
+                 tal:attributes="src python:daction.get('icon');
+                                 alt python:daction.get('title');
+                                 title python:daction.get('title')"/>
+          <span tal:condition="not:daction/icon"
+                tal:content="python:daction.get('id')"/>
           </a>
         </li>
       </ul>

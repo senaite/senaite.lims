@@ -59,7 +59,7 @@
   <!-- Document actions -->
   <browser:viewlet
       name="plone.abovecontenttitle.documentactions"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
       class=".viewlets.SenaiteDocumentActionsViewlet"
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>

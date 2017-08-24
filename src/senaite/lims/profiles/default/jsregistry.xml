@@ -30,16 +30,7 @@
       id="++resource++senaite.lims.bootstrap.static/js/bootstrap-integration.js"
       cacheable="True" compression="none" cookable="True"
       enabled="True" inline="False" expression="" bundle="default"
-      insert-after="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"/>
-
-  <!-- Bika Site JS -->
-  <javascript
-      id="++resource++senaite.lims.bika.static/js/bika.lims.site.js"
-      cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="default"
-      insert-before="++resource++bika.lims.js/bika.lims.loader.js"/>
-  <!-- remove default bika.lims.analysisrequest.js -->
-  <javascript remove="True" id="++resource++bika.lims.js/bika.lims.site.js"/>
+      insert-after="*"/>
 
   <!-- Bika Common JS -->
   <javascript
@@ -62,9 +53,6 @@
   <!-- Deactivate unneeded JS -->
   <javascript
       id="++resource++search.js"
-      enabled="0"/>
-  <javascript
-      id="form_tabbing.js"
       enabled="0"/>
   <javascript
       id="popupforms.js"

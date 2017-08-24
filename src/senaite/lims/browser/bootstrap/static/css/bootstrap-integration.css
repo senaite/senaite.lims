@@ -13,14 +13,19 @@ div.portletAssignments .managedPortletActions form {
     padding: 0 0.2em 0 0;
     color: red;
 }
+span.required:after {
+    content: "•";
+    padding: 0 0 0 0.2em;
+    color: red;
+}
 div.field.error {
-    background-color: #fdc;
-    border:  1px solid red;
+    background-color: #f2dede;
+    border:  1px solid #a94442;
     padding: 0.5em;
     margin:  1em 0;
 }
 .error .fieldRequired {
-    color: #d00;
+    color: #a94442;
 }
 /* /Plone Style overwrites */
 

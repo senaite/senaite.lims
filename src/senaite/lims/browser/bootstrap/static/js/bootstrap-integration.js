@@ -58,17 +58,22 @@ function fixArchetypesForms(){
 
     $('form.edit-form .label').removeClass('label');
 
-
     /* Help text in Archetypes forms */
     $('.formHelp').addClass('help-block').removeClass('formHelp');
 }
 
 $(document).ready(function(){
+    console.log("** SENAITE BOOTSTRAP INTEGRATION **");
 
     /* Bika LIMS Customizations */
 
     // remove all inline styles in headlines
     $("h1>span").attr("style", "");
+
+    /* Form tabbing */
+    $("ul.formTabs").addClass("nav nav-pills");
+
+    $('div.field').addClass('form-group');
 
     /* /Bika LIMS Customizations */
 
@@ -85,6 +90,9 @@ $(document).ready(function(){
         }
         input.replaceWith(button);
     });
+
+    /* Convert DGF Buttons */
+    $(".datagridwidget-add-button").addClass("btn btn-default");
 
     /* Add btn class to the rest form buttons */
     $('input[type="submit"], input[type="button"]').addClass('btn btn-xs btn-default');
@@ -131,7 +139,6 @@ $(document).ready(function(){
             $(this).wrapInner('<span class="text-danger"></span>');
         }
     });
-
 
     /* Text format selector for RichText fields */
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');

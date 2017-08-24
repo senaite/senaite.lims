@@ -21,6 +21,7 @@ from plone.app.layout.viewlets.common import ContentViewsViewlet
 from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
 from plone.app.layout.viewlets.common import FooterViewlet
+from plone.app.layout.viewlets.content import DocumentActionsViewlet
 
 from bika.lims.browser.instrument import InstrumentQCFailuresViewlet
 
@@ -55,6 +56,10 @@ class SenaitePersonalNavBarViewlet(PersonalBarViewlet):
 
 class SenaiteContentViewsViewlet(ContentViewsViewlet):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.contentviews.pt')
+
+
+class SenaiteDocumentActionsViewlet(DocumentActionsViewlet):
+    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.documentactions.pt')
 
 
 class SenaiteColophonViewlet(ViewletBase):

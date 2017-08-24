@@ -7,7 +7,6 @@
      class="pull-right btn-toolbar">
 
   <tal:menuItem repeat="menuItem menu">
-
     <div class="editActionMenu dropdown btn-group pull-right"
          tal:attributes="id menuItem/extra/id"
          tal:define="submenu menuItem/submenu">
@@ -16,8 +15,8 @@
               data-toggle="dropdown"
               tal:omit-tag="not:menuItem/action"
               tal:attributes="href menuItem/action;
-                          title menuItem/description;
-                          class string:btn btn-default dropdown-toggle actionMenuHeader label-${state_class}"
+                              title menuItem/description;
+                              class string:btn btn-default dropdown-toggle actionMenuHeader label-${state_class}"
               i18n:attributes="title;">
         <span tal:omit-tag="menuItem/action"
               class="noMenuAction">
@@ -85,6 +84,5 @@
         </tal:block>
       </ul>
     </div>
-
   </tal:menuItem>
 </div>

@@ -78,9 +78,7 @@
 
                 <td class="attachment-link">
                   <!-- Icon and Attachment download link -->
-                  <img tal:condition="icon"
-                        tal:define="icon attachment/Icon | nothing;"
-                        tal:attributes="src string:${here/portal_url}/$icon"/>
+                  <i class="fa fa-paperclip" aria-hidden="true"></i>
                   <a title="Click to download"
                       tal:attributes="href string:${attachment/absolute_url}/at_download/AttachmentFile"
                       tal:content="attachment/name">name</a>

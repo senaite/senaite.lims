@@ -1,3 +1,9 @@
+/* Plone Style overwrites */
+.hiddenStructure {
+    display: none;
+}
+/* /Plone Style overwrites */
+
 /* Bika Style overwrites */
 #manage-ar-fields {
     vertical-align: middle!important;
@@ -19,8 +25,6 @@
 .dashboard-info-panel-number {
     padding-left: 20px!important;
 }
-
-
 /* /Bika Style overwrites */
 
 

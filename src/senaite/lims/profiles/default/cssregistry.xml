@@ -27,32 +27,66 @@
  <!-- Deactivate CSS stylesheets that come with Sunburst theme -->
  <stylesheet title=""
     id="reset.css"
-    media="screen" rel="stylesheet" rendering="link"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="0" expression=""/>
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="base.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="print.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="authoring.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="RTL.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="forms.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="invisible.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="member.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="controlpanel.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="navtree.css"
+    enabled="0"/>
 
  <stylesheet title=""
     id="public.css"
-    media="screen" rel="stylesheet" rendering="link"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="0" expression=""/>
+    enabled="0"/>
 
  <stylesheet title=""
     id="ploneCustom.css"
-    media="screen" rel="stylesheet" rendering="link"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="0" expression=""/>
+    enabled="0"/>
 
  <stylesheet title=""
     id="columns.css"
-    media="screen" rel="stylesheet" rendering="link"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="0" expression=""/>
+    enabled="0"/>
 
  <stylesheet title=""
     id="mobile.css"
-    media="handheld, screen and (max-device-width: 480px)" rel="stylesheet" rendering="link"
-    cacheable="True" compression="safe" cookable="True"
-    enabled="0" expression=""/>
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="IEFixes.css"
+    enabled="0"/>
+
+ <stylesheet title=""
+    id="deprecated.css"
+    enabled="0"/>
 
 </object>

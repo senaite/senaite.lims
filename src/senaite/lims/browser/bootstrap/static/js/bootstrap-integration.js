@@ -90,7 +90,8 @@ $(document).ready(function(){
     $('input[type="submit"], input[type="button"]').addClass('btn btn-xs btn-default');
 
     /* Plone's default class for tables */
-    $('bika-listing-table').addClass('table').addClass('table-condensed');
+    // $('table').not('.bika-listing-table').addClass('table table-condensed table-bordered table-striped');
+    $('table').addClass('table table-condensed table-bordered table-striped');
 
     /* Fix archetypes forms if there's any */
     fixArchetypesForms();
@@ -108,8 +109,8 @@ $(document).ready(function(){
     $('form').addClass('form');
     $('form input[type=text]').addClass('form-control').addClass('input-sm');
     $('form input[type=password]').addClass('form-control');
-    $('form textarea').addClass('form-control');
-    $('form select').addClass('form-control');
+    $('form textarea').addClass('form-control input-sm');
+    $('form select').addClass('form-control input-sm');
     $('form textarea').attr('rows', 10);
 
     /* login form */

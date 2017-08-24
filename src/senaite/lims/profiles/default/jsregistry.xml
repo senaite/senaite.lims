@@ -5,14 +5,14 @@
   <javascript
       id="++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js"
       cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="jquery"
+      enabled="True" inline="False" expression="" bundle="default"
       insert-before="*"/>
 
   <!-- jQuery Migration -->
   <javascript
       id="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js"
       cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="jquery"
+      enabled="True" inline="False" expression="" bundle="default"
       insert-after="++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js"/>
 
   <!-- remove builtin plone.app.jquery -->
@@ -29,7 +29,7 @@
   <javascript
       id="++resource++senaite.lims.bootstrap.static/js/bootstrap-integration.js"
       cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="bootstrap"
+      enabled="True" inline="False" expression="" bundle="default"
       insert-after="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"/>
 
   <!-- Bika Analysisrequest JS -->
@@ -41,6 +41,29 @@
 
   <!-- remove default bika.lims.analysisrequest.js -->
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.js"/>
+
+  <!-- Deactivate unneeded JS -->
+  <javascript
+      id="++resource++search.js"
+      enabled="0"/>
+  <javascript
+      id="form_tabbing.js"
+      enabled="0"/>
+  <javascript
+      id="popupforms.js"
+      enabled="0"/>
+  <javascript
+      id="modernizr.js"
+      enabled="0"/>
+  <javascript
+      id="styleswitcher.js"
+      enabled="0"/>
+  <javascript
+      id="dropdown.js"
+      enabled="0"/>
+  <javascript
+      id="inline_validation.js"
+      enabled="0"/>
 
   <!-- Bika LIMS JS Cleanup (fix in bika.lims) -->
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.analyses.js" />

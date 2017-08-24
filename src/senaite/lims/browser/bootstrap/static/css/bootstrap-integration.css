@@ -29,6 +29,31 @@ div.field.error {
 }
 /* /Plone Style overwrites */
 
+
+/* Loader */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, .8);
+}
+#loader {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    padding: 0.5em;
+}
+body.loading {
+    overflow: hidden;
+}
+/* /Loader */
+
+
 /* Bika Style overwrites */
 #manage-ar-fields {
     vertical-align: middle!important;

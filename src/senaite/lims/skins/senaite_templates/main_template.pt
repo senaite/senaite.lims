@@ -196,6 +196,18 @@
         </div>
       </div>
 
+      <!-- Loading modal -->
+      <div class="modal">
+        <div id="loader" class="panel panel-default">
+          <div class="spinner">
+            <i class="fa fa-spinner fa-pulse fa-4x fa-fw"></i>
+          </div>
+          <div class="loadertext" i18n:translate="">
+            Loading, please wait.
+          </div>
+        </div>
+      </div>
+
     </body>
   </html>
 </metal:page>

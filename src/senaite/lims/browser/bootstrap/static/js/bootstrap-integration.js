@@ -65,6 +65,22 @@ function fixArchetypesForms(){
 $(document).ready(function(){
     console.log("** SENAITE BOOTSTRAP INTEGRATION **");
 
+    /* LOADER */
+    $(document).on({
+        ajaxStart: function() {
+            $("body").addClass("loading");
+            $(".modal").show();
+        },
+        ajaxStop: function() {
+            $("body").removeClass("loading");
+            $(".modal").hide();
+        },
+        ajaxError: function() {
+            $("body").removeClass("loading");
+            $(".modal").hide();
+        }
+    });
+
     /* Bika LIMS Customizations */
 
     // remove all inline styles in headlines

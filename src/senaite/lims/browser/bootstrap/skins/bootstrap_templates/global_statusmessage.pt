@@ -13,7 +13,7 @@
 
         <div class="alert alert-info"
              tal:define="mtype message/type | nothing;
-                         mapping python:{'alert': 'danger'};
+                         mapping python:{'error': 'danger'};
                          facility python:mapping.get(mtype, mtype);"
              tal:attributes="class string:alert alert-dismissible alert-${facility};">
 

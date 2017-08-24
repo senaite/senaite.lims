@@ -8,6 +8,20 @@
 div.portletAssignments .managedPortletActions form {
     display: inline;
 }
+.fieldRequired:before {
+    content: "•";
+    padding: 0 0.2em 0 0;
+    color: red;
+}
+div.field.error {
+    background-color: #fdc;
+    border:  1px solid red;
+    padding: 0.5em;
+    margin:  1em 0;
+}
+.error .fieldRequired {
+    color: #d00;
+}
 /* /Plone Style overwrites */
 
 /* Bika Style overwrites */

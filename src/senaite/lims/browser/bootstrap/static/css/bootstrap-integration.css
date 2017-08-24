@@ -74,6 +74,24 @@ div.field.error {
 .dashboard-info-panel-number {
     padding-left: 20px!important;
 }
+div#viewlet-above-content-title #panel-notification {
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1000;
+}
+div#viewlet-above-content-title #panel-notification div.error-notification-item {
+    background: url("++resource++bika.lims.images/warning.png") no-repeat scroll 15px center #fff680;
+    border-radius: 5px;
+    padding: 15px 30px 15px 40px;
+}
+div#viewlet-above-content-title #panel-notification div.succeed-notification-item {
+    background: url("++resource++bika.lims.images/ok.png") no-repeat scroll 15px center #dfdfdf;
+    border-radius: 5px;
+    padding: 15px 30px 15px 40px;
+}
 /* /Bika Style overwrites */
 
 

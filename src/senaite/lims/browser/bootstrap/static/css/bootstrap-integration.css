@@ -39,7 +39,6 @@ div.field.error {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(255, 255, 255, .8);
 }
 #loader {
     top: 50%;
@@ -47,9 +46,6 @@ div.field.error {
     position: fixed;
     text-align: center;
     padding: 0.5em;
-}
-body.loading {
-    overflow: hidden;
 }
 /* /Loader */
 

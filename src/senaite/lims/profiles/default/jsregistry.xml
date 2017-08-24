@@ -64,6 +64,15 @@
   <javascript
       id="inline_validation.js"
       enabled="0"/>
+  <javascript
+      id="jquery.highlightsearchterms.js"
+      enabled="0"/>
+  <javascript
+      id="nodeutilities.js"
+      enabled="0"/>
+  <javascript
+      id="registerfunctions.js"
+      enabled="0"/>
 
   <!-- Bika LIMS JS Cleanup (fix in bika.lims) -->
   <javascript remove="True" id="++resource++bika.lims.js/bika.lims.analysisrequest.analyses.js" />

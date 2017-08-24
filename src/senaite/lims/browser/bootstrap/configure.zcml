@@ -64,7 +64,6 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-
   <!-- Breadcrumbs -->
   <browser:viewlet
       name="plone.path_bar"
@@ -122,6 +121,24 @@
       name="bika.lims.instrument_qc_failures_viewlet"
       class=".viewlets.SenaiteInstrumentQCFailuresViewlet"
       manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Bika AR Attachments viewlet -->
+  <browser:viewlet
+      for="bika.lims.interfaces.IAnalysisRequest"
+      name="bika.lims.viewlets.attachments"
+      class=".viewlets.SenaiteAttachmentsViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Bika WS Attachments viewlet -->
+  <browser:viewlet
+      for="bika.lims.interfaces.IWorksheet"
+      name="bika.lims.viewlets.worksheet_attachments"
+      class=".viewlets.SenaiteWorksheetAttachmentsViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 

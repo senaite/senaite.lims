@@ -24,6 +24,8 @@ from plone.app.layout.viewlets.common import FooterViewlet
 from plone.app.layout.viewlets.content import DocumentActionsViewlet
 
 from bika.lims.browser.instrument import InstrumentQCFailuresViewlet
+from bika.lims.browser.viewlets.attachments import AttachmentsViewlet
+from bika.lims.browser.viewlets.attachments import WorksheetAttachmentsViewlet
 
 
 class SenaiteLogoViewlet(LogoViewlet):
@@ -72,6 +74,14 @@ class SenaiteFooterViewlet(FooterViewlet):
 
 class SenaiteInstrumentQCFailuresViewlet(InstrumentQCFailuresViewlet):
     index = ViewPageTemplateFile('templates/bika.lims.browser.templates.instrument_qc_failures_viewlet.pt')
+
+
+class SenaiteAttachmentsViewlet(AttachmentsViewlet):
+    template = ViewPageTemplateFile('templates/bika.lims.browser.viewlets.templates.attachments.pt')
+
+
+class SenaiteWorksheetAttachmentsViewlet(WorksheetAttachmentsViewlet):
+    template = ViewPageTemplateFile('templates/bika.lims.browser.viewlets.templates.worksheet_attachments.pt')
 
 
 class ViewletView(BrowserView):

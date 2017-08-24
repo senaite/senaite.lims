@@ -22,7 +22,7 @@
   <javascript
       id="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"
       cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="bootstrap"
+      enabled="True" inline="False" expression="" bundle="default"
       insert-after="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js"/>
 
   <!-- Senaite Bootstrap Integration -->

@@ -169,4 +169,7 @@ $(document).ready(function(){
 
     /* Make the portal_messages redish in case of error */
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');
+
+    /* Manage Portlets Link */
+    $('.managePortletsLink a').addClass("btn btn-default btn-xs");
 });

@@ -33,9 +33,9 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'setuptools',
-        'bika.lims',
         'archetypes.schemaextender',
+        'bika.lims',
+        'setuptools',
     ],
     extras_require={
         'test': [

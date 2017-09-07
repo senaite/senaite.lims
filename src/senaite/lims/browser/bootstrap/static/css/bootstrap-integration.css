@@ -1,0 +1,168 @@
+/* Plone Style overwrites */
+.hiddenStructure {
+    display: none;
+}
+.contentActions {
+    padding-top: 1em;
+}
+div.portletAssignments .managedPortletActions form {
+    display: inline;
+}
+.fieldRequired:before {
+    content: "•";
+    padding: 0 0.2em 0 0;
+    color: red;
+}
+span.required:after {
+    content: "•";
+    padding: 0 0 0 0.2em;
+    color: red;
+}
+div.field.error {
+    background-color: #f2dede;
+    border:  1px solid #a94442;
+    padding: 0.5em;
+    margin:  1em 0;
+}
+.error .fieldRequired {
+    color: #a94442;
+}
+/* /Plone Style overwrites */
+
+
+/* Loader */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+#loader {
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    text-align: center;
+    padding: 0.5em;
+}
+#bika-spinner {
+    display: none!important;
+}
+/* /Loader */
+
+
+/* Bika Style overwrites */
+#manage-ar-fields {
+    vertical-align: middle!important;
+}
+.context_action_link {
+    top: 0;
+}
+#analysisrequest_manage_add_form ul {
+    padding: 0;
+}
+#analysisrequest_manage_add_form ul li input {
+    margin: 0;
+}
+#analysisrequest_manage_add_form ul li {
+    padding: 0.5em;
+    height: auto;
+    font-size: 100%;
+}
+.dashboard-info-panel-number {
+    padding-left: 20px!important;
+}
+div#viewlet-above-content-title #panel-notification {
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    z-index: 1000;
+}
+div#viewlet-above-content-title #panel-notification div.error-notification-item {
+    background: url("++resource++bika.lims.images/warning.png") no-repeat scroll 15px center #fff680;
+    border-radius: 5px;
+    padding: 15px 30px 15px 40px;
+}
+div#viewlet-above-content-title #panel-notification div.succeed-notification-item {
+    background: url("++resource++bika.lims.images/ok.png") no-repeat scroll 15px center #dfdfdf;
+    border-radius: 5px;
+    padding: 15px 30px 15px 40px;
+}
+/* /Bika Style overwrites */
+
+
+/* Top Navigation */
+.topbar-nav {
+    margin-top: 20px;
+}
+/* /Top Navigation */
+
+
+/* Sidebar Navigation */
+.sidebar-nav .navbar .navbar-collapse {
+    max-height: none;
+    padding: 0;
+}
+.sidebar-nav .navbar ul {
+    float: none;
+}
+.sidebar-nav .navbar ul:not {
+    display: block;
+}
+.sidebar-nav .navbar li {
+    float: none;
+    display: block;
+}
+.sidebar-nav .navbar li.active a {
+    background-color: #e7e7e7;
+}
+.sidebar-nav .navbar li a {
+    padding: 10px 15px;
+}
+.sidebar-nav .submenu li a {
+    color: #777;
+}
+.sidebar-nav li.expanded>a:after {
+    content: "▼";
+    font-size: 50%;
+}
+.sidebar-nav .nav-level-1 li a {
+    padding-left: 30px;
+}
+.sidebar-nav .nav-level-2 li a {
+    padding-left: 45px;
+}
+.sidebar-nav .nav-level-3 li a {
+    padding-left: 60px;
+}
+.sidebar-nav .nav-level-5 li a {
+    padding-left: 75px;
+}
+/* /Sidebar Navigation */
+
+
+/* Fixture for jqueryui.combogrid.css */
+.ui-corner-all,.ui-corner-bottom,.ui-corner-right,.ui-corner-br {
+    border-bottom-right-radius: 5px!important;
+}
+.ui-corner-all,.ui-corner-top,.ui-corner-left,.ui-corner-tl {
+    border-top-left-radius: 5px!important;
+}
+.ui-corner-all,.ui-corner-top,.ui-corner-right,.ui-corner-tr {
+    border-top-right-radius: 5px!important;
+}
+.ui-corner-all,.ui-corner-bottom,.ui-corner-left,.ui-corner-bl {
+    border-bottom-left-radius: 5px!important;
+}
+#cg-divHeader {
+    height: 30px!important;
+}
+.cg-navTable .currentPage,
+.cg-navTable .recordXP {
+    color: black!important;
+}
+/* /Fixture for jqueryui.combogrid.css */

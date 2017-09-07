@@ -1,12 +1,17 @@
 <?xml version="1.0"?>
 <object name="portal_skins">
 
-  <object name="senaite"
+  <object name="senaite_templates"
           meta_type="Filesystem Directory View"
-          directory="senaite.lims:skins/senaite"/>
+          directory="senaite.lims:skins/senaite_templates"/>
+
+  <object name="senaite_bootstrap_templates"
+          meta_type="Filesystem Directory View"
+          directory="senaite.lims.browser.bootstrap:skins/bootstrap_templates"/>
 
   <skin-path name="*">
-    <layer name="senaite" insert-after="custom"/>
+    <layer name="senaite_templates" insert-after="custom"/>
+    <layer name="senaite_bootstrap_templates" insert-after="senaite_templates"/>
   </skin-path>
 
 </object>

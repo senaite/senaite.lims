@@ -5,6 +5,8 @@
     xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="senaite">
 
+  <include package="plone.app.controlpanel" file="permissions.zcml" />
+
   <!-- Bootstrap Helper View -->
   <browser:page
       name="bootstrapview"
@@ -12,6 +14,14 @@
       class=".views.BootstrapView"
       allowed_interface=".interfaces.IBootstrapView"
       permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Controlpanel View -->
+  <browser:page
+      name="overview-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".views.SenaiteOverviewControlPanel"
+      permission="plone.app.controlpanel.Overview"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
   <!-- Viewlet Manager -->

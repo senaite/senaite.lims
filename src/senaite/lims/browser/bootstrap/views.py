@@ -1,11 +1,18 @@
 # -*- coding: utf-8 -*-
 
 from Products.Five import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 from zope.component import getMultiAdapter
 from zope.interface import implements
 
+from plone.app.controlpanel.overview import OverviewControlPanel
+
 from .interfaces import IBootstrapView
+
+
+class SenaiteOverviewControlPanel(OverviewControlPanel):
+    template = ViewPageTemplateFile('templates/plone.app.controlpanel.overview.pt')
 
 
 class BootstrapView(BrowserView):

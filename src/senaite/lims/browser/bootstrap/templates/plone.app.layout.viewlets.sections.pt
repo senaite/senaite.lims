@@ -13,11 +13,10 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="navbar-brand"
-         tal:content="view/portal_title|SENAITE"
+      <a class="senaite-navbar-brand"
          tal:attributes="href view/navigation_root_url;
                          title view/portal_title | nothing">
-        SENAITE
+        &#11041;
       </a>
     </div>
 

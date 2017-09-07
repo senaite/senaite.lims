@@ -103,6 +103,19 @@ div#viewlet-above-content-title #panel-notification div.succeed-notification-ite
 .topbar-nav {
     margin-top: 20px;
 }
+.senaite-navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 15px 15px;
+    font-size: 40px;
+    line-height: 10px;
+    color: #D7DBDC!important;
+    font-weight: bold;
+    text-decoration: none!important;
+}
+.senaite-navbar-brand:hover {
+    text-decoration: none!important;
+}
 /* /Top Navigation */
 
 

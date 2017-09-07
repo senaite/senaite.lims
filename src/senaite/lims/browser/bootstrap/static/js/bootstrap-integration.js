@@ -91,7 +91,16 @@ $(document).ready(function(){
     /* Form tabbing */
     $("ul.formTabs").addClass("nav nav-pills");
 
+    /* Control Panel */
+    $("div#edit-bar ul").addClass("nav nav-tabs");
+    $("div#edit-bar ul li.selected").addClass("active");
+    $("a#setup-link").addClass("btn btn-default");
+
     $('div.field').addClass('form-group');
+
+    /* AR Add form*/
+    $('table.ar-table td [fieldname]').addClass('form-inline');
+
 
     /* /Bika LIMS Customizations */
 

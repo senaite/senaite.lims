@@ -113,7 +113,7 @@ $(document).ready(function(){
     $(".datagridwidget-add-button").addClass("btn btn-default");
 
     /* Add btn class to the rest form buttons */
-    $('input[type="submit"], input[type="button"]').addClass('btn btn-xs btn-default');
+    $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
 
     /* Plone's default class for tables */
     // $('table').not('.bika-listing-table').addClass('table table-condensed table-bordered table-striped');
@@ -138,9 +138,6 @@ $(document).ready(function(){
     $('form textarea').addClass('form-control input-sm');
     $('form select').addClass('form-control input-sm');
     $('form textarea').attr('rows', 10);
-
-    /* login form */
-    $('.template-login_form').addClass('form-inline');
 
     /* Date fields */
     $('#fieldset-dates').addClass('form-inline');

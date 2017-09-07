@@ -96,6 +96,10 @@ div#viewlet-above-content-title #panel-notification div.succeed-notification-ite
 
 
 /* Top Navigation */
+#portal-logo img {
+    display: block;
+    margin-top: 20px;
+}
 .topbar-nav {
     margin-top: 20px;
 }

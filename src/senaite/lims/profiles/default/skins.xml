@@ -5,13 +5,18 @@
           meta_type="Filesystem Directory View"
           directory="senaite.lims:skins/senaite_templates"/>
 
+  <object name="senaite_images"
+          meta_type="Filesystem Directory View"
+          directory="senaite.lims:skins/senaite_images"/>
+
   <object name="senaite_bootstrap_templates"
           meta_type="Filesystem Directory View"
           directory="senaite.lims.browser.bootstrap:skins/bootstrap_templates"/>
 
   <skin-path name="*">
     <layer name="senaite_templates" insert-after="custom"/>
-    <layer name="senaite_bootstrap_templates" insert-after="senaite_templates"/>
+    <layer name="senaite_images" insert-after="senaite_templates"/>
+    <layer name="senaite_bootstrap_templates" insert-after="senaite_images"/>
   </skin-path>
 
 </object>

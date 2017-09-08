@@ -1,0 +1,49 @@
+<tal:language tal:condition="view/available">
+  <div id="portal-languageselector"
+       class="dropdown pull-right"
+       i18n:domain="plone">
+
+    <button class="btn btn-default dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+      <span tal:omit-tag="" i18n:translate="">Language</span>
+      <span class="caret"></span>
+    </button>
+
+    <ul class="dropdown-menu"
+        role="menu"
+        aria-labelledby="portal-languageselector"
+        tal:define="showFlags view/showFlags;
+            languages view/languages;
+            here_url context/@@plone_context_state/view_url;
+            portal_url view/portal_url;">
+
+      <tal:language repeat="lang languages">
+        <li tal:define="code lang/code;
+                        selected lang/selected;
+                        codeclass string:language-${code};
+                        current python: selected and 'currentLanguage ' or '';"
+            tal:attributes="class string:${current}${codeclass}">
+          <a href=""
+              tal:define="flag lang/flag|nothing;
+                          name lang/native|lang/name;
+                          showflag python:showFlags and flag;"
+              tal:attributes="href string:${here_url}/switchLanguage?set_language=${code};
+                              title name">
+            <tal:flag condition="showflag">
+              <img width="14" height="11" alt=""
+                    tal:attributes="src string:${portal_url}${flag};
+                                    alt name;
+                                    title name;" />
+            </tal:flag>
+            <tal:nonflag condition="not: showflag" replace="name">
+              language name
+            </tal:nonflag>
+          </a>
+        </li>
+      </tal:language>
+    </ul>
+  </div>
+</tal:language>

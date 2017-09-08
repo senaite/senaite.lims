@@ -50,6 +50,15 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
+  <!-- Language Selector -->
+  <browser:viewlet
+      name="plone.app.i18n.locales.languageselector"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class="plone.app.i18n.locales.browser.selector.LanguageSelector"
+      permission="zope2.View"
+      template="templates/plone.app.i18n.locales.browser.languageselector.pt"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
   <!-- Global sections -->
   <browser:viewlet
       name="plone.global_sections"

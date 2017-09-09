@@ -7,7 +7,7 @@
 
   <h1>SENAITE LIMS</h1>
 
-  <small>SENAITE is a modern, mobile first version of the web based open source LIMS Bika.</small>
+  <p>SENAITE is a modern, mobile first version of the web based open source LIMS Bika.</p>
 
   <div>
     <a href="https://travis-ci.org/senaite/senaite.lims">
@@ -96,6 +96,7 @@ python bootstrap.py
 bin/buildout
 bin/instance fg
 ```
+
 
 ## License
 

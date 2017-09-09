@@ -1,11 +1,12 @@
 <div align="center">
-  <a href="https://github.com/senaite/senaite.lims">
-    <div>
-      <img src="static/logo.png" alt="senaite.lims" />
-    </div>
-  </a>
 
-  <h1>SENAITE LIMS</h1>
+  <h1>
+    <a href="https://github.com/senaite/senaite.lims">
+      <div>
+        <img src="static/logo.png" alt="senaite.lims" />
+      </div>
+    </a>
+  </h1>
 
   <p>SENAITE is a modern, mobile first version of the web based open source LIMS Bika.</p>
 
@@ -89,12 +90,12 @@ It is recommended that you use
 a [Virtualenv](https://virtualenv.pypa.io/en/stable) before preparing the
 environment with the following commands:
 
-```shell
-git clone https://github.com/senaite/senaite.lims.git
-cd senaite.lims
-python bootstrap.py
-bin/buildout
-bin/instance fg
+```sh
+  git clone https://github.com/senaite/senaite.lims.git
+  cd senaite.lims
+  python bootstrap.py
+  bin/buildout
+  bin/instance fg
 ```
 
 

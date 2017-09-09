@@ -46,7 +46,7 @@ to provide a robust user interface which follows industry standards.
 
 [SENAITE](http://senaite.com) ships with a complete [RESTful JSON API](https://en.wikipedia.org/wiki/Representational_state_transfer)
 built on [plone.jsonapi.routes](http://plonejsonapiroutes.readthedocs.io/en/latest), which serves as the main communication interface
-between [Bika LIMS](https://www.bikalims.org) and the integrated web frameworks.
+between [Bika LIMS](https://www.bikalims.org) and any kind of modern web framework.
 
 This makes great web applications like the [Bika Spotlight Search](http://www.ridingbytes.com/de/portfolio/bika-spotlight-search/#content)
 or the [Plone Commander](http://www.ridingbytes.com/de/portfolio/plone-commander/#content) possible
@@ -90,12 +90,12 @@ It is recommended that you use
 a [Virtualenv](https://virtualenv.pypa.io/en/stable) before preparing the
 environment with the following commands:
 
-```sh
-  git clone https://github.com/senaite/senaite.lims.git
-  cd senaite.lims
-  python bootstrap.py
-  bin/buildout
-  bin/instance fg
+```
+git clone https://github.com/senaite/senaite.lims.git
+cd senaite.lims
+python bootstrap.py
+bin/buildout
+bin/instance fg
 ```
 
 

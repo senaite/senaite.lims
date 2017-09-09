@@ -74,7 +74,7 @@ https://docs.plone.org/4/en/manage/installing/installing_addons.html
 
 ---
 **NOTE:** There is no official release of SENAITE yet. Please follow therfore
-the instructhion in the [Development](#Development) section to install
+the instructhion in the [Development](#development) section to install
 `senaite.lims` on your computer.
 
 ---

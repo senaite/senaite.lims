@@ -17,11 +17,12 @@
         </div>
         <div class="pull-right text-muted">
           <ul class="nav nav-pills social-icon">
-            <li><a href="#" title="github" target="_blank"><i class="fa fa-github"></i></a></li>
-            <li><a href="#" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#" title="slack" target="_blank"><i class="fa fa-slack"></i></a></li>
-            <li><a href="#" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#" title="google plus" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="https://github.com/senaite/senaite.lims" title="github" target="_blank"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://twitter.com/senaitelims" title="twitter" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://gitter.im/senaite-lims/Lobby" title="Gitter" target="_blank"><i class="fa fa-comments"></i></a></li>
+            <!-- <li><a href="#" title="slack" target="_blank"><i class="fa fa-slack"></i></a></li> -->
+            <!-- <li><a href="#" title="facebook" target="_blank"><i class="fa fa-facebook"></i></a></li> -->
+            <!-- <li><a href="#" title="google plus" target="_blank"><i class="fa fa-google-plus"></i></a></li> -->
           </ul>
         </div>
       </div>

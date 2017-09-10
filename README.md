@@ -50,9 +50,9 @@ between [Bika LIMS](https://www.bikalims.org) and any kind of modern web framewo
 
 This makes great web applications like the [Bika Spotlight Search](http://www.ridingbytes.com/de/portfolio/bika-spotlight-search/#content)
 or the [Plone Commander](http://www.ridingbytes.com/de/portfolio/plone-commander/#content) possible
-and allows non Bika develpers to interface there web application with [Bika LIMS](https://www.bikalims.org).
+and allows non Bika develpers to interface custom web application with [Bika LIMS](https://www.bikalims.org).
 
-The User Interface of [SENAITE](https://github.com/senaite/senaite.lims) follows
+The User Interface of [SENAITE](https://github.com/senaite/senaitelims) follows
 a mobile first approach and is built with [Twitter Bootstrap](http://getbootstrap.com).
 This makes it also possible to easily to operate in the web interface with tablets and smart devices
 
@@ -157,7 +157,7 @@ receive a variety of other contributions including:
 * README.md corrections or redesigns
 * Adding unit, or functional tests
 * Triaging GitHub issues -- especially determining whether an issue still persists or is reproducible.
-* [Searching #senaite on twitter](https://twitter.com/search?q=senaite) and helping someone else who needs help
+* [Searching #senaite on twitter](https://twitter.com/search?q=senaitelims) and helping someone else who needs help
 * Teaching others how to contribute to one of the many SENAITE repo's!
 * [Blogging, speaking about, or creating tutorials](https://github.com/senaite-contrib/awesome-senaite) about one of senaite's many features.
 * Helping others in our webpack [gitter channel](https://gitter.im/senaite/senaite.lims).

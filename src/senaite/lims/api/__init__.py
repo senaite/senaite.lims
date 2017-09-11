@@ -712,6 +712,24 @@ def get_catalogs_for(brain_or_object, default="portal_catalog"):
     return catalogs
 
 
+def get_transitions_for(brain_or_object):
+    """List available workflow transitions for all workflows
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: All possible available and allowed transitions
+    :rtype: list[dict]
+    """
+    workflow = get_tool('portal_workflow')
+    transitions = []
+    instance = get_object(brain_or_object)
+    for wfid in get_workflows_for(brain_or_object):
+        wf = workflow[wfid]
+        tlist = wf.getTransitionsFor(instance)
+        transitions.extend([t for t in tlist if t not in transitions])
+    return transitions
+
+
 def do_transition_for(brain_or_object, transition):
     """Performs a workflow transition for the passed in object.
 
@@ -724,6 +742,85 @@ def do_transition_for(brain_or_object, transition):
     obj = get_object(brain_or_object)
     ploneapi.content.transition(obj, transition)
     return obj
+
+
+def get_creation_date(brain_or_object):
+    """Get the creation date of the brain or object
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Creation date
+    :rtype: DateTime
+    """
+    created = getattr(brain_or_object, "created", None)
+    if created is None:
+        fail("Object {} has no creation date ".format(
+             repr(brain_or_object)))
+    if callable(created):
+        return created()
+    return created
+
+
+def get_modification_date(brain_or_object):
+    """Get the modification date of the brain or object
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Modification date
+    :rtype: DateTime
+    """
+    modified = getattr(brain_or_object, "modified", None)
+    if modified is None:
+        fail("Object {} has no modification date ".format(
+             repr(brain_or_object)))
+    if callable(modified):
+        return modified()
+    return modified
+
+
+def get_review_status(brain_or_object):
+    """Get the `review_state` of an object
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Value of the review_status variable
+    :rtype: String
+    """
+    if is_brain(brain_or_object):
+        return brain_or_object.review_state
+    return get_workflow_status_of(brain_or_object, state_var="review_state")
+
+
+def get_cancellation_status(brain_or_object, default="active"):
+    """Get the `cancellation_state` of an object
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Value of the review_status variable
+    :rtype: String
+    """
+    if is_brain(brain_or_object):
+        return getattr(brain_or_object, "cancellation_state", default)
+    workflows = get_workflows_for(brain_or_object)
+    if 'bika_cancellation_workflow' not in workflows:
+        return default
+    return get_workflow_status_of(brain_or_object, 'cancellation_state')
+
+
+def get_inactive_status(brain_or_object, default="active"):
+    """Get the `cancellation_state` of an objct
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Value of the review_status variable
+    :rtype: String
+    """
+    if is_brain(brain_or_object):
+        return getattr(brain_or_object, "inactive_state", default)
+    workflows = get_workflows_for(brain_or_object)
+    if 'bika_inactive_workflow' not in workflows:
+        return default
+    return get_workflow_status_of(brain_or_object, 'inactive_state')
 
 
 def is_active(brain_or_object):
@@ -887,3 +984,34 @@ def get_current_user():
     :returns: Current User
     """
     return ploneapi.user.get_current()
+
+
+def get_cache_key(brain_or_object):
+    """Generate a cache key for a common brain or object
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Cache Key
+    :rtype: str
+    """
+    key = [
+        get_portal_type(brain_or_object),
+        get_id(brain_or_object),
+        get_uid(brain_or_object),
+        # handle different domains gracefully
+        get_url(brain_or_object),
+        # Return the microsecond since the epoch in GMT
+        get_modification_date(brain_or_object).micros(),
+    ]
+    return "-".join(map(lambda x: str(x), key))
+
+
+def bika_cache_key_decorator(method, self, brain_or_object):
+    """Bika cache key decorator usable for
+
+    :param brain_or_object: A single catalog brain or content object
+    :type brain_or_object: ATContentType/DexterityContentType/CatalogBrain
+    :returns: Cache Key
+    :rtype: str
+    """
+    return get_cache_key(brain_or_object)

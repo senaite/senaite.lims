@@ -89,7 +89,7 @@ class SenaiteBeforeTransitionEvent(SenaiteTransitionEvent):
     implements(ISenaiteBeforeTransitionEvent)
 
     def __init__(self, obj, transition, exception=None):
-        SenaiteTransitionEvent.__init__(self, obj)
+        SenaiteTransitionEvent.__init__(self, obj, transition, exception)
 
         # BBB: notify Bika Event
         from bika.lims.api import BikaBeforeTransitionEvent
@@ -100,7 +100,7 @@ class SenaiteAfterTransitionEvent(SenaiteTransitionEvent):
     implements(ISenaiteAfterTransitionEvent)
 
     def __init__(self, obj, transition, exception=None):
-        SenaiteTransitionEvent.__init__(self, obj)
+        SenaiteTransitionEvent.__init__(self, obj, transition, exception)
 
         # BBB: notify Bika Event
         from bika.lims.api import BikaAfterTransitionEvent
@@ -111,7 +111,7 @@ class SenaiteTransitionFailedEvent(SenaiteTransitionEvent):
     implements(ISenaiteTransitionFailedEvent)
 
     def __init__(self, obj, transition, exception=None):
-        SenaiteTransitionEvent.__init__(self, obj)
+        SenaiteTransitionEvent.__init__(self, obj, transition, exception)
 
         # BBB: notify Bika Event
         from bika.lims.api import BikaTransitionFailedEvent

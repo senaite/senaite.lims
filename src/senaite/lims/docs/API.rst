@@ -676,6 +676,70 @@ Reactivate the client::
     'active'
 
 
+Getting the available transitions for an object
+-----------------------------------------------
+
+This function returns all possible transitions from all workflows in the
+object's workflow chain.
+
+Let's create a Batch. It should allow us to invoke transitions from two
+workflows; 'close' from the bika_batch_workflow, and 'cancel' from the
+bika_cancellation_workflow::
+
+    >>> batch1 = api.create(portal.batches, "Batch", title="Test Batch")
+    >>> transitions = api.get_transitions_for(batch1)
+    >>> len(transitions)
+    2
+
+The transitions are returned as a list of dictionaries. Since we cannot rely on
+the order of dictionary keys, we will have to satisfy ourselves here with
+checking that the two expected transitions are present in the return value::
+
+    >>> 'Close' in [t['title'] for t in transitions]
+    True
+    >>> 'Cancel' in [t['title'] for t in transitions]
+    True
+
+
+Getting the creation date of an object
+--------------------------------------
+
+This function returns the creation date of a given object::
+
+    >>> created = api.get_creation_date(client)
+    >>> created
+    DateTime('...')
+
+
+Getting the modification date of an object
+------------------------------------------
+
+This function returns the modification date of a given object::
+
+    >>> modified = api.get_modification_date(client)
+    >>> modified
+    DateTime('...')
+
+
+Getting the review state of an object
+-------------------------------------
+
+This function returns the review state of a given object::
+
+    >>> review_state = api.get_review_status(client)
+    >>> review_state
+    'active'
+
+It should also work for catalog brains::
+
+    >>> portal_catalog = api.get_tool("portal_catalog")
+    >>> results = portal_catalog({"portal_type": "Client", "UID": api.get_uid(client)})
+    >>> len(results)
+    1
+    >>> api.get_review_status(results[0]) == review_state
+    True
+
+
 Getting the registered Catalogs of an Object
 --------------------------------------------
 
@@ -890,3 +954,83 @@ Getting the current logged in user::
 
     >>> api.get_current_user()
     <MemberData at /plone/portal_memberdata/test_user_1_ used for /plone/acl_users>
+
+
+Creating a Cache Key
+--------------------
+
+This function creates a good cache key for a generic object or brain::
+
+    >>> key1 = api.get_cache_key(client)
+    >>> key1
+    'Client-client-1-...'
+
+This can be also done for a catalog result brain::
+
+    >>> portal_catalog = api.get_tool("portal_catalog")
+    >>> brains = portal_catalog({"portal_type": "Client", "UID": api.get_uid(client)})
+    >>> key2 = api.get_cache_key(brains[0])
+    >>> key2
+    'Client-client-1-...'
+
+The two keys should be equal::
+
+    >>> key1 == key2
+    True
+
+The key should change when the object get modified::
+
+    >>> from zope.lifecycleevent import modified
+    >>> client.setClientID("TESTCLIENT")
+    >>> modified(client)
+    >>> key3 = api.get_cache_key(client)
+    >>> key3 != key1
+    True
+
+.. important:: Workflow changes do not change the modification date!
+               A custom event subscriber will update it therefore.
+
+A workflow transition should also change the cache key::
+
+    >>> _ = api.do_transition_for(client, transition="deactivate")
+    >>> api.get_inactive_status(client)
+    'inactive'
+    >>> key4 = api.get_cache_key(client)
+    >>> key4 != key3
+    True
+
+
+Cache Key decorator
+-------------------
+
+This decorator can be used for `plone.memoize` cache decorators in classes.
+The decorator expects that the first argument is the class instance (`self`) and
+the second argument a brain or object::
+
+    >>> from plone.memoize.volatile import cache
+
+    >>> class MyClass(object):
+    ...     @cache(api.bika_cache_key_decorator)
+    ...     def get_very_expensive_calculation(self, obj):
+    ...         print "very expensive calculation"
+    ...         return api.get_id(obj)
+
+    >>> instance = MyClass()
+
+Calling the (expensive) method of the class does the calculation just once::
+
+    >>> instance.get_very_expensive_calculation(client)
+    very expensive calculation
+    'client-1'
+
+    >>> instance.get_very_expensive_calculation(client)
+    'client-1'
+
+The decorator can also handle brains::
+
+    >>> instance.get_very_expensive_calculation(brain)
+    very expensive calculation
+    'client-1'
+
+    >>> instance.get_very_expensive_calculation(brain)
+    'client-1'

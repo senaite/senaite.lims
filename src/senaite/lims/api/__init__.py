@@ -13,9 +13,12 @@ from Products.CMFCore.WorkflowCore import WorkflowException
 
 from zope import globalrequest
 from zope.event import notify
+from zope.interface import implements
 from zope.component import getUtility
 from zope.component import getMultiAdapter
 from zope.component.interfaces import IFactory
+from zope.component.interfaces import ObjectEvent
+from zope.component.interfaces import IObjectEvent
 from zope.lifecycleevent import modified
 from zope.lifecycleevent import ObjectCreatedEvent
 from zope.security.interfaces import Unauthorized
@@ -55,6 +58,64 @@ _marker = object()
 
 class SenaiteLIMSError(Exception):
     """Base exception class for senaite.lims errors."""
+
+
+class ISenaiteTransitionEvent(IObjectEvent):
+    """WF transition event interface"""
+
+
+class ISenaiteBeforeTransitionEvent(ISenaiteTransitionEvent):
+    """Fired before the transition is invoked"""
+
+
+class ISenaiteAfterTransitionEvent(ISenaiteTransitionEvent):
+    """Fired after the transition done"""
+
+
+class ISenaiteTransitionFailedEvent(ISenaiteTransitionEvent):
+    """Fired if the transition failed"""
+
+
+class SenaiteTransitionEvent(ObjectEvent):
+    """WF transition event"""
+    def __init__(self, obj, transition, exception=None):
+        ObjectEvent.__init__(self, obj)
+        self.obj = obj
+        self.transition = transition
+        self.exception = exception
+
+
+class SenaiteBeforeTransitionEvent(SenaiteTransitionEvent):
+    implements(ISenaiteBeforeTransitionEvent)
+
+    def __init__(self, obj, transition, exception=None):
+        SenaiteTransitionEvent.__init__(self, obj, transition, exception)
+
+        # BBB: notify Bika Event
+        from bika.lims.api import BikaBeforeTransitionEvent
+        notify(BikaBeforeTransitionEvent(obj, transition, exception=exception))
+
+
+class SenaiteAfterTransitionEvent(SenaiteTransitionEvent):
+    implements(ISenaiteAfterTransitionEvent)
+
+    def __init__(self, obj, transition, exception=None):
+        SenaiteTransitionEvent.__init__(self, obj, transition, exception)
+
+        # BBB: notify Bika Event
+        from bika.lims.api import BikaAfterTransitionEvent
+        notify(BikaAfterTransitionEvent(obj, transition, exception=exception))
+
+
+class SenaiteTransitionFailedEvent(SenaiteTransitionEvent):
+    implements(ISenaiteTransitionFailedEvent)
+
+    def __init__(self, obj, transition, exception=None):
+        SenaiteTransitionEvent.__init__(self, obj, transition, exception)
+
+        # BBB: notify Bika Event
+        from bika.lims.api import BikaTransitionFailedEvent
+        notify(BikaTransitionFailedEvent(obj, transition, exception=exception))
 
 
 def get_portal():
@@ -740,7 +801,17 @@ def do_transition_for(brain_or_object, transition):
     if not isinstance(transition, basestring):
         fail("Transition type needs to be string, got '%s'" % type(transition))
     obj = get_object(brain_or_object)
-    ploneapi.content.transition(obj, transition)
+    # notify the BeforeTransitionEvent
+    notify(SenaiteBeforeTransitionEvent(obj, transition))
+    try:
+        ploneapi.content.transition(obj, transition)
+    except ploneapi.exc.InvalidParameterError as e:
+        # notify the TransitionFailedEvent
+        notify(SenaiteTransitionFailedEvent(obj, transition, exception=e))
+        fail("Failed to perform transition '{}' on {}: {}".format(
+             transition, obj, str(e)))
+    # notify the AfterTransitionEvent
+    notify(SenaiteAfterTransitionEvent(obj, transition))
     return obj
 
 

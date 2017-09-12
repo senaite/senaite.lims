@@ -1,0 +1,97 @@
+###* Helper JS to change classnames and HTML on the fly
+ *
+ * Please use this command to compile this file into the parent `js` directory:
+ *
+ * coffee --no-header -w -o ../js -c bootstrap-integration.coffee
+###
+
+$(document).ready ->
+  console.log '** SENAITE BOOTSTRAP INTEGRATION **'
+
+  # Show new loader on Ajax events
+  $(document).on
+    ajaxStart: ->
+      $('body').addClass 'loading'
+      $('.modal').show()
+      return
+    ajaxStop: ->
+      $('body').removeClass 'loading'
+      $('.modal').hide()
+      return
+    ajaxError: ->
+      $('body').removeClass 'loading'
+      $('.modal').hide()
+      return
+
+  # Remove default Bika spinner (Replaced with the modal spinner above)
+  $('bika-spinner').remove()
+
+  # Remove inline styles in headlines
+  $('h1>span').attr 'style', ''
+
+  # Convert form-tabs to navigation pills
+  $('ul.formTabs').addClass 'nav nav-pills'
+
+  # AR Add Form
+  $('table.ar-table td [fieldname]').addClass 'form-inline'
+
+  # Data Grid Field
+  $('.datagridwidget-add-button').addClass 'btn btn-default'
+
+  # Add button CSS classes to form buttons
+  $('input[type="submit"], input[type="button"]').addClass 'btn btn-default'
+
+  # Add table CSS classes
+  $('table').addClass 'table table-condensed table-bordered table-striped'
+
+  # Convert all 'hiddenStructure' classes to 'hidden'
+  $('.hiddenStructure').addClass 'hidden'
+  $('.template-manage-viewlets .hide').removeClass 'hide'
+  $('.template-manage-viewlets .show').removeClass 'show'
+  hiddenviewlet = $('<span>This viewlet is hidden and will not be shown</span>')
+  $(hiddenviewlet).addClass 'text-danger'
+  $('.template-manage-viewlets .hiddenViewlet').prepend hiddenviewlet
+
+  ### Form customizations ###
+  $('form').addClass 'form'
+  $('input').addClass 'input-sm'
+  $('form input[type=text]').addClass 'form-control'
+  $('form input[type=password]').addClass 'form-control'
+  $('form textarea').addClass 'form-control'
+  $('form select').addClass 'form-control'
+  $('form textarea').attr 'rows', 10
+  $('form div.formQuestion').removeClass 'label'
+  $('div.plone_jscalendar').addClass 'form-inline'
+
+  # Text format selector for RichText fields
+  $('.fieldTextFormat').addClass('form-inline').addClass 'pull-right'
+
+  # Make the portal_messages redish in case of error
+  $('.alert-error').removeClass('alert-error').addClass 'alert-danger'
+
+  # Manage Portlets Link
+  $('.managePortletsLink a').addClass 'btn btn-default btn-xs'
+
+  # Help text in Archetypes forms
+  $('.formHelp').addClass('help-block').removeClass 'formHelp'
+
+  # Plone Control Panel
+  $('div#edit-bar ul').addClass 'nav nav-tabs'
+  $('div#edit-bar ul li.selected').addClass 'active'
+  $('a#setup-link').addClass 'btn btn-default'
+  $('div.field').addClass 'form-group'
+
+  # Plone Add-on Panel
+  $('#content-core ul.configlets').addClass 'nav nav-stacked well'
+  $('.portletItem ul.configlets').addClass 'nav'
+
+  # Convert input[type=buttons] to button tags
+  foundPrimary = false
+  $('div.formControls input[type="submit"]').each ->
+    input = $(this)
+    button = $('<button type="submit" class="btn btn-sm btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' + input.attr('value') + '</button>')
+    if input.hasClass('context') and !foundPrimary
+      button.addClass 'btn-primary'
+      foundPrimary = true
+    input.replaceWith button
+    return

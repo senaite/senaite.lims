@@ -27,7 +27,12 @@
     $('bika-spinner').remove();
     $('h1>span').attr('style', '');
     $('ul.formTabs').addClass('nav nav-pills');
+    $('ul.formTabs li').on("click", function() {
+      $(this).parent().children().removeClass("active");
+      return $(this).addClass("active");
+    });
     $('table.ar-table td [fieldname]').addClass('form-inline');
+    $('.worksheet_add_controls').addClass('form-inline');
     $('.datagridwidget-add-button').addClass('btn btn-default');
     $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
     $('table').addClass('table table-condensed table-bordered table-striped');

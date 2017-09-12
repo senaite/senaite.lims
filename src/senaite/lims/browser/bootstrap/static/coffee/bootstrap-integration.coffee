@@ -31,9 +31,16 @@ $(document).ready ->
 
   # Convert form-tabs to navigation pills
   $('ul.formTabs').addClass 'nav nav-pills'
+  # Form tabbing
+  $('ul.formTabs li').on "click", ->
+    $(this).parent().children().removeClass "active"
+    $(this).addClass "active"
 
   # AR Add Form
   $('table.ar-table td [fieldname]').addClass 'form-inline'
+
+  # Worksheets
+  $('.worksheet_add_controls').addClass 'form-inline'
 
   # Data Grid Field
   $('.datagridwidget-add-button').addClass 'btn btn-default'

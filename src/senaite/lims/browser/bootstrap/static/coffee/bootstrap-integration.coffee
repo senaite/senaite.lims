@@ -8,6 +8,27 @@
 $(document).ready ->
   console.log '** SENAITE BOOTSTRAP INTEGRATION **'
 
+  # https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+  observer = new MutationObserver (mutations) ->
+    $.each mutations, (index, record) ->
+      # watch added nodes
+      $.each record.addedNodes, (index, el) ->
+        $(document).trigger "onCreate", el
+
+  # Observe the document.body for future added elements
+  observer.observe document.body,
+    childList: yes
+    subtree: yes
+
+  # some on-the-fly modificaitons on dynamically created elements
+  $(document).on "onCreate", (event, el) ->
+    $el = $(el)
+    if $el.hasClass "tooltip"
+      $el.addClass "bottom bika-tooltip"
+      $el.wrapInner "<div class='tooltip-inner'></div>"
+      $el.append "<div class='tooltip-arrow'></div>"
+
+
   # Show new loader on Ajax events
   $(document).on
     ajaxStart: ->

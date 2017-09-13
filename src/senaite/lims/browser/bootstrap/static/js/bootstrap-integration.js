@@ -8,8 +8,28 @@
 
 (function() {
   $(document).ready(function() {
-    var foundPrimary, hiddenviewlet;
+    var foundPrimary, hiddenviewlet, observer;
     console.log('** SENAITE BOOTSTRAP INTEGRATION **');
+    observer = new MutationObserver(function(mutations) {
+      return $.each(mutations, function(index, record) {
+        return $.each(record.addedNodes, function(index, el) {
+          return $(document).trigger("onCreate", el);
+        });
+      });
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    $(document).on("onCreate", function(event, el) {
+      var $el;
+      $el = $(el);
+      if ($el.hasClass("tooltip")) {
+        $el.addClass("bottom bika-tooltip");
+        $el.wrapInner("<div class='tooltip-inner'></div>");
+        return $el.append("<div class='tooltip-arrow'></div>");
+      }
+    });
     $(document).on({
       ajaxStart: function() {
         $('body').addClass('loading');

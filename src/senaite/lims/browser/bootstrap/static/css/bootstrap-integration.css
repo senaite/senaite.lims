@@ -50,6 +50,24 @@ div.field.error {
 #bika-spinner {
     display: none!important;
 }
+.bika-tooltip {
+    opacity: 1;
+    border: none!important;
+    background-color: transparent!important;
+}
+.bika-tooltip .tooltip-inner {
+    background-color: white;
+    color: black;
+}
+.bika-tooltip .tooltip-arrow {
+    border-bottom-color: white!important;
+}
+.bika-tooltip td {
+    cursor: pointer;
+}
+.bika-tooltip td:hover {
+    color: #337ab7;
+}
 /* /Loader */
 
 

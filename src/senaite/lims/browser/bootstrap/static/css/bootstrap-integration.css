@@ -58,6 +58,10 @@ div.field.error {
 .bika-tooltip .tooltip-inner {
     background-color: white;
     color: black;
+    text-align: left;
+}
+.bika-tooltip .tooltip-inner table th {
+    border-bottom: 2px solid #f7f7f7;
 }
 .bika-tooltip .tooltip-arrow {
     border-bottom-color: white!important;

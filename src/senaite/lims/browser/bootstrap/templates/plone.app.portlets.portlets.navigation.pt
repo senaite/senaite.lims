@@ -14,7 +14,7 @@
           <span class="icon-bar"></span>
         </button>
         <span class="visible-xs navbar-brand"
-        i18n:translate="">Side Navigation</span>
+              i18n:translate=""></span>
       </div>
 
       <div class="navbar-collapse collapse sidebar-navbar-collapse">

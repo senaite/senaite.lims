@@ -24,10 +24,15 @@ $(document).ready ->
   $(document).on "onCreate", (event, el) ->
     $el = $(el)
     if $el.hasClass "tooltip"
-      $el.addClass "bottom bika-tooltip"
-      $el.wrapInner "<div class='tooltip-inner'></div>"
-      $el.append "<div class='tooltip-arrow'></div>"
+      fix_bika_listing_tooltip el
 
+  # onCreate event handler
+  fix_bika_listing_tooltip = (el) ->
+    console.debug "Fix listing table tooltip"
+    $el = $(el)
+    $el.addClass "bottom bika-tooltip"
+    $el.wrapInner "<div class='tooltip-inner'></div>"
+    $el.append "<div class='tooltip-arrow'></div>"
 
   # Show new loader on Ajax events
   $(document).on
@@ -96,6 +101,27 @@ $(document).ready ->
 
   # Make the portal_messages redish in case of error
   $('.alert-error').removeClass('alert-error').addClass 'alert-danger'
+  # fix portal messages
+  mapping =
+    "error": "danger"
+  $('dl.portalMessage').each ->
+    $el = $(this)
+    $el.removeClass 'portalMessage'
+    cls = $el[0].className
+    title = $el.find("dt").html()
+    message = $el.find("dd").html()
+    facility = mapping[cls] if cls of mapping or cls
+    replacement = $("""
+      <div data-alert='alert' class='alert alert-dismissible alert-#{facility}'>
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+          <span aria-hidden='true'>×</span>
+        </button>
+        <strong>#{title}</strong>
+        <p>#{message}</p>
+      </div>
+    """)
+    replacement.attr "style", $el.attr("style")
+    $el.replaceWith replacement
 
   # Manage Portlets Link
   $('.managePortletsLink a').addClass 'btn btn-default btn-xs'

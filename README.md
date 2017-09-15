@@ -160,4 +160,4 @@ receive a variety of other contributions including:
 * [Searching #senaite on twitter](https://twitter.com/search?q=senaitelims) and helping someone else who needs help
 * Teaching others how to contribute to one of the many SENAITE repo's!
 * [Blogging, speaking about, or creating tutorials](https://github.com/senaite-contrib/awesome-senaite) about one of senaite's many features.
-* Helping others in our webpack [gitter channel](https://gitter.im/senaite/senaite.lims).
+* Helping others in our SENAITE [gitter channel](https://gitter.im/senaite/senaite.lims).

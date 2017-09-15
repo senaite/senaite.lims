@@ -8,7 +8,7 @@
 
 (function() {
   $(document).ready(function() {
-    var foundPrimary, hiddenviewlet, observer;
+    var fix_bika_listing_tooltip, foundPrimary, hiddenviewlet, mapping, observer;
     console.log('** SENAITE BOOTSTRAP INTEGRATION **');
     observer = new MutationObserver(function(mutations) {
       return $.each(mutations, function(index, record) {
@@ -25,11 +25,17 @@
       var $el;
       $el = $(el);
       if ($el.hasClass("tooltip")) {
-        $el.addClass("bottom bika-tooltip");
-        $el.wrapInner("<div class='tooltip-inner'></div>");
-        return $el.append("<div class='tooltip-arrow'></div>");
+        return fix_bika_listing_tooltip(el);
       }
     });
+    fix_bika_listing_tooltip = function(el) {
+      var $el;
+      console.debug("Fix listing table tooltip");
+      $el = $(el);
+      $el.addClass("bottom bika-tooltip");
+      $el.wrapInner("<div class='tooltip-inner'></div>");
+      return $el.append("<div class='tooltip-arrow'></div>");
+    };
     $(document).on({
       ajaxStart: function() {
         $('body').addClass('loading');
@@ -75,6 +81,23 @@
     $('div.plone_jscalendar').addClass('form-inline');
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');
+    mapping = {
+      "error": "danger"
+    };
+    $('dl.portalMessage').each(function() {
+      var $el, cls, facility, message, replacement, title;
+      $el = $(this);
+      $el.removeClass('portalMessage');
+      cls = $el[0].className;
+      title = $el.find("dt").html();
+      message = $el.find("dd").html();
+      if (cls in mapping || cls) {
+        facility = mapping[cls];
+      }
+      replacement = $("<div data-alert='alert' class='alert alert-dismissible alert-" + facility + "'>\n  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>\n    <span aria-hidden='true'>×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
+      replacement.attr("style", $el.attr("style"));
+      return $el.replaceWith(replacement);
+    });
     $('.managePortletsLink a').addClass('btn btn-default btn-xs');
     $('.formHelp').addClass('help-block').removeClass('formHelp');
     $('div#edit-bar ul').addClass('nav nav-tabs');

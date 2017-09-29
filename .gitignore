@@ -102,3 +102,4 @@ ENV/
 bin
 .mr.developer.cfg
 src/bika.lims
+src/senaite.api

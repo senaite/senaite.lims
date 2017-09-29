@@ -6,7 +6,7 @@ from DateTime import DateTime
 from ZPublisher import HTTPRequest
 
 from senaite.lims import logger
-from senaite.lims import api as bikaapi
+from senaite import api as senaiteapi
 from senaite.lims.jsonapi import api
 from senaite.lims.jsonapi import request as req
 from senaite.lims.jsonapi import underscore as _
@@ -40,9 +40,9 @@ class Catalog(object):
         # Support to set the catalog as a request parameter
         catalogs = _.to_list(req.get("catalog", None))
         if catalogs:
-            return bikaapi.search(query, catalog=catalogs)
+            return senaiteapi.search(query, catalog=catalogs)
         # Delegate to the search API of Bika LIMS
-        return bikaapi.search(query)
+        return senaiteapi.search(query)
 
     def __call__(self, query):
         return self.search(query)

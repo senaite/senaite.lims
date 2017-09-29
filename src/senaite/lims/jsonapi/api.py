@@ -15,7 +15,7 @@ from plone import api as ploneapi
 from plone.jsonapi.core import router
 from plone.behavior.interfaces import IBehaviorAssignable
 
-from senaite.lims import api
+from senaite import api
 from senaite.lims import logger
 from senaite.lims.jsonapi import config
 from senaite.lims.jsonapi import request as req

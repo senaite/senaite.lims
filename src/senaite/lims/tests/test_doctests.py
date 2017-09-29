@@ -14,10 +14,10 @@ from .base import SimpleTestCase
 def test_suite():
     suite = unittest.TestSuite()
     suite.addTests([
-        ztc.ZopeDocFileSuite(
-            '../docs/API.rst',
-            test_class=SimpleTestCase,
-            optionflags=doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE,
-        ),
+        #ztc.ZopeDocFileSuite(
+        #    '../docs/API.rst',
+        #    test_class=SimpleTestCase,
+        #    optionflags=doctest.ELLIPSIS | doctest.NORMALIZE_WHITESPACE,
+        #),
     ])
     return suite

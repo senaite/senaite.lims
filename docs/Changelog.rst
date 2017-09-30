@@ -1,4 +1,4 @@
-1.0.0 (unreleased)
+1.0.0 (2017-09-30)
 ------------------
 
-- initial package setup
+- First release

@@ -9,11 +9,14 @@ setup(
     name='senaite.lims',
     version=version,
     description="SENAITE – Modern, mobile-first LIMS",
-    long_description=open("README.md").read() + "\n" +
+    long_description=open("docs/About.rst").read() +
+                     "\n\n" +
+                     "Changelog\n" +
+                     "=========\n" +
                      open("docs/Changelog.rst").read() + "\n" +
                      "\n\n" +
                      "Authors and maintainers\n" +
-                     "-----------------------\n" +
+                     "-----------------------\n\n" +
                      "- Ramon Bartl (RIDING BYTES) <rb@ridingbytes.com>\n",
     # Get more strings from
     # http://pypi.python.org/pypi?:action=list_classifiers
@@ -23,8 +26,8 @@ setup(
         "Framework :: Zope2",
     ],
     keywords='',
-    author='SENAITE',
-    author_email='senaite@ridingbytes.com',
+    author='SENAITE Foundation',
+    author_email='hello@senaite.com',
     url='https://github.com/senaite/senaite.lims',
     license='GPLv3',
     packages=find_packages('src', exclude=['ez_setup']),
@@ -33,10 +36,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'setuptools',
-        'bika.lims>=3.3.0',
+        'bika.lims>=3.2.1rc2',
         'senaite.api>=1.0.0',
         'senaite.jsonapi>=1.0.0',
+        'setuptools',
     ],
     extras_require={
         'test': [

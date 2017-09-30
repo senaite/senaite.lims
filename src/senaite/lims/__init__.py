@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2017 SEANAITE
+# Copyright 2017-2017 SENAITE LIMS.
 
 import logging
 from zope.i18nmessageid import MessageFactory

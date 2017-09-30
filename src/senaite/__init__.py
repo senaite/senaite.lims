@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2017 SENAITE
+# Copyright 2017-2017 SENAITE LIMS.
 
 try:
     __import__('pkg_resources').declare_namespace(__name__)

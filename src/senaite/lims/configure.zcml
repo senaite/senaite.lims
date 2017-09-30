@@ -7,7 +7,7 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     xmlns:monkey="http://namespaces.plone.org/monkey"
     xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-    i18n_domain="senaite">
+    i18n_domain="senaite.lims">
 
   <five:registerPackage package="." initialize=".initialize"/>
 
@@ -16,8 +16,6 @@
   <!-- <i18n:registerTranslations directory="locales"/> -->
 
   <!-- Package Includes -->
-  <include package=".jsonapi"/>
-  <include package=".jsonapi.v1"/>
   <include package=".browser"/>
 
   <!-- Filesystem directory view -->

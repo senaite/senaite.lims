@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+#
+# Copyright 2017-2017 SENAITE LIMS.
 
 from zope.interface import Interface
 from zope.viewlet.interfaces import IViewletManager

@@ -46,10 +46,10 @@
          aria-haspopup="true"
          aria-expanded="false"
          tal:attributes="href action/url;
-             id string:personaltools-${action/id};
-             target action/link_target|nothing;
-             class python:other_actions and 'dropdown-toggle' or '';
-             data-toggle python:other_actions and 'dropdown' or None"
+                         id string:personaltools-${action/id};
+                         target action/link_target|nothing;
+                         class python:other_actions and 'dropdown-toggle' or '';
+                         data-toggle python:other_actions and 'dropdown' or None"
          tal:content="action/title"
          i18n:translate="">
         action title
@@ -60,6 +60,13 @@
           tal:condition="other_actions"
           id="portal-personaltools">
         <li id="anon-personalbar">
+          <!-- Login Link (always display in dropdown menu) -->
+          <a tal:attributes="href action/url;"
+             tal:content="action/title"
+             i18n:translate="">
+            action title
+          </a>
+          <!-- Other Actions, e.g. Registration -->
           <tal:actions repeat="action other_actions">
             <a href=""
                tal:attributes="href action/url;

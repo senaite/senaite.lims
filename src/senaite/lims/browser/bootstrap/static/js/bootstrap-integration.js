@@ -1,175 +1,122 @@
-/*
- * Helper JS to change classnames and HTML on the fly
- * because it would be too hard to do it customizing
- * each template
+
+/** Helper JS to change classnames and HTML on the fly
  *
+ * Please use this command to compile this file into the parent `js` directory:
+ *
+ * coffee --no-header -w -o ../js -c bootstrap-integration.coffee
  */
 
-function fixArchetypesForms(){
-    /* Remove class=label from datetime widgets */
-    $('.ArchetypesCalendarWidget .label').each(function(){
-        var cont = $(this).contents().filter(function(){
-            return this.nodeType == 3 && $(this).text().trim();
-        }).wrap('<label></label>');
-
+(function() {
+  $(document).ready(function() {
+    var fix_bika_listing_tooltip, foundPrimary, hiddenviewlet, mapping, observer;
+    console.log('** SENAITE BOOTSTRAP INTEGRATION **');
+    observer = new MutationObserver(function(mutations) {
+      return $.each(mutations, function(index, record) {
+        return $.each(record.addedNodes, function(index, el) {
+          return $(document).trigger("onCreate", el);
+        });
+      });
     });
-
-    /* Move archetypes BooleanFields' checkbox, inside the label */
-    $('.ArchetypesBooleanWidget label').each(function(){
-        var checkbox = $(this).parent().find('input[type=checkbox]');
-        $(this).prepend(checkbox);
-        $(this).removeClass('label');
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
-
-    $('.ArchetypesSelectionWidget label').each(function(){
-        var radio = $(this).prev();
-        if ($(radio).attr("type")=='radio'){
-            $(this).prepend(radio);
-        }
+    $(document).on("onCreate", function(event, el) {
+      var $el;
+      $el = $(el);
+      if ($el.hasClass("tooltip")) {
+        return fix_bika_listing_tooltip(el);
+      }
     });
-
-
-    $('.ArchetypesSelectionWidget .formQuestion.label').each(
-        function(){
-            $(this).removeClass('label');
-        }
-    );
-
-    /* Move add-on control-panel inputs inside labels*/
-    $('input[type=checkbox]').each(function(){
-        var label = $(this).parent().find('label');
-        for (var i = label.length - 1; i >= 0; i--) {
-            if ($(label[i]).attr('for') == $(this).attr('id')) {
-                if ($(label[i]).hasClass('hiddenStructure')) {
-                    var labeltext = $(label[i]).text();
-                    $(label[i]).text('');
-                    $(label[i]).removeClass('hiddenStructure');
-                    $(label[i]).prepend($("<span />", { 'class': 'hiddenStructure', 'text': labeltext}));
-
-                }
-                $(label[i]).prepend($(this));
-                var span = $(label[i]).find('span');
-                span.removeClass('label');
-            }
-
-        };
-
-    });
-
-    $('form.edit-form .label').removeClass('label');
-
-    /* Help text in Archetypes forms */
-    $('.formHelp').addClass('help-block').removeClass('formHelp');
-}
-
-$(document).ready(function(){
-    console.log("** SENAITE BOOTSTRAP INTEGRATION **");
-
-    // remove bika spinner
-    $("bika-spinner").remove();
-    /* LOADER */
+    fix_bika_listing_tooltip = function(el) {
+      var $el;
+      console.debug("Fix listing table tooltip");
+      $el = $(el);
+      $el.addClass("bottom bika-tooltip");
+      $el.wrapInner("<div class='tooltip-inner'></div>");
+      return $el.append("<div class='tooltip-arrow'></div>");
+    };
     $(document).on({
-        ajaxStart: function() {
-            $("body").addClass("loading");
-            $(".modal").show();
-        },
-        ajaxStop: function() {
-            $("body").removeClass("loading");
-            $(".modal").hide();
-        },
-        ajaxError: function() {
-            $("body").removeClass("loading");
-            $(".modal").hide();
-        }
+      ajaxStart: function() {
+        $('body').addClass('loading');
+        $('.modal').show();
+      },
+      ajaxStop: function() {
+        $('body').removeClass('loading');
+        $('.modal').hide();
+      },
+      ajaxError: function() {
+        $('body').removeClass('loading');
+        $('.modal').hide();
+      }
     });
-
-    /* Bika LIMS Customizations */
-
-    // remove all inline styles in headlines
-    $("h1>span").attr("style", "");
-
-    /* Form tabbing */
-    $("ul.formTabs").addClass("nav nav-pills");
-
-    /* Control Panel */
-    $("div#edit-bar ul").addClass("nav nav-tabs");
-    $("div#edit-bar ul li.selected").addClass("active");
-    $("a#setup-link").addClass("btn btn-default");
-
-    $('div.field').addClass('form-group');
-
-    /* AR Add form*/
+    $('bika-spinner').remove();
+    $('h1>span').attr('style', '');
+    $('ul.formTabs').addClass('nav nav-pills');
+    $('ul.formTabs li').on("click", function() {
+      $(this).parent().children().removeClass("active");
+      return $(this).addClass("active");
+    });
     $('table.ar-table td [fieldname]').addClass('form-inline');
-
-
-    /* /Bika LIMS Customizations */
-
-    /* Convert input[type=buttons] to button tags */
-    var foundPrimary = false;
-    $('div.formControls input[type="submit"]').each(function(){
-        var input = $(this);
-        var button = $('<button type="submit" class="btn btn-xs btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' +
-                       input.attr('value') + '</button>');
-
-        if(input.hasClass('context') && !foundPrimary){
-            button.addClass('btn-primary');
-            foundPrimary = true;
-        }
-        input.replaceWith(button);
-    });
-
-    /* Convert DGF Buttons */
-    $(".datagridwidget-add-button").addClass("btn btn-default");
-
-    /* Add btn class to the rest form buttons */
+    $('.worksheet_add_controls').addClass('form-inline');
+    $('.datagridwidget-add-button').addClass('btn btn-default');
     $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
-
-    /* Plone's default class for tables */
-    // $('table').not('.bika-listing-table').addClass('table table-condensed table-bordered table-striped');
     $('table').addClass('table table-condensed table-bordered table-striped');
-
-    /* Fix archetypes forms if there's any */
-    fixArchetypesForms();
-
-    /* Convert all 'hiddenStructure' classes to 'hidden' */
     $('.hiddenStructure').addClass('hidden');
-
     $('.template-manage-viewlets .hide').removeClass('hide');
     $('.template-manage-viewlets .show').removeClass('show');
-    var hiddenviewlet = $('<span>This viewlet is hidden and will not be shown</span>');
+    hiddenviewlet = $('<span>This viewlet is hidden and will not be shown</span>');
     $(hiddenviewlet).addClass('text-danger');
     $('.template-manage-viewlets .hiddenViewlet').prepend(hiddenviewlet);
 
-    /* forms */
+    /* Form customizations */
     $('form').addClass('form');
-    $('form input[type=text]').addClass('form-control').addClass('input-sm');
+    $('input').addClass('input-sm');
+    $('form input[type=text]').addClass('form-control');
     $('form input[type=password]').addClass('form-control');
-    $('form textarea').addClass('form-control input-sm');
-    $('form select').addClass('form-control input-sm');
+    $('form textarea').addClass('form-control');
+    $('form select').addClass('form-control');
     $('form textarea').attr('rows', 10);
-
-    /* Date fields */
-    $('#fieldset-dates').addClass('form-inline');
-    $('.date-field').parent().addClass('form-inline');
-
-    /* Content-tree input */
-    $('.autocompleteInputWidget').on('DOMSubtreeModified', function(){
-        $('.autocompleteInputWidget .option .label').removeClass('label');
-    });
-
-    $('.fieldErrorBox').each(function(){
-        if ($(this).text() != "") {
-            $(this).parent().addClass('has-error');
-            $(this).wrapInner('<span class="text-danger"></span>');
-        }
-    });
-
-    /* Text format selector for RichText fields */
+    $('form div.formQuestion').removeClass('label');
+    $('div.plone_jscalendar').addClass('form-inline');
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
-
-    /* Make the portal_messages redish in case of error */
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');
+    mapping = {
+      "error": "danger"
+    };
+    $('dl.portalMessage').each(function() {
+      var $el, cls, facility, message, replacement, title;
+      $el = $(this);
+      $el.removeClass('portalMessage');
+      cls = $el[0].className;
+      title = $el.find("dt").html();
+      message = $el.find("dd").html();
+      if (cls in mapping || cls) {
+        facility = mapping[cls];
+      }
+      replacement = $("<div data-alert='alert' class='alert alert-dismissible alert-" + facility + "'>\n  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>\n    <span aria-hidden='true'>×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
+      replacement.attr("style", $el.attr("style"));
+      return $el.replaceWith(replacement);
+    });
+    $('.managePortletsLink a').addClass('btn btn-default btn-xs');
+    $('.formHelp').addClass('help-block').removeClass('formHelp');
+    $('div#edit-bar ul').addClass('nav nav-tabs');
+    $('div#edit-bar ul li.selected').addClass('active');
+    $('a#setup-link').addClass('btn btn-default');
+    $('div.field').addClass('form-group');
+    $('#content-core ul.configlets').addClass('nav nav-stacked well');
+    $('.portletItem ul.configlets').addClass('nav');
+    foundPrimary = false;
+    return $('div.formControls input[type="submit"]').each(function() {
+      var button, input;
+      input = $(this);
+      button = $('<button type="submit" class="btn btn-sm btn-default" name="' + input.attr('name') + '"value="' + input.attr('value') + '">' + input.attr('value') + '</button>');
+      if (input.hasClass('context') && !foundPrimary) {
+        button.addClass('btn-primary');
+        foundPrimary = true;
+      }
+      input.replaceWith(button);
+    });
+  });
 
-    /* Manage Portlets Link */
-    $('.managePortletsLink a').addClass("btn btn-default btn-xs");
-});
+}).call(this);

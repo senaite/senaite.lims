@@ -2,13 +2,13 @@
 #
 # Copyright 2017-2017 SENAITE LIMS.
 
-import doctest
+# import doctest
 
 import unittest2 as unittest
 
-from Testing import ZopeTestCase as ztc
+# from Testing import ZopeTestCase as ztc
 
-from .base import SimpleTestCase
+# from .base import SimpleTestCase
 
 
 def test_suite():

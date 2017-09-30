@@ -8,13 +8,13 @@ version = '1.0.0'
 setup(
     name='senaite.lims',
     version=version,
-    description="SENAITE – A modern, mobile-first LIMS",
+    description="SENAITE – Modern, mobile-first LIMS",
     long_description=open("README.md").read() + "\n" +
                      open("docs/Changelog.rst").read() + "\n" +
                      "\n\n" +
                      "Authors and maintainers\n" +
                      "-----------------------\n" +
-                     "- RIDING BYTES, http://ridingbytes.com",
+                     "- Ramon Bartl (RIDING BYTES) <rb@ridingbytes.com>\n",
     # Get more strings from
     # http://pypi.python.org/pypi?:action=list_classifiers
     classifiers=[
@@ -33,9 +33,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'archetypes.schemaextender',
-        'bika.lims>=3.3.0',
         'setuptools',
+        'bika.lims>=3.3.0',
+        'senaite.api>=1.0.0',
+        'senaite.jsonapi>=1.0.0',
     ],
     extras_require={
         'test': [

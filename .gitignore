@@ -103,3 +103,4 @@ bin
 .mr.developer.cfg
 src/bika.lims
 src/senaite.api
+src/senaite.jsonapi

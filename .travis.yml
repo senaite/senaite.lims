@@ -39,6 +39,10 @@ install:
   - bin/buildout -n -t 3 -c travis.cfg
 script:
   - bin/test
+after_success:
+  - bin/test-coverage
+  - pip install coverage==3.7.1 coveralls
+  - coveralls
 notifications:
   webhooks:
     urls:

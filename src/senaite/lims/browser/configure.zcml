@@ -9,5 +9,6 @@
   <include package=".fontawesome"/>
   <include package=".jquery"/>
   <include package=".backbone"/>
+  <include package=".spotlight"/>
 
 </configure>

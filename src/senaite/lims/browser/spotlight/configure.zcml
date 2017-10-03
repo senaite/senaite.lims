@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="senaite.lims">
+
+  <!-- The Spotlight View will be also able to render as a standalone search page -->
+  <browser:page
+      for="*"
+      name="spotlight"
+      class=".views.SpotlightView"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- The Spotlight Viewlet will render on all pages and will be displayed within an overlay -->
+  <browser:viewlet
+      for="*"
+      name="spotlight_viewlet"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      class=".viewlets.SpotlightViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <browser:viewlet
+      for="*"
+      name="spotlight_trigger_viewlet"
+      manager="senaite.lims.browser.bootstrap.interfaces.IBelowNavbarSections"
+      template="templates/spotlight_trigger_viewlet.pt"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+  <!-- Register directory for static files-->
+  <browser:resourceDirectory
+      name="senaite.lims.spotlight.static"
+      directory="static"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+</configure>

@@ -5,8 +5,8 @@
 
   <!-- Register static directory for JS resources -->
   <browser:resourceDirectory
-      name="senaite.lims.backbone.js"
-      directory="js"
+      name="senaite.lims.backbone.static"
+      directory="static"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
 </configure>

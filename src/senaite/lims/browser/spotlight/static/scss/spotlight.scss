@@ -1,0 +1,40 @@
+/* Spotlight CSS
+
+   Use this command for compilation:
+
+   sass --watch --scss --sourcemap=none --no-cache spotlight.scss:../css/spotlight.css
+*/
+#spotlight {
+
+    #search-results {
+        background-color: white;
+
+        tr.selected,
+        tr.odd.selected,
+        tr.selected td,
+        tr.odd.selected td {
+            background-color: #fcf8e3;
+        }
+        // td {
+        //     line-height: 2em;
+        //     padding: 0.5em 1em;
+        // }
+    }
+}
+
+.spotlight-overlay {
+    /* initially overlay is hidden */
+    display: none;
+    width: 60%;
+    height: auto;
+    white-space: normal;
+    z-index: 99; /* overlays should be above everything */
+    overflow-y: auto;
+    overflow: hidden;
+
+    #search-field {
+        padding-bottom: 1em;
+        width: 50%;
+        margin: auto;
+    }
+}

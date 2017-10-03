@@ -56,7 +56,7 @@
       enabled="0"/>
   <javascript
       id="popupforms.js"
-      enabled="0"/>
+      enabled="1"/>
   <javascript
       id="modernizr.js"
       enabled="0"/>

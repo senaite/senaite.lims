@@ -1,0 +1,72 @@
+<div id="spotlight" tal:attributes="class string:${view/css_class} pull-right">
+
+  <form id="spotlight-search-form"
+        name="spotlight-searchform"
+        class="enableAutoFocus">
+
+    <fieldset id="search-field" class="noborder">
+      <div class="input-group">
+        <input id="spotlight-search-field"
+               autocomplete="off"
+               class="form-control input-sm"
+               name="spotlight-search-field"
+               type="text"
+               size="25"
+               placeholder="Spotlight-Search ..."
+               value=""
+               i18n:attributes="placeholder"
+               tal:attributes="placeholder view/placeholder|nothing" >
+        <div class="input-group-btn">
+          <button id="spotlight-clear-button" class="btn btn-default btn-sm" type="button">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </div>
+    </fieldset>
+
+    <div class="row">
+      <div id="search-results-wrapper" class="col-md-12"></div>
+    </div>
+  </form>
+
+  <!-- Backbone Templates -->
+
+  <!-- Result Table Template -->
+  <script type="text/template" id="results-template">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th></th>
+          <th i18n:translate="">Title</th>
+          <th i18n:translate="">Description</th>
+        </tr>
+      </thead>
+    </table>
+  </script>
+
+  <!-- Result Row Template -->
+  <script type="text/template" id="item-template">
+    <td>
+      <%= icon %>
+    </td>
+    <td>
+      <a class="link" href="<%- url %>"><%- title_or_id %></a>
+    </td>
+    <td>
+      <span><%- description %></span>
+    </td>
+  </script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" type="text/css" href="++resource++senaite.lims.spotlight.static/css/spotlight.css"/>
+
+  <!-- Scripts -->
+  <script type="text/javascript" src="++resource++senaite.lims.backbone.static/js/underscore-min.js"></script>
+  <script type="text/javascript" src="++resource++senaite.lims.backbone.static/js/backbone-min.js"></script>
+  <script type="text/javascript" src="++resource++senaite.lims.spotlight.static/js/spotlight.js"></script>
+  <script type="text/javascript">
+   if (_.noConflict) {
+    window.underscore = _.noConflict();
+   }
+  </script>
+
+</div>

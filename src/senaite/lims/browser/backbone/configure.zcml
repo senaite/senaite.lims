@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite.lims">
+
+  <!-- Register static directory for JS resources -->
+  <browser:resourceDirectory
+      name="senaite.lims.backbone.static"
+      directory="static"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+</configure>

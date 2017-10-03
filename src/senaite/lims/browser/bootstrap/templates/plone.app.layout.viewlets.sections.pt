@@ -13,7 +13,7 @@
         <span class="icon-bar"></span>
       </button>
 
-      <a class="senaite-navbar-brand"
+      <a class="nav-brand senaite-navbar-brand"
          tal:attributes="href view/navigation_root_url;
                          title view/portal_title | nothing">
         &#11041;

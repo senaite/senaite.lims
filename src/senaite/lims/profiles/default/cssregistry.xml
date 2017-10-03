@@ -24,6 +24,11 @@
     cacheable="True" compression="safe" cookable="True"
     enabled="1" expression=""/>
 
+ <!-- Activate CSS stylesheets we need -->
+ <stylesheet
+    id="++resource++plone.app.jquerytools.overlays.css"
+    enabled="1"/>
+
  <!-- Deactivate CSS stylesheets that come with Sunburst theme -->
  <stylesheet
     id="reset.css"

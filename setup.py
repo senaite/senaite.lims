@@ -36,9 +36,9 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'bika.lims>=3.2.1rc3',
-        'senaite.api>=1.0.0',
-        'senaite.jsonapi>=1.0.0',
+        'bika.lims',
+        'senaite.api',
+        'senaite.jsonapi',
         'setuptools',
     ],
     extras_require={

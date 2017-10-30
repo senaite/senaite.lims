@@ -109,36 +109,44 @@ bin/instance fg
   <tbody>
     <tr>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/ramonski.png?s=150">
-        <br>
-        <a href="https://github.com/ramonski">Ramon Bartl</a>
-        <p>Core</p>
-        <br>
-        <p>Founder of SENAITE</p>
-      </td>
-      <td align="center" valign="top">
         <img width="150" height="150" src="https://github.com/rockfruit.png?s=150">
         <br>
         <a href="https://github.com/rockfruit">Campbell MC Kellar-Basset</a>
-        <p>Core</p>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/xispa.png?s=150">
         <br>
-        <p>Bika LIMS specialist</p>
+        <a href="https://github.com/xispa">Jordi Puiggené</a>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/ramonski.png?s=150">
+        <br>
+        <a href="https://github.com/ramonski">Ramon Bartl</a>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/Espurna.png?s=150">
+        <br>
+        <a href="https://github.com/Espurna">Pau Soliva</a>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/juangallostra.png?s=150">
+        <br>
+        <a href="https://github.com/juangallostra">Juan Gallostra Acín</a>
+      </td>
+      <td align="center" valign="top">
+        <img width="150" height="150" src="https://github.com/Nihadness.png?s=150">
+        <br>
+        <a href="https://github.com/Nihadness">Nihad M.</a>
       </td>
       <td align="center" valign="top">
         <img width="150" height="150" src="https://github.com/mikejmets.png?s=150">
         <br>
         <a href="https://github.com/mikejmets">Mike Metcalfe</a>
-        <p>Core</p>
-        <br>
-        <p>Bika LIMS specialist</p>
       </td>
       <td align="center" valign="top">
         <img width="150" height="150" src="https://github.com/Lunga001.png?s=150">
         <br>
         <a href="https://github.com/Lunga001">Lunga Baliwe</a>
-        <p>Core</p>
-        <br>
-        <p>Bika LIMS specialist</p>
       </td>
     </tr>
   </tbody>

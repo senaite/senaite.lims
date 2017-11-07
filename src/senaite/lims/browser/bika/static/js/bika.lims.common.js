@@ -7,27 +7,29 @@
  */
 
 (function() {
+
   window.CommonUtils = function() {
     var that;
     that = this;
-
     /**
-     * Entry-point method for CommonUtils
-     */
+    * Entry-point method for CommonUtils
+    */
+
     that.load = function() {
       window.bika = window.bika || {
         lims: {}
-
         /**
-         * Analysis Service dependants and dependencies retrieval
-         */
+        * Analysis Service dependants and dependencies retrieval
+        */
+
       };
       window.bika.lims.AnalysisService = window.bika.lims.AnalysisService || {
         Dependants: function(service_uid) {
           var deps, request_data;
           request_data = {
             catalog_name: 'bika_setup_catalog',
-            UID: service_uid
+            UID: service_uid,
+            include_methods: 'getServiceDependantsUIDs'
           };
           deps = {};
           $.ajaxSetup({
@@ -35,29 +37,7 @@
           });
           window.bika.lims.jsonapi_read(request_data, function(data) {
             if (data.objects !== null && data.objects.length > 0) {
-              deps = data.objects[0].ServiceDependants;
-            } else {
-              deps = [];
-            }
-          });
-          $.ajaxSetup({
-            async: true
-          });
-          return deps;
-        },
-        Dependencies: function(service_uid) {
-          var deps, request_data;
-          request_data = {
-            catalog_name: 'bika_setup_catalog',
-            UID: service_uid
-          };
-          deps = {};
-          $.ajaxSetup({
-            async: false
-          });
-          window.bika.lims.jsonapi_read(request_data, function(data) {
-            if (data.objects !== null && data.objects.length > 0) {
-              deps = data.objects[0].ServiceDependencies;
+              deps = data.objects[0].getServiceDependantsUIDs;
             } else {
               deps = [];
             }
@@ -68,6 +48,31 @@
           return deps;
         }
       };
+      ({
+        Dependencies: function(service_uid) {
+          var deps, request_data;
+          request_data = {
+            catalog_name: 'bika_setup_catalog',
+            UID: service_uid,
+            include_methods: 'getServiceDependenciesUIDs'
+          };
+          deps = {};
+          $.ajaxSetup({
+            async: false
+          });
+          window.bika.lims.jsonapi_read(request_data, function(data) {
+            if (data.objects !== null && data.objects.length > 0) {
+              deps = data.objects[0].getServiceDependenciesUIDs;
+            } else {
+              deps = [];
+            }
+          });
+          $.ajaxSetup({
+            async: true
+          });
+          return deps;
+        }
+      });
       window.bika.lims.portalMessage = function(message) {
         var str;
         str = '<dl class=\'portalMessage alert alert-danger\'>' + '<dt>' + _('Error') + '</dt>' + '<dd><ul>' + message + '</ul></dd></dl>';
@@ -83,6 +88,18 @@
         $.ajax({
           type: 'POST',
           url: 'js_log',
+          data: {
+            'message': message,
+            '_authenticator': $('input[name=\'_authenticator\']').val()
+          }
+        });
+      };
+      window.bika.lims.warning = function(e) {
+        var message;
+        message = '(' + window.location.href + '): ' + e;
+        $.ajax({
+          type: 'POST',
+          url: 'js_warn',
           data: {
             'message': message,
             '_authenticator': $('input[name=\'_authenticator\']').val()
@@ -126,6 +143,12 @@
           jsonapi_read_handler(window.bika.lims.jsonapi_cache[jsonapi_cacheKey]);
         }
       };
+      $('.ArchetypesPrioritySelectionWidget select').change(function(e) {
+        var val;
+        val = $(this).find('option:selected').val();
+        $(this).attr('value', val);
+      });
+      $('.ArchetypesPrioritySelectionWidget select').change();
     };
     that.svgToImage = function(svg) {
       var url;

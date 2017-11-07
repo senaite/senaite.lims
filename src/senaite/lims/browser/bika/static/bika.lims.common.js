@@ -77,7 +77,7 @@
       });
       window.bika.lims.portalMessage = function(message) {
         var str;
-        str = '<dl class=\'portalMessage error\'>' + '<dt>' + _('Error') + '</dt>' + '<dd><ul>' + message + '</ul></dd></dl>';
+        str = '<dl class=\'portalMessage alert alert-danger\'>' + '<dt>' + _('Error') + '</dt>' + '<dd><ul>' + message + '</ul></dd></dl>';
         $('.portalMessage').remove();
         $(str).appendTo('#viewlet-above-content');
       };

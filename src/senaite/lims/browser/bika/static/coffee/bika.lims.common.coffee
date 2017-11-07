@@ -25,7 +25,7 @@ window.CommonUtils = ->
         request_data =
           catalog_name: 'bika_setup_catalog'
           UID: service_uid
-          include_methods: 'getServiceDependantsUIDs',
+          include_methods: 'getServiceDependantsUIDs'
         deps = {}
         $.ajaxSetup async: false
         window.bika.lims.jsonapi_read request_data, (data) ->
@@ -40,7 +40,7 @@ window.CommonUtils = ->
         request_data =
           catalog_name: 'bika_setup_catalog'
           UID: service_uid
-          include_methods: 'getServiceDependenciesUIDs',
+          include_methods: 'getServiceDependenciesUIDs'
         deps = {}
         $.ajaxSetup async: false
         window.bika.lims.jsonapi_read request_data, (data) ->
@@ -53,7 +53,7 @@ window.CommonUtils = ->
         deps
 
     window.bika.lims.portalMessage = (message) ->
-      str = '<dl class=\'portalMessage alert alert-danger\'>' + '<dt>' + _('Error') + '</dt>' + '<dd><ul>' + message + '</ul></dd></dl>'
+      str = '<dl class=\'portalMessage error\'>' + '<dt>' + _('Error') + '</dt>' + '<dd><ul>' + message + '</ul></dd></dl>'
       $('.portalMessage').remove()
       $(str).appendTo '#viewlet-above-content'
       return
@@ -65,6 +65,16 @@ window.CommonUtils = ->
       $.ajax
         type: 'POST'
         url: 'js_log'
+        data:
+          'message': message
+          '_authenticator': $('input[name=\'_authenticator\']').val()
+      return
+
+    window.bika.lims.warning = (e) ->
+      message = '(' + window.location.href + '): ' + e
+      $.ajax
+        type: 'POST'
+        url: 'js_warn'
         data:
           'message': message
           '_authenticator': $('input[name=\'_authenticator\']').val()
@@ -104,6 +114,12 @@ window.CommonUtils = ->
         jsonapi_read_handler window.bika.lims.jsonapi_cache[jsonapi_cacheKey]
       return
 
+    # Priority Selection Widget
+    $('.ArchetypesPrioritySelectionWidget select').change (e) ->
+      val = $(this).find('option:selected').val()
+      $(this).attr 'value', val
+      return
+    $('.ArchetypesPrioritySelectionWidget select').change()
     return
 
   that.svgToImage = (svg) ->

@@ -22,28 +22,30 @@ window.CommonUtils = ->
 
     window.bika.lims.AnalysisService = window.bika.lims.AnalysisService or
       Dependants: (service_uid) ->
-        request_data = 
+        request_data =
           catalog_name: 'bika_setup_catalog'
           UID: service_uid
+          include_methods: 'getServiceDependantsUIDs',
         deps = {}
         $.ajaxSetup async: false
         window.bika.lims.jsonapi_read request_data, (data) ->
           if data.objects != null and data.objects.length > 0
-            deps = data.objects[0].ServiceDependants
+            deps = data.objects[0].getServiceDependantsUIDs
           else
             deps = []
           return
         $.ajaxSetup async: true
         deps
       Dependencies: (service_uid) ->
-        request_data = 
+        request_data =
           catalog_name: 'bika_setup_catalog'
           UID: service_uid
+          include_methods: 'getServiceDependenciesUIDs',
         deps = {}
         $.ajaxSetup async: false
         window.bika.lims.jsonapi_read request_data, (data) ->
           if data.objects != null and data.objects.length > 0
-            deps = data.objects[0].ServiceDependencies
+            deps = data.objects[0].getServiceDependenciesUIDs
           else
             deps = []
           return

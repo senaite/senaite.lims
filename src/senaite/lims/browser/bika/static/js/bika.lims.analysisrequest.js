@@ -532,25 +532,30 @@
     };
     add_Yes = function(dlg, element, dep_services) {
       var i, service_uid;
+      service_uid = void 0;
       i = 0;
       while (i < dep_services.length) {
-        service_uid = dep_services[i].Service_uid;
+        service_uid = dep_services[i];
         if (!$('#list_cb_' + service_uid).prop('checked')) {
           check_service(service_uid);
           $('#list_cb_' + service_uid).prop('checked', true);
         }
         i++;
       }
-      $(dlg).dialog('close');
-      $('#messagebox').remove();
+      if (dlg !== false) {
+        $(dlg).dialog('close');
+        $('#messagebox').remove();
+      }
     };
     add_No = function(dlg, element) {
       if ($(element).prop('checked')) {
         uncheck_service($(element).attr('value'));
         $(element).prop('checked', false);
       }
-      $(dlg).dialog('close');
-      $('#messagebox').remove();
+      if (dlg !== false) {
+        $(dlg).dialog('close');
+        $('#messagebox').remove();
+      }
     };
     calcdependencies = function(elements, auto_yes) {
       var Dependants, Dependencies, _, cb, dep, dep_services, dep_titles, element, elements_i, html, i, lims, service_uid;
@@ -585,7 +590,7 @@
           }
           if (dep_services.length > 0) {
             if (auto_yes) {
-              add_Yes(this, element, dep_services);
+              add_Yes(false, element, dep_services);
             } else {
               html = '<div id=\'messagebox\' style=\'display:none\' title=\'' + _('Service dependencies') + '\'>';
               html = html + _('<p>${service} requires the following services to be selected:</p>' + '<br/><p>${deps}</p><br/><p>Do you want to apply these selections now?</p>', {
@@ -614,7 +619,7 @@
           i = 0;
           while (i < Dependants.length) {
             dep = Dependants[i];
-            cb = $('#list_cb_' + dep.Service_uid);
+            cb = $('#list_cb_' + dep);
             if (cb.prop('checked')) {
               dep_titles.push(dep.Service);
               dep_services.push(dep);
@@ -626,9 +631,9 @@
               i = 0;
               while (i < dep_services.length) {
                 dep = dep_services[i];
-                service_uid = dep.Service_uid;
-                cb = $('#list_cb_' + dep.Service_uid);
-                uncheck_service(dep.Service_uid);
+                service_uid = dep;
+                cb = $('#list_cb_' + service_uid);
+                uncheck_service(service_uid);
                 $(cb).prop('checked', false);
                 i += 1;
               }
@@ -646,10 +651,10 @@
                     i = 0;
                     while (i < dep_services.length) {
                       dep = dep_services[i];
-                      service_uid = dep.Service_uid;
-                      cb = $('#list_cb_' + dep.Service_uid);
+                      service_uid = dep;
+                      cb = $('#list_cb_' + service_uid);
                       $(cb).prop('checked', false);
-                      uncheck_service(dep.Service_uid);
+                      uncheck_service(service_uid);
                       i += 1;
                     }
                     $(this).dialog('close');
@@ -710,7 +715,7 @@
       // checkboxes in services list
       $('[name=\'uids:list\']').live('click', function() {
         var service_uid;
-        calcdependencies([this]);
+        calcdependencies([this], true);
         service_uid = $(this).val();
         if ($(this).prop('checked')) {
           check_service(service_uid);

@@ -516,23 +516,26 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   add_Yes = (dlg, element, dep_services) ->
+    service_uid = undefined
     i = 0
     while i < dep_services.length
-      service_uid = dep_services[i].Service_uid
+      service_uid = dep_services[i]
       if !$('#list_cb_' + service_uid).prop('checked')
         check_service service_uid
         $('#list_cb_' + service_uid).prop 'checked', true
       i++
-    $(dlg).dialog 'close'
-    $('#messagebox').remove()
+    if dlg != false
+      $(dlg).dialog 'close'
+      $('#messagebox').remove()
     return
 
   add_No = (dlg, element) ->
     if $(element).prop('checked')
       uncheck_service $(element).attr('value')
       $(element).prop 'checked', false
-    $(dlg).dialog 'close'
-    $('#messagebox').remove()
+    if dlg != false
+      $(dlg).dialog 'close'
+      $('#messagebox').remove()
     return
 
   calcdependencies = (elements, auto_yes) ->
@@ -574,7 +577,7 @@ window.AnalysisRequestAnalysesView = ->
           i++
         if dep_services.length > 0
           if auto_yes
-            add_Yes this, element, dep_services
+            add_Yes false, element, dep_services
           else
             html = '<div id=\'messagebox\' style=\'display:none\' title=\'' + _('Service dependencies') + '\'>'
             html = html + _('<p>${service} requires the following services to be selected:</p>' + '<br/><p>${deps}</p><br/><p>Do you want to apply these selections now?</p>',
@@ -598,7 +601,7 @@ window.AnalysisRequestAnalysesView = ->
         i = 0
         while i < Dependants.length
           dep = Dependants[i]
-          cb = $('#list_cb_' + dep.Service_uid)
+          cb = $('#list_cb_' + dep)
           if cb.prop('checked')
             dep_titles.push dep.Service
             dep_services.push dep
@@ -608,9 +611,9 @@ window.AnalysisRequestAnalysesView = ->
             i = 0
             while i < dep_services.length
               dep = dep_services[i]
-              service_uid = dep.Service_uid
-              cb = $('#list_cb_' + dep.Service_uid)
-              uncheck_service dep.Service_uid
+              service_uid = dep
+              cb = $('#list_cb_' + service_uid)
+              uncheck_service service_uid
               $(cb).prop 'checked', false
               i += 1
           else
@@ -626,10 +629,10 @@ window.AnalysisRequestAnalysesView = ->
                   i = 0
                   while i < dep_services.length
                     dep = dep_services[i]
-                    service_uid = dep.Service_uid
-                    cb = $('#list_cb_' + dep.Service_uid)
+                    service_uid = dep
+                    cb = $('#list_cb_' + service_uid)
                     $(cb).prop 'checked', false
-                    uncheck_service dep.Service_uid
+                    uncheck_service service_uid
                     i += 1
                   $(this).dialog 'close'
                   $('#messagebox').remove()
@@ -684,7 +687,7 @@ window.AnalysisRequestAnalysesView = ->
     #//////////////////////////////////////
     # checkboxes in services list
     $('[name=\'uids:list\']').live 'click', ->
-      calcdependencies [ this ]
+      calcdependencies [ this ], true
       service_uid = $(this).val()
       if $(this).prop('checked')
         check_service service_uid

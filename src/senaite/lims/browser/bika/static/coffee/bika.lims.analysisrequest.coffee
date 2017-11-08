@@ -422,6 +422,10 @@ window.AnalysisRequestAnalysesView = ->
   ###
 
   validate_spec_field_entry = (element) ->
+    ###*
+    # This function validates specification inputs
+    # @param {element} The input field from specifications (min, max, err)
+    ###
     uid = $(element).attr('uid')
     # no spec selector here yet!
     # $("[name^='ar\\."+sb_col+"\\.Specification']").val("");
@@ -448,6 +452,11 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   check_service = (service_uid) ->
+    ###*
+    # This functions runs the logic needed after setting the checkbox of a
+    # service.
+    # @param {service_uid} the service uid checked.
+    ###
     new_element = undefined
     element = undefined
     # Add partition dropdown
@@ -479,6 +488,11 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   uncheck_service = (service_uid) ->
+    ###*
+    # This functions runs the logic needed after unsetting the checkbox of a
+    # service.
+    # @param {service_uid} the service uid unchecked.
+    ###
     new_element = undefined
     element = undefined
     element = $('[name=\'Partition.' + service_uid + ':records\']')
@@ -522,7 +536,13 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   calcdependencies = (elements, auto_yes) ->
-
+    ###*
+    * Once a checkbox has been selected, this functions finds out which are
+    # the dependencies and dependants related to it.
+    # @param {elements} The selected element, a checkbox.
+    # @param {auto_yes} A boolean. If 'true', the dependants and dependencies
+    # will be automatically selected/unselected.
+    ###
     ###jshint validthis:true ###
 
     auto_yes = auto_yes or false

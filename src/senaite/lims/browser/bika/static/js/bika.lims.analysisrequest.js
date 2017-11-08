@@ -436,6 +436,10 @@
     var add_No, add_Yes, calcdependencies, check_service, that, uncheck_service, validate_spec_field_entry;
     that = this;
     validate_spec_field_entry = function(element) {
+      /**
+       * This function validates specification inputs
+       * @param {element} The input field from specifications (min, max, err)
+       */
       var error, error_element, max, max_element, min, min_element, uid;
       uid = $(element).attr('uid');
       // no spec selector here yet!
@@ -466,6 +470,11 @@
       }
     };
     check_service = function(service_uid) {
+      /**
+       * This functions runs the logic needed after setting the checkbox of a
+       * service.
+       * @param {service_uid} the service uid checked.
+       */
       var element, i, logged_in_client, new_element, specfields;
       new_element = void 0;
       element = void 0;
@@ -496,6 +505,11 @@
       }
     };
     uncheck_service = function(service_uid) {
+      /**
+       * This functions runs the logic needed after unsetting the checkbox of a
+       * service.
+       * @param {service_uid} the service uid unchecked.
+       */
       var element, i, logged_in_client, new_element, specfields;
       new_element = void 0;
       element = void 0;

@@ -281,7 +281,7 @@ window.AnalysisRequestViewView = ->
     # @requestdata should has the format  {fieldname=fieldvalue} ->  { ReportDryMatter=false}.
     ###
 
-    url = window.location.href.replace('/base_view', '')
+    url = window.location.href.replace('/base_view', '').replace('?check_edit=1', '').replace('?check_edit=0', '')
     obj_path = url.replace(window.portal_url, '')
     # Staff for the notification
     element = undefined
@@ -301,16 +301,21 @@ window.AnalysisRequestViewView = ->
       #success alert
       if data != null and data['success'] == true
         bika.lims.SiteView.notificationPanel anch + ': ' + name + ' updated successfully', 'succeed'
+      else if data == null
+        bika.lims.SiteView.notificationPanel 'Field ' + name + ' for ' + anch + ' could not be updated.' + ' Wrong value?', 'error'
+        msg = '[bika.lims.analysisrequest.js] No data returned ' + 'while updating ' + name + ' for ' + ar
+        console.warn msg
+        window.bika.lims.warning msg
       else
-        bika.lims.SiteView.notificationPanel 'Error while updating ' + name + ' for ' + anch, 'error'
-        msg = '[bika.lims.analysisrequest.js] Error while updating ' + name + ' for ' + ar
+        bika.lims.SiteView.notificationPanel 'Field ' + name + ' for ' + anch + ' could not be updated.' + ' Wrong value?', 'error'
+        msg = '[bika.lims.analysisrequest.js] No success ' + 'while updating ' + name + ' for ' + arr
         console.warn msg
         window.bika.lims.error msg
       return
-    ).fail ->
+    ).fail (xhr, textStatus, errorThrown)->
       #error
       bika.lims.SiteView.notificationPanel 'Error while updating ' + name + ' for ' + anch, 'error'
-      msg = '[bika.lims.analysisrequest.js] Error while updating ' + name + ' for ' + ar
+      msg = '[bika.lims.analysisrequest.js] Error in AJAX call' + 'while updating ' + name + ' for ' + ar + '. Error: ' + xhr.responseText
       console.warn msg
       window.bika.lims.error msg
       return

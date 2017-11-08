@@ -359,7 +359,16 @@ window.AnalysisRequestViewView = ->
             ]
             $(spelement).attr 'base_query', $.toJSON(base_query)
             options = $.parseJSON($(spelement).attr('combogrid_options'))
-            options.url = window.location.href.split('/ar')[0] + '/' + options.url
+            # Getting the url like that will return the query
+            # part of it:
+            # http://localhost:8080/Plone/clients/client17-14/..
+            #    ..OA17-0030-R01?check_edit=1
+            # In order to create a correct ajax call
+            # we only need until the pathname of that url:
+            # http://localhost:8080/Plone/clients/client17-14/..
+            #    ..OA17-0030-R01
+            simple_url = window.location.href.split('/ar')[0]
+            simple_url = simple_url.split('?')[0]
             options.url = options.url + '?_authenticator=' + $('input[name=\'_authenticator\']').val()
             options.url = options.url + '&catalog_name=' + $(spelement).attr('catalog_name')
             options.url = options.url + '&base_query=' + $.toJSON(base_query)

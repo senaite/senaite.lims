@@ -1,28 +1,23 @@
-
-/* Please use this command to compile this file into the parent `js` directory:
-    coffee --no-header -w -o ../js -c bika.lims.common.coffee
-
-    SENAITE Changes:
-      - portalMessage markup
- */
-
 (function() {
+  /* Please use this command to compile this file into the parent `js` directory:
+      coffee --no-header -w -o ../js -c bika.lims.common.coffee
 
+      SENAITE Changes:
+        - portalMessage markup
+  */
   window.CommonUtils = function() {
     var that;
     that = this;
     /**
-    * Entry-point method for CommonUtils
-    */
-
+     * Entry-point method for CommonUtils
+     */
     that.load = function() {
       window.bika = window.bika || {
         lims: {}
-        /**
-        * Analysis Service dependants and dependencies retrieval
-        */
-
       };
+      /**
+       * Analysis Service dependants and dependencies retrieval
+       */
       window.bika.lims.AnalysisService = window.bika.lims.AnalysisService || {
         Dependants: function(service_uid) {
           var deps, request_data;
@@ -46,9 +41,7 @@
             async: true
           });
           return deps;
-        }
-      };
-      ({
+        },
         Dependencies: function(service_uid) {
           var deps, request_data;
           request_data = {
@@ -72,7 +65,7 @@
           });
           return deps;
         }
-      });
+      };
       window.bika.lims.portalMessage = function(message) {
         var str;
         str = '<dl class=\'portalMessage alert alert-danger\'>' + '<dt>' + _('Error') + '</dt>' + '<dd><ul>' + message + '</ul></dd></dl>';
@@ -122,6 +115,7 @@
       window.bika.lims.jsonapi_read = function(request_data, handler) {
         var jsonapi_cacheKey, jsonapi_read_handler, page_size;
         window.bika.lims.jsonapi_cache = window.bika.lims.jsonapi_cache || {};
+        // if no page_size is specified, we need to explicitly add one here: 0=all.
         page_size = request_data.page_size;
         if (page_size === void 0) {
           request_data.page_size = 0;
@@ -143,6 +137,7 @@
           jsonapi_read_handler(window.bika.lims.jsonapi_cache[jsonapi_cacheKey]);
         }
       };
+      // Priority Selection Widget
       $('.ArchetypesPrioritySelectionWidget select').change(function(e) {
         var val;
         val = $(this).find('option:selected').val();

@@ -8,7 +8,7 @@
     </a>
   </h1>
 
-  <p>SENAITE LIMS – </p>
+  <p>SENAITE LIMS - Professional Open Source LIMS</p>
 
   <div>
     <a href="https://travis-ci.org/senaite/senaite.lims">
@@ -134,12 +134,12 @@ bin/instance fg
         <a href="https://github.com/juangallostra">Juan Gallostra Acín</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/Nihadness.png?s=150">
+        <img width="150" src="https://github.com/Nihadness.png?s=150">
         <br>
         <a href="https://github.com/Nihadness">Nihad M.</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/mikejmets.png?s=150">
+        <img width="150" src="https://github.com/mikejmets.png?s=150">
         <br>
         <a href="https://github.com/mikejmets">Mike Metcalfe</a>
       </td>
@@ -168,4 +168,4 @@ receive a variety of other contributions including:
 * [Searching #senaite on twitter](https://twitter.com/search?q=senaitelims) and helping someone else who needs help
 * Teaching others how to contribute to one of the many SENAITE repo's!
 * [Blogging, speaking about, or creating tutorials](https://github.com/senaite-contrib/awesome-senaite) about one of senaite's many features.
-* Helping others in our SENAITE [gitter channel](https://gitter.im/senaite/senaite.lims).
+* Helping others in our SENAITE [gitter channel](https://gitter.im/senaite/Lobby).

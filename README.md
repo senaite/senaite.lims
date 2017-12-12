@@ -73,9 +73,8 @@ Also see this section of the Plone documentation for further details:
 https://docs.plone.org/4/en/manage/installing/installing_addons.html
 
 ---
-**NOTE:** There is no official release of SENAITE yet. Please follow therfore
-the instructhion in the [Development](#development) section to install
-`senaite.lims` on your computer.
+**NOTE:** To install the latest version from the sources, follow the instructhion of the
+[Development](#development) section to install `senaite.lims` on your computer.
 
 ---
 
@@ -111,7 +110,7 @@ bin/instance fg
       <td align="center" valign="top">
         <img width="150" src="https://github.com/rockfruit.png?s=150">
         <br>
-        <a href="https://github.com/rockfruit">Campbell MC Kellar-Basset</a>
+        <a href="https://github.com/rockfruit">Campbell McKellar Basset</a>
       </td>
       <td align="center" valign="top">
         <img width="150" src="https://github.com/xispa.png?s=150">

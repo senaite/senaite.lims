@@ -8,7 +8,7 @@
     </a>
   </h1>
 
-  <p>SENAITE is a modern, mobile first version of the web based open source LIMS Bika.</p>
+  <p>SENAITE LIMS – </p>
 
   <div>
     <a href="https://travis-ci.org/senaite/senaite.lims">
@@ -34,25 +34,25 @@ the LIMS, while providing a modern, intuitive and friendly [UI](https://en.wikip
 ## What is this Project about?
 
 The primary goal of [SENAITE Project](https://github.com/senaite/senaite.lims) is to provide
-a complete new and modern way to interact with [Bika LIMS](https://github.com/bikalims/bika.lims).
+a complete new and modern way to interact with [SENAITE CORE](https://github.com/senaite/bika.lims).
 
-[Bika LIMS](https://www.bikalims.org) depends heavily on [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+[SENAITE CORE](https://github.com/senaite/bika.lims) depends heavily on [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 and most of the logic is custom built with [jQuery](https://jquery.com).
 
 While this is applicable for smaller projects, it becomes almost impossible to maintain it in larger projects.
-Therefore, [SENAITE](https://github.com/senaite/senaite.lims) introduces modern JavaScript frameworks like
-[ExtJS](https://www.sencha.com/products/extjs), [BackboneJS](http://backbonejs.org) or [AngularJS](https://angularjs.org)
+Therefore, [SENAITE](http://senaite.com) introduces modern JavaScript frameworks like
+[ReactJS](https://reactjs.org), [BackboneJS](http://backbonejs.org) or [AngularJS](https://angularjs.org)
 to provide a robust user interface which follows industry standards.
 
-[SENAITE](http://senaite.com) ships with a complete [RESTful JSON API](https://en.wikipedia.org/wiki/Representational_state_transfer)
+[SENAITE](http://senaite.com) ships with a complete [RESTful JSON API](https://github.com/senaite/senaite.jsonapi)
 built on [plone.jsonapi.routes](http://plonejsonapiroutes.readthedocs.io/en/latest), which serves as the main communication interface
-between [Bika LIMS](https://www.bikalims.org) and any kind of modern web framework.
+between [SENAITE CORE](https://github.com/senaite/bika.lims) and any kind of modern web framework.
 
-This makes great web applications like the [Bika Spotlight Search](http://www.ridingbytes.com/de/portfolio/bika-spotlight-search/#content)
+This makes great web applications like the [Spotlight Search](http://www.ridingbytes.com/de/portfolio/bika-spotlight-search/#content)
 or the [Plone Commander](http://www.ridingbytes.com/de/portfolio/plone-commander/#content) possible
-and allows non Bika develpers to interface custom web application with [Bika LIMS](https://www.bikalims.org).
+and allows frontend develpers to interface custom web application with [SENAITE CORE](https://github.com/senaite/bika.lims).
 
-The User Interface of [SENAITE](https://github.com/senaite/senaitelims) follows
+The User Interface of [SENAITE LIMS](https://github.com/senaite/senaite.lims) follows
 a mobile first approach and is built with [Twitter Bootstrap](http://getbootstrap.com).
 This makes it also possible to easily to operate in the web interface with tablets and smart devices
 
@@ -109,27 +109,27 @@ bin/instance fg
   <tbody>
     <tr>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/rockfruit.png?s=150">
+        <img width="150" src="https://github.com/rockfruit.png?s=150">
         <br>
         <a href="https://github.com/rockfruit">Campbell MC Kellar-Basset</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/xispa.png?s=150">
+        <img width="150" src="https://github.com/xispa.png?s=150">
         <br>
         <a href="https://github.com/xispa">Jordi Puiggené</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/ramonski.png?s=150">
+        <img width="150" src="https://github.com/ramonski.png?s=150">
         <br>
         <a href="https://github.com/ramonski">Ramon Bartl</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/Espurna.png?s=150">
+        <img width="150" src="https://github.com/Espurna.png?s=150">
         <br>
         <a href="https://github.com/Espurna">Pau Soliva</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/juangallostra.png?s=150">
+        <img width="150" src="https://github.com/juangallostra.png?s=150">
         <br>
         <a href="https://github.com/juangallostra">Juan Gallostra Acín</a>
       </td>
@@ -144,7 +144,7 @@ bin/instance fg
         <a href="https://github.com/mikejmets">Mike Metcalfe</a>
       </td>
       <td align="center" valign="top">
-        <img width="150" height="150" src="https://github.com/Lunga001.png?s=150">
+        <img width="150" src="https://github.com/Lunga001.png?s=150">
         <br>
         <a href="https://github.com/Lunga001">Lunga Baliwe</a>
       </td>

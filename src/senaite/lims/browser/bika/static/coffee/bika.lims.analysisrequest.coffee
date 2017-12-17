@@ -281,7 +281,7 @@ window.AnalysisRequestViewView = ->
     # @requestdata should has the format  {fieldname=fieldvalue} ->  { ReportDryMatter=false}.
     ###
 
-    url = window.location.href.replace('/base_view', '')
+    url = window.location.href.replace('/base_view', '').replace('?check_edit=1', '').replace('?check_edit=0', '')
     obj_path = url.replace(window.portal_url, '')
     # Staff for the notification
     element = undefined
@@ -301,16 +301,21 @@ window.AnalysisRequestViewView = ->
       #success alert
       if data != null and data['success'] == true
         bika.lims.SiteView.notificationPanel anch + ': ' + name + ' updated successfully', 'succeed'
+      else if data == null
+        bika.lims.SiteView.notificationPanel 'Field ' + name + ' for ' + anch + ' could not be updated.' + ' Wrong value?', 'error'
+        msg = '[bika.lims.analysisrequest.js] No data returned ' + 'while updating ' + name + ' for ' + ar
+        console.warn msg
+        window.bika.lims.warning msg
       else
-        bika.lims.SiteView.notificationPanel 'Error while updating ' + name + ' for ' + anch, 'error'
-        msg = '[bika.lims.analysisrequest.js] Error while updating ' + name + ' for ' + ar
+        bika.lims.SiteView.notificationPanel 'Field ' + name + ' for ' + anch + ' could not be updated.' + ' Wrong value?', 'error'
+        msg = '[bika.lims.analysisrequest.js] No success ' + 'while updating ' + name + ' for ' + arr
         console.warn msg
         window.bika.lims.error msg
       return
-    ).fail ->
+    ).fail (xhr, textStatus, errorThrown)->
       #error
       bika.lims.SiteView.notificationPanel 'Error while updating ' + name + ' for ' + anch, 'error'
-      msg = '[bika.lims.analysisrequest.js] Error while updating ' + name + ' for ' + ar
+      msg = '[bika.lims.analysisrequest.js] Error in AJAX call' + 'while updating ' + name + ' for ' + ar + '. Error: ' + xhr.responseText
       console.warn msg
       window.bika.lims.error msg
       return
@@ -354,7 +359,16 @@ window.AnalysisRequestViewView = ->
             ]
             $(spelement).attr 'base_query', $.toJSON(base_query)
             options = $.parseJSON($(spelement).attr('combogrid_options'))
-            options.url = window.location.href.split('/ar')[0] + '/' + options.url
+            # Getting the url like that will return the query
+            # part of it:
+            # http://localhost:8080/Plone/clients/client17-14/..
+            #    ..OA17-0030-R01?check_edit=1
+            # In order to create a correct ajax call
+            # we only need until the pathname of that url:
+            # http://localhost:8080/Plone/clients/client17-14/..
+            #    ..OA17-0030-R01
+            simple_url = window.location.href.split('/ar')[0]
+            simple_url = simple_url.split('?')[0]
             options.url = options.url + '?_authenticator=' + $('input[name=\'_authenticator\']').val()
             options.url = options.url + '&catalog_name=' + $(spelement).attr('catalog_name')
             options.url = options.url + '&base_query=' + $.toJSON(base_query)
@@ -417,6 +431,10 @@ window.AnalysisRequestAnalysesView = ->
   ###
 
   validate_spec_field_entry = (element) ->
+    ###*
+    # This function validates specification inputs
+    # @param {element} The input field from specifications (min, max, err)
+    ###
     uid = $(element).attr('uid')
     # no spec selector here yet!
     # $("[name^='ar\\."+sb_col+"\\.Specification']").val("");
@@ -443,6 +461,11 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   check_service = (service_uid) ->
+    ###*
+    # This functions runs the logic needed after setting the checkbox of a
+    # service.
+    # @param {service_uid} the service uid checked.
+    ###
     new_element = undefined
     element = undefined
     # Add partition dropdown
@@ -474,6 +497,11 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   uncheck_service = (service_uid) ->
+    ###*
+    # This functions runs the logic needed after unsetting the checkbox of a
+    # service.
+    # @param {service_uid} the service uid unchecked.
+    ###
     new_element = undefined
     element = undefined
     element = $('[name=\'Partition.' + service_uid + ':records\']')
@@ -497,27 +525,49 @@ window.AnalysisRequestAnalysesView = ->
     return
 
   add_Yes = (dlg, element, dep_services) ->
+    ###
+    # Given a selected service, this function selects the dependencies for
+    # the selected service.
+    # @param {String} dlg: The dialog to display (Not working!)
+    # @param {DOM object} element: The checkbox object.
+    # @param {Object} dep_services: A list of UIDs.
+    # @return {None} nothing.
+    ###
+    service_uid = undefined
+    dep_cb = undefined
     i = 0
     while i < dep_services.length
-      service_uid = dep_services[i].Service_uid
-      if !$('#list_cb_' + service_uid).prop('checked')
-        check_service service_uid
-        $('#list_cb_' + service_uid).prop 'checked', true
+      service_uid = dep_services[i]
+      dep_cb = $('#list_cb_' + service_uid)
+      if dep_cb.length > 0
+        if !$(dep_cb).prop('checked')
+          check_service service_uid
+          $('#list_cb_' + service_uid).prop 'checked', true
+      else
+        expand_category_for_service service_uid
       i++
-    $(dlg).dialog 'close'
-    $('#messagebox').remove()
+    if dlg != false
+      $(dlg).dialog 'close'
+      $('#messagebox').remove()
     return
 
   add_No = (dlg, element) ->
     if $(element).prop('checked')
       uncheck_service $(element).attr('value')
       $(element).prop 'checked', false
-    $(dlg).dialog 'close'
-    $('#messagebox').remove()
+    if dlg != false
+      $(dlg).dialog 'close'
+      $('#messagebox').remove()
     return
 
   calcdependencies = (elements, auto_yes) ->
-
+    ###*
+    * Once a checkbox has been selected, this functions finds out which are
+    # the dependencies and dependants related to it.
+    # @param {elements} The selected element, a checkbox.
+    # @param {auto_yes} A boolean. If 'true', the dependants and dependencies
+    # will be automatically selected/unselected.
+    ###
     ###jshint validthis:true ###
 
     auto_yes = auto_yes or false
@@ -549,7 +599,7 @@ window.AnalysisRequestAnalysesView = ->
           i++
         if dep_services.length > 0
           if auto_yes
-            add_Yes this, element, dep_services
+            add_Yes false, element, dep_services
           else
             html = '<div id=\'messagebox\' style=\'display:none\' title=\'' + _('Service dependencies') + '\'>'
             html = html + _('<p>${service} requires the following services to be selected:</p>' + '<br/><p>${deps}</p><br/><p>Do you want to apply these selections now?</p>',
@@ -573,7 +623,7 @@ window.AnalysisRequestAnalysesView = ->
         i = 0
         while i < Dependants.length
           dep = Dependants[i]
-          cb = $('#list_cb_' + dep.Service_uid)
+          cb = $('#list_cb_' + dep)
           if cb.prop('checked')
             dep_titles.push dep.Service
             dep_services.push dep
@@ -583,9 +633,9 @@ window.AnalysisRequestAnalysesView = ->
             i = 0
             while i < dep_services.length
               dep = dep_services[i]
-              service_uid = dep.Service_uid
-              cb = $('#list_cb_' + dep.Service_uid)
-              uncheck_service dep.Service_uid
+              service_uid = dep
+              cb = $('#list_cb_' + service_uid)
+              uncheck_service service_uid
               $(cb).prop 'checked', false
               i += 1
           else
@@ -601,10 +651,10 @@ window.AnalysisRequestAnalysesView = ->
                   i = 0
                   while i < dep_services.length
                     dep = dep_services[i]
-                    service_uid = dep.Service_uid
-                    cb = $('#list_cb_' + dep.Service_uid)
+                    service_uid = dep
+                    cb = $('#list_cb_' + service_uid)
                     $(cb).prop 'checked', false
-                    uncheck_service dep.Service_uid
+                    uncheck_service service_uid
                     i += 1
                   $(this).dialog 'close'
                   $('#messagebox').remove()
@@ -617,6 +667,35 @@ window.AnalysisRequestAnalysesView = ->
                   $(this).dialog 'close'
                   return
       elements_i++
+    return
+
+  expand_category_for_service = (serv_uid) ->
+    ###
+    * Given an analysis service UID, this function expands the category for
+    * that service and selects it.
+    * @param {String} serv_uid: uid of the analysis service.
+    * @return {None} nothing.
+    ###
+    # Ajax getting the category from uid
+    request_data =
+      catalog_name: 'uid_catalog'
+      UID: serv_uid
+      include_methods: 'getCategoryTitle'
+    window.bika.lims.jsonapi_read request_data, (data) ->
+      if data.objects.length < 1
+        msg = '[bika.lims.analysisrequest.add_by_col.js] No data returned ' + 'while running "expand_category_for_service" for ' + serv_uid
+        console.warn msg
+        window.bika.lims.warning msg
+      else
+        cat_title = data.objects[0].getCategoryTitle
+        # Expand category by uid and select the service
+        element = $('th[cat=\'' + cat_title + '\']')
+        #category_header_expand_handler(element, arnum, serv_uid);
+        window.bika.lims.BikaListingTableView.category_header_expand_handler(element).done ->
+          check_service serv_uid
+          $('#list_cb_' + serv_uid).prop 'checked', true
+          return
+      return
     return
 
   that.load = ->
@@ -659,7 +738,7 @@ window.AnalysisRequestAnalysesView = ->
     #//////////////////////////////////////
     # checkboxes in services list
     $('[name=\'uids:list\']').live 'click', ->
-      calcdependencies [ this ]
+      calcdependencies [ this ], true
       service_uid = $(this).val()
       if $(this).prop('checked')
         check_service service_uid

@@ -22,28 +22,30 @@ window.CommonUtils = ->
 
     window.bika.lims.AnalysisService = window.bika.lims.AnalysisService or
       Dependants: (service_uid) ->
-        request_data = 
+        request_data =
           catalog_name: 'bika_setup_catalog'
           UID: service_uid
+          include_methods: 'getServiceDependantsUIDs'
         deps = {}
         $.ajaxSetup async: false
         window.bika.lims.jsonapi_read request_data, (data) ->
           if data.objects != null and data.objects.length > 0
-            deps = data.objects[0].ServiceDependants
+            deps = data.objects[0].getServiceDependantsUIDs
           else
             deps = []
           return
         $.ajaxSetup async: true
         deps
       Dependencies: (service_uid) ->
-        request_data = 
+        request_data =
           catalog_name: 'bika_setup_catalog'
           UID: service_uid
+          include_methods: 'getServiceDependenciesUIDs'
         deps = {}
         $.ajaxSetup async: false
         window.bika.lims.jsonapi_read request_data, (data) ->
           if data.objects != null and data.objects.length > 0
-            deps = data.objects[0].ServiceDependencies
+            deps = data.objects[0].getServiceDependenciesUIDs
           else
             deps = []
           return
@@ -63,6 +65,16 @@ window.CommonUtils = ->
       $.ajax
         type: 'POST'
         url: 'js_log'
+        data:
+          'message': message
+          '_authenticator': $('input[name=\'_authenticator\']').val()
+      return
+
+    window.bika.lims.warning = (e) ->
+      message = '(' + window.location.href + '): ' + e
+      $.ajax
+        type: 'POST'
+        url: 'js_warn'
         data:
           'message': message
           '_authenticator': $('input[name=\'_authenticator\']').val()
@@ -102,6 +114,12 @@ window.CommonUtils = ->
         jsonapi_read_handler window.bika.lims.jsonapi_cache[jsonapi_cacheKey]
       return
 
+    # Priority Selection Widget
+    $('.ArchetypesPrioritySelectionWidget select').change (e) ->
+      val = $(this).find('option:selected').val()
+      $(this).attr 'value', val
+      return
+    $('.ArchetypesPrioritySelectionWidget select').change()
     return
 
   that.svgToImage = (svg) ->

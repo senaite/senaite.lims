@@ -4,7 +4,6 @@
     i18n_domain="senaite">
 
   <!-- Package Includes -->
-  <include package=".bika"/>
   <include package=".bootstrap"/>
   <include package=".fontawesome"/>
   <include package=".jquery"/>

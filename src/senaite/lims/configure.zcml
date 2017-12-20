@@ -17,6 +17,7 @@
 
   <!-- Package Includes -->
   <include package=".browser"/>
+  <include package=".upgrade"/>
 
   <!-- Filesystem directory view -->
   <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>

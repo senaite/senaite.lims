@@ -14,6 +14,7 @@ TEMPLATE = """# -*- coding: utf-8 -*-
 
 """
 
+
 def get_template():
     template_data = {
         "current_year": datetime.now().strftime("%Y"),

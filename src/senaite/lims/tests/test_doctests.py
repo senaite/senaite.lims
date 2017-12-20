@@ -2,8 +2,6 @@
 #
 # Copyright 2017-2017 SENAITE LIMS.
 
-# import doctest
-
 import unittest2 as unittest
 
 # from Testing import ZopeTestCase as ztc

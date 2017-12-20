@@ -28,6 +28,24 @@ def upgrade(tool):
 
     logger.info("Upgrading {0}: {1} -> {2}".format(product, ver_from, version))
 
-    # Do nothing, we just only want the profile version to be 1.1.0
+    # Do nothing, we just only want the profile version to be 1.2.0
+    fix_javascript_registry(portal)
+
     logger.info("{0} upgraded to version {1}".format(product, version))
     return True
+
+
+def fix_javascript_registry(portal):
+    """Fix JS registry
+    """
+
+    portal_javascripts = portal.portal_javascripts
+
+    to_remove = [
+        "++resource++senaite.lims.bika.static/js/bika.lims.common.js",
+        "++resource++senaite.lims.bika.static/js/bika.lims.analysisrequest.js",
+    ]
+
+    for res_id in to_remove:
+        logger.info("Removing JS resource {}".format(res_id))
+        portal_javascripts.unregisterResource(res_id)

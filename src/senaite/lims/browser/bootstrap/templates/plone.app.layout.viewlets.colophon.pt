@@ -11,14 +11,6 @@
               SENAITE is powered by:
             </li>
             <li>
-              <a href="http://bikalims.org"
-                 title="This site was built using the Bika Open Source LIMS."
-                 i18n:attributes="title title_built_with_bika;"
-                 i18n:translate="label_powered_by_bika">
-                Bika LIMS
-              </a>
-            </li>
-            <li>
               <a href="http://plone.org"
                  title="This site was built using the Plone Open Source CMS/WCM."
                  i18n:attributes="title title_built_with_plone;"

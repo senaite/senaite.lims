@@ -72,13 +72,11 @@
     /* Form customizations */
     $('form').addClass('form');
     $('input').addClass('input-sm');
-    $('form input[type=text]').addClass('form-control');
-    $('form input[type=password]').addClass('form-control');
-    $('form textarea').addClass('form-control');
-    $('form select').addClass('form-control');
+    $('form select').addClass('input-sm');
     $('form textarea').attr('rows', 10);
     $('form div.formQuestion').removeClass('label');
     $('div.plone_jscalendar').addClass('form-inline');
+    $('span.label').removeClass('label');
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');
     mapping = {

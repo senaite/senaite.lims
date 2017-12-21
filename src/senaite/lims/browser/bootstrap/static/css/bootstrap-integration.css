@@ -27,6 +27,13 @@ div.field.error {
 .error .fieldRequired {
     color: #a94442;
 }
+div.widget input {
+    display: inline;
+    height: auto;
+}
+div.widget label {
+    display: inline;
+}
 /* /Plone Style overwrites */
 
 
@@ -98,8 +105,26 @@ div.field.error {
     height: auto;
     font-size: 100%;
 }
+.toggle-barchart {
+    text-align: right!importantt;
+    width: 100%;
+}
+.dashboard-panels {
+    padding-bottom: 20px!important;
+}
+.dashboard-info-panel {
+    padding: 0;
+}
+.dashboard-info-panel .toggle-barchart {
+}
+.dashboard-info-panel-wrapper {
+}
 .dashboard-info-panel-number {
     padding-left: 20px!important;
+}
+.dashboard-info-panel-total {
+    padding-left: 20px!important;
+    max-width: 100px!important;
 }
 div#viewlet-above-content-title #panel-notification {
     top: 50%;

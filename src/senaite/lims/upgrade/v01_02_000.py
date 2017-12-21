@@ -46,6 +46,7 @@ def fix_javascript_registry(portal):
     to_remove = [
         "++resource++senaite.lims.bika.static/js/bika.lims.common.js",
         "++resource++senaite.lims.bika.static/js/bika.lims.analysisrequest.js",
+        "++resource++senaite.lims.jquery.js/jquery-1.12.4.min.js",
     ]
 
     for res_id in to_remove:

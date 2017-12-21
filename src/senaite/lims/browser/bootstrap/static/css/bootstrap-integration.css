@@ -31,7 +31,14 @@ div.widget input {
     display: inline;
     height: auto;
 }
+div.field input {
+    display: inline;
+    height: auto;
+}
 div.widget label {
+    display: inline;
+}
+div.field label {
     display: inline;
 }
 /* /Plone Style overwrites */

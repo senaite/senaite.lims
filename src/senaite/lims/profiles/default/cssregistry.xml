@@ -29,6 +29,9 @@
     id="++resource++plone.app.jquerytools.overlays.css"
     enabled="1"/>
 
+ <!-- Remove broken CSS -->
+ <stylesheet remove="True" id="invisible.css"/>
+
  <!-- Deactivate CSS stylesheets that come with Sunburst theme -->
  <stylesheet
     id="reset.css"
@@ -47,9 +50,6 @@
     enabled="0"/>
  <stylesheet
     id="forms.css"
-    enabled="0"/>
- <stylesheet
-    id="invisible.css"
     enabled="0"/>
  <stylesheet
     id="member.css"

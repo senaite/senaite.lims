@@ -109,6 +109,10 @@ div.widget label {
     text-align: right!importantt;
     width: 100%;
 }
+.dashboard-section h2 {
+    margin: 3px 0 0 0;
+    font-size: 1em!important;
+}
 .dashboard-panels {
     padding-bottom: 20px!important;
 }

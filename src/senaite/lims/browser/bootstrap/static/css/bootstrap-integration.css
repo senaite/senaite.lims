@@ -119,6 +119,12 @@ div#viewlet-above-content-title #panel-notification div.succeed-notification-ite
     border-radius: 5px;
     padding: 15px 30px 15px 40px;
 }
+.bika-listing-table .cat_header {
+    height: 3em;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #fcf8e3;
+}
 /* Priority Selection Widget */
 .ArchetypesPrioritySelectionWidget { }
 

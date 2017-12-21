@@ -1,0 +1,12 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite">
+
+  <!-- https://github.com/senaite/senaite.lims/issues/21 -->
+  <browser:resource
+      name="plone.app.jquerytools.overlayhelpers.js"
+      file="overlayhelpers.js"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+</configure>

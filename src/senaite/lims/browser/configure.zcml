@@ -9,5 +9,6 @@
   <include package=".jquery"/>
   <include package=".backbone"/>
   <include package=".spotlight"/>
+  <include package=".overwrites"/>
 
 </configure>

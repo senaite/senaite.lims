@@ -15,6 +15,8 @@
 
 **Fixed**
 
+- Added missing `attachments` CSS class to attachment templates
+
 **Security**
 
 

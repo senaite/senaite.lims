@@ -106,7 +106,7 @@
                     </tal:item>
                   </select>
                 </td>
-                <td class="attachment-fiel-size">
+                <td class="attachment-field-size">
                   <!-- File Size -->
                   <span class="filesize" tal:content="attachment/size"></span>
                 </td>

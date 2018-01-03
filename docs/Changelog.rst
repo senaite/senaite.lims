@@ -13,6 +13,9 @@
 
 **Changed**
 
+- SENAITE CORE integration
+- Licensed under GPLv2
+
 **Fixed**
 
 - Added missing `attachments` CSS class to attachment templates

@@ -13,11 +13,7 @@ setup(
                      "\n\n" +
                      "Changelog\n" +
                      "=========\n" +
-                     open("docs/Changelog.rst").read() + "\n" +
-                     "\n\n" +
-                     "Authors and maintainers\n" +
-                     "-----------------------\n\n" +
-                     "- Ramon Bartl (RIDING BYTES) <rb@ridingbytes.com>\n",
+                     open("docs/Changelog.rst").read() + "\n",
     # Get more strings from
     # http://pypi.python.org/pypi?:action=list_classifiers
     classifiers=[
@@ -29,14 +25,14 @@ setup(
     author='SENAITE Foundation',
     author_email='hello@senaite.com',
     url='https://github.com/senaite/senaite.lims',
-    license='GPLv3',
+    license='GPLv2',
     packages=find_packages('src', exclude=['ez_setup']),
     package_dir={'': 'src'},
     namespace_packages=['senaite'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'bika.lims',
+        'senaite.core',
         'senaite.api',
         'senaite.jsonapi',
         'setuptools',

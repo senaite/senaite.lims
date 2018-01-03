@@ -24,4 +24,11 @@
       handler="senaite.lims.upgrade.v01_02_000.upgrade"
       profile="senaite.lims:default"/>
 
+  <genericsetup:upgradeStep
+      title="Upgrade to SENAITE LIMS 1.2.0"
+      source="1.2.0"
+      destination="1.2.1"
+      handler="senaite.lims.upgrade.v01_02_001.upgrade"
+      profile="senaite.lims:default"/>
+
 </configure>

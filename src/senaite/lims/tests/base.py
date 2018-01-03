@@ -40,7 +40,7 @@ class SimpleTestLayer(PloneSandboxLayer):
 
         # Apply Setup Profile (portal_quickinstaller)
         applyProfile(portal, 'bika.lims:default')
-        # applyProfile(portal, 'senaite.api:default')
+        applyProfile(portal, 'senaite.lims:default')
 
         login(portal.aq_parent, SITE_OWNER_NAME)
 

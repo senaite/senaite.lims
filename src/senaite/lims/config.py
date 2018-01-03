@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2017-2017 SENAITE LIMS.
+# This file is part of SENAITE.LIMS
+#
+# Copyright 2018 by it's authors.
+# Some rights reserved. See LICENSE and CONTRIBUTING.
 
 PROJECTNAME = "senaite.lims"

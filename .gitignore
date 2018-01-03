@@ -104,3 +104,4 @@ bin
 src/bika.lims
 src/senaite.api
 src/senaite.jsonapi
+src/senaite.core

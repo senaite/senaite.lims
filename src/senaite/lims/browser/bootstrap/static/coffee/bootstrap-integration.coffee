@@ -75,7 +75,8 @@ $(document).ready ->
   $('input[type="submit"], input[type="button"]').addClass 'btn btn-default'
 
   # Add table CSS classes
-  $('table').addClass 'table table-condensed table-bordered table-striped'
+  $('table').not('.bika-listing-table-container table').addClass 'table table-condensed table-bordered table-striped'
+  $('.bika-listing-table').addClass 'table table-condensed table-striped'
 
   # Convert all 'hiddenStructure' classes to 'hidden'
   $('.hiddenStructure').addClass 'hidden'
@@ -87,7 +88,7 @@ $(document).ready ->
 
   ### Form customizations ###
   $('form').addClass 'form'
-  $('input').addClass 'input-sm'
+  $('input').not('.bika-listing-table :checkbox').addClass 'input-sm'
   # $('form input[type=text]').addClass 'form-control'
   # $('form input[type=password]').addClass 'form-control'
   # $('form textarea').addClass 'form-control'

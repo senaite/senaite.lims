@@ -61,7 +61,8 @@
     $('.worksheet_add_controls').addClass('form-inline');
     $('.datagridwidget-add-button').addClass('btn btn-default');
     $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
-    $('table').addClass('table table-condensed table-bordered table-striped');
+    $('table').not('.bika-listing-table-container table').addClass('table table-condensed table-bordered table-striped');
+    $('.bika-listing-table').addClass('table table-condensed table-striped');
     $('.hiddenStructure').addClass('hidden');
     $('.template-manage-viewlets .hide').removeClass('hide');
     $('.template-manage-viewlets .show').removeClass('show');
@@ -71,7 +72,7 @@
 
     /* Form customizations */
     $('form').addClass('form');
-    $('input').addClass('input-sm');
+    $('input').not('.bika-listing-table :checkbox').addClass('input-sm');
     $('form select').addClass('input-sm');
     $('form textarea').attr('rows', 10);
     $('form div.formQuestion').removeClass('label');

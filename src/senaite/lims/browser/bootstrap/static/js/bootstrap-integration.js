@@ -59,6 +59,11 @@
     });
     $('table.ar-table td [fieldname]').addClass('form-inline');
     $('.worksheet_add_controls').addClass('form-inline');
+    $('td.Pos').css('vertical-align', 'top');
+    $('td.Pos table.worksheet-position tbody tr').css('border', 'none');
+    $('td.Pos table.worksheet-position tbody tr td').css('vertical-align', 'top');
+    $('.bika-listing-table td.result.remarks').parent('tr').children('td').css('border', 'none');
+    $('.bika-listing-table td.result.remarks').css('padding-left', '23px');
     $('.datagridwidget-add-button').addClass('btn btn-default');
     $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
     $('table').not('.bika-listing-table-container table').addClass('table table-condensed table-bordered table-striped');

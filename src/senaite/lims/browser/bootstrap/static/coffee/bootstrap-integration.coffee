@@ -67,6 +67,11 @@ $(document).ready ->
 
   # Worksheets
   $('.worksheet_add_controls').addClass 'form-inline'
+  $('td.Pos').css('vertical-align', 'top')
+  $('td.Pos table.worksheet-position tbody tr').css('border', 'none')
+  $('td.Pos table.worksheet-position tbody tr td').css('vertical-align', 'top')
+  $('.bika-listing-table td.result.remarks').parent('tr').children('td').css('border', 'none')
+  $('.bika-listing-table td.result.remarks').css('padding-left', '23px')
 
   # Data Grid Field
   $('.datagridwidget-add-button').addClass 'btn btn-default'

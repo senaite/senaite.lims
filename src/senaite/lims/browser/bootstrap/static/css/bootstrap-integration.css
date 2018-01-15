@@ -116,6 +116,9 @@ div.field label {
     text-align: right!importantt;
     width: 100%;
 }
+.template-bika-dashboard #editing-bar {
+    display:none;
+}
 .dashboard-info-panel {
     padding: 10px 0 0 !important;
 }
@@ -131,10 +134,14 @@ div.field label {
 }
 .dashboard-section h2 {
     font-size: 1em!important;
+    margin: 5px 0 !important;
 }
 .dashboard-info-panel-wrapper {
     margin: 0 15px 0 0 !important;
     min-width: 140px;
+}
+.dashboard-bargraph-panel-wrapper div.bar-chart {
+    margin: 0 0 0 -15px;
 }
 
 div#viewlet-above-content-title #panel-notification {

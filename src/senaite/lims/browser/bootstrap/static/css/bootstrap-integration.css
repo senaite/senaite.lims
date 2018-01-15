@@ -116,27 +116,34 @@ div.field label {
     text-align: right!importantt;
     width: 100%;
 }
-.dashboard-section h2 {
-    margin: 3px 0 0 0;
-    font-size: 1em!important;
-}
-.dashboard-panels {
-    padding-bottom: 20px!important;
+.template-bika-dashboard #editing-bar {
+    display:none;
 }
 .dashboard-info-panel {
-    padding: 0;
+    padding: 10px 0 0 !important;
 }
-.dashboard-info-panel .toggle-barchart {
+.dashboard-info-panel-vertbar {
+    padding-left: 10px;
 }
-.dashboard-info-panel-wrapper {
+.dashboard-info-panel-description {
+    margin: 0 !important;
 }
 .dashboard-info-panel-number {
-    padding-left: 20px!important;
+    padding: 8px 4px 0 8px !important;
+    margin: 0 0 10px;
 }
-.dashboard-info-panel-total {
-    padding-left: 20px!important;
-    max-width: 100px!important;
+.dashboard-section h2 {
+    font-size: 1em!important;
+    margin: 5px 0 !important;
 }
+.dashboard-info-panel-wrapper {
+    margin: 0 15px 0 0 !important;
+    min-width: 140px;
+}
+.dashboard-bargraph-panel-wrapper div.bar-chart {
+    margin: 0 0 0 -15px;
+}
+
 div#viewlet-above-content-title #panel-notification {
     top: 50%;
     left: 50%;

@@ -6,6 +6,7 @@ Changelog
 
 **Added**
 
+- #68 Add Changelog
 
 **Changed**
 

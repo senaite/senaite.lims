@@ -1,5 +1,6 @@
 <div id="portal-personaltools-wrapper"
      class="dropdown pull-right"
+     style="padding-left: 1em;"
      i18n:domain="plone">
 
 <p class="hiddenStructure" i18n:translate="heading_personal_tools">Personal tools</p>
@@ -11,10 +12,8 @@
        class="btn btn-info dropdown-toggle"
        data-toggle="dropdown"
        tal:attributes="href view/homelink_url">
-       <span
-       tal:replace="view/user_name">
-        John
-      </span>
+       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+       <span tal:replace="view/user_name">John</span>
       <span class="caret"></span>
     </a>
     <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">

@@ -49,6 +49,18 @@ class SenaiteGlobalSectionsViewlet(GlobalSectionsViewlet):
             safe_unicode(portal_state.navigation_root_title()))
 
 
+class SenaiteSectionsDropdownViewlet(GlobalSectionsViewlet):
+    index = ViewPageTemplateFile('templates/senaite.lims.browser.bootstrap.viewlets.sections_dropdown.pt')
+
+    def update(self):
+        super(SenaiteSectionsDropdownViewlet, self).update()
+        portal_state = getMultiAdapter((self.context, self.request),
+                                       name=u'plone_portal_state')
+        self.navigation_root_url = portal_state.navigation_root_url()
+        self.portal_title = escape(
+            safe_unicode(portal_state.navigation_root_title()))
+
+
 class SenaitePathBarViewlet(PathBarViewlet):
     index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.path_bar.pt')
 

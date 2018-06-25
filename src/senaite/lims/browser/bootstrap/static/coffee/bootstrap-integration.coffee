@@ -29,7 +29,14 @@ $(document).ready ->
     if $el.hasClass("portalMessage")
       # remove all previous error messages
       $("#viewlet-above-content div[data-alert='alert']").remove()
-      fix_portal_message el
+      fix_portal_message $el
+
+    if $el.hasClass("bika-listing-table")
+      fix_listing_table $el
+
+    if $el.hasClass("workflow_action_button")
+      table = $el.closest("table.bika-listing-table")
+      fix_listing_table table
 
 
   mapping =
@@ -62,6 +69,21 @@ $(document).ready ->
     """)
     replacement.attr "style", $el.attr("style")
     $el.replaceWith replacement
+
+  fix_listing_table = (el) ->
+    console.debug "Fix listing table"
+    $el = $(el)
+    $el.find("*[style]").not(".progress-bar").removeAttr("style");
+    $el.addClass 'table table-condensed table-striped table-responsive'
+    $el.find("th.column").addClass("small")
+    $el.find("tbody.item-listing-tbody").addClass("small")
+    $el.find('td.review_state_selector a').addClass "btn btn-sm btn-default"
+    $el.find('span.workflow_action_buttons input').addClass "btn btn-sm btn-default"
+    $el.find('td.filter').addClass "text-right"
+    $el.find('.filter-search-input').addClass "input-sm"
+    $el.find('td.batching').addClass "text-right"
+    $el.find('a.bika_listing_show_more').addClass "btn btn-default btn-sm"
+
 
   # Show new loader on Ajax events
   $(document).on
@@ -110,7 +132,10 @@ $(document).ready ->
 
   # Add table CSS classes
   $('table').not('.bika-listing-table-container table').addClass 'table table-condensed table-bordered table-striped'
-  $('.bika-listing-table').addClass 'table table-condensed table-striped'
+
+  # Listing Table
+  $('.bika-listing-table').each ->
+    fix_listing_table this
 
   # Convert all 'hiddenStructure' classes to 'hidden'
   $('.hiddenStructure').addClass 'hidden'

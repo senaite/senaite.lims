@@ -8,7 +8,7 @@
 
 (function() {
   $(document).ready(function() {
-    var fix_bika_listing_tooltip, fix_portal_message, foundPrimary, hiddenviewlet, mapping, observer;
+    var fix_bika_listing_tooltip, fix_listing_table, fix_portal_message, foundPrimary, hiddenviewlet, mapping, observer;
     console.log('** SENAITE BOOTSTRAP INTEGRATION **');
     observer = new MutationObserver(function(mutations) {
       return $.each(mutations, function(index, record) {
@@ -22,14 +22,21 @@
       subtree: true
     });
     $(document).on("onCreate", function(event, el) {
-      var $el;
+      var $el, table;
       $el = $(el);
       if ($el.hasClass("tooltip")) {
         fix_bika_listing_tooltip(el);
       }
       if ($el.hasClass("portalMessage")) {
         $("#viewlet-above-content div[data-alert='alert']").remove();
-        return fix_portal_message(el);
+        fix_portal_message($el);
+      }
+      if ($el.hasClass("bika-listing-table")) {
+        fix_listing_table($el);
+      }
+      if ($el.hasClass("workflow_action_button")) {
+        table = $el.closest("table.bika-listing-table");
+        return fix_listing_table(table);
       }
     });
     mapping = {
@@ -57,6 +64,21 @@
       replacement = $("<div data-alert='alert' class='alert alert-dismissible alert-" + facility + "'>\n  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>\n    <span aria-hidden='true'>×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
       replacement.attr("style", $el.attr("style"));
       return $el.replaceWith(replacement);
+    };
+    fix_listing_table = function(el) {
+      var $el;
+      console.debug("Fix listing table");
+      $el = $(el);
+      $el.find("*[style]").not(".progress-bar").removeAttr("style");
+      $el.addClass('table table-condensed table-striped table-responsive');
+      $el.find("th.column").addClass("small");
+      $el.find("tbody.item-listing-tbody").addClass("small");
+      $el.find('td.review_state_selector a').addClass("btn btn-sm btn-default");
+      $el.find('span.workflow_action_buttons input').addClass("btn btn-sm btn-default");
+      $el.find('td.filter').addClass("text-right");
+      $el.find('.filter-search-input').addClass("input-sm");
+      $el.find('td.batching').addClass("text-right");
+      return $el.find('a.bika_listing_show_more').addClass("btn btn-default btn-sm");
     };
     $(document).on({
       ajaxStart: function() {
@@ -89,7 +111,9 @@
     $('.datagridwidget-add-button').addClass('btn btn-default');
     $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
     $('table').not('.bika-listing-table-container table').addClass('table table-condensed table-bordered table-striped');
-    $('.bika-listing-table').addClass('table table-condensed table-striped');
+    $('.bika-listing-table').each(function() {
+      return fix_listing_table(this);
+    });
     $('.hiddenStructure').addClass('hidden');
     $('.template-manage-viewlets .hide').removeClass('hide');
     $('.template-manage-viewlets .show').removeClass('show');

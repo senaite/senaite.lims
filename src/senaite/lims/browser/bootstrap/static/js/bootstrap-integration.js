@@ -8,7 +8,7 @@
 
 (function() {
   $(document).ready(function() {
-    var fix_bika_listing_tooltip, foundPrimary, hiddenviewlet, mapping, observer;
+    var fix_bika_listing_tooltip, fix_portal_message, foundPrimary, hiddenviewlet, mapping, observer;
     console.log('** SENAITE BOOTSTRAP INTEGRATION **');
     observer = new MutationObserver(function(mutations) {
       return $.each(mutations, function(index, record) {
@@ -25,9 +25,16 @@
       var $el;
       $el = $(el);
       if ($el.hasClass("tooltip")) {
-        return fix_bika_listing_tooltip(el);
+        fix_bika_listing_tooltip(el);
+      }
+      if ($el.hasClass("portalMessage")) {
+        $("#viewlet-above-content div[data-alert='alert']").remove();
+        return fix_portal_message(el);
       }
     });
+    mapping = {
+      "error": "danger"
+    };
     fix_bika_listing_tooltip = function(el) {
       var $el;
       console.debug("Fix listing table tooltip");
@@ -35,6 +42,21 @@
       $el.addClass("bottom bika-tooltip");
       $el.wrapInner("<div class='tooltip-inner'></div>");
       return $el.append("<div class='tooltip-arrow'></div>");
+    };
+    fix_portal_message = function(el) {
+      var $el, cls, facility, message, replacement, title;
+      console.debug("Fix portal message");
+      $el = $(el);
+      $el.removeClass('portalMessage');
+      cls = $el[0].className;
+      title = $el.find("dt").html();
+      message = $el.find("dd").html();
+      if (cls in mapping || cls) {
+        facility = mapping[cls];
+      }
+      replacement = $("<div data-alert='alert' class='alert alert-dismissible alert-" + facility + "'>\n  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>\n    <span aria-hidden='true'>×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
+      replacement.attr("style", $el.attr("style"));
+      return $el.replaceWith(replacement);
     };
     $(document).on({
       ajaxStart: function() {
@@ -85,22 +107,8 @@
     $('span.label').removeClass('label');
     $('.fieldTextFormat').addClass('form-inline').addClass('pull-right');
     $('.alert-error').removeClass('alert-error').addClass('alert-danger');
-    mapping = {
-      "error": "danger"
-    };
     $('dl.portalMessage').each(function() {
-      var $el, cls, facility, message, replacement, title;
-      $el = $(this);
-      $el.removeClass('portalMessage');
-      cls = $el[0].className;
-      title = $el.find("dt").html();
-      message = $el.find("dd").html();
-      if (cls in mapping || cls) {
-        facility = mapping[cls];
-      }
-      replacement = $("<div data-alert='alert' class='alert alert-dismissible alert-" + facility + "'>\n  <button type='button' class='close' data-dismiss='alert' aria-label='Close'>\n    <span aria-hidden='true'>×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
-      replacement.attr("style", $el.attr("style"));
-      return $el.replaceWith(replacement);
+      return fix_portal_message(this);
     });
     $('.managePortletsLink a').addClass('btn btn-default btn-xs');
     $('.formHelp').addClass('help-block').removeClass('formHelp');

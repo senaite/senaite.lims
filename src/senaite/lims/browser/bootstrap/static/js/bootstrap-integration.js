@@ -69,7 +69,6 @@
       var $el;
       console.debug("Fix listing table");
       $el = $(el);
-      $el.find("*[style]").not(".progress-bar").removeAttr("style");
       $el.addClass('table table-condensed table-striped table-responsive');
       $el.find("th.column").addClass("small");
       $el.find("tbody.item-listing-tbody").addClass("small");
@@ -101,7 +100,7 @@
       $(this).parent().children().removeClass("active");
       return $(this).addClass("active");
     });
-    $('table.ar-table td [fieldname]').addClass('form-inline');
+    $("table.ar-table td [fieldname]").addClass("form-inline");
     $('.worksheet_add_controls').addClass('form-inline');
     $('td.Pos').css('vertical-align', 'top');
     $('td.Pos table.worksheet-position tbody tr').css('border', 'none');
@@ -111,6 +110,19 @@
     $('.datagridwidget-add-button').addClass('btn btn-default');
     $('input[type="submit"], input[type="button"]').addClass('btn btn-default');
     $('table').not('.bika-listing-table-container table').addClass('table table-condensed table-bordered table-striped');
+
+    /* AR View */
+    $('table.header_table').addClass("table-sm").removeClass("table-striped");
+    $('table.header_table td:first-child()').addClass("active");
+    $('table.header_table td.key').addClass("active");
+    $('table.header_table td').addClass('small');
+    $('table.header_table div.field').removeClass('field');
+    $("div.arresultsinterpretation-container ul").addClass("nav nav-tabs");
+    $("div.arresultsinterpretation-container ul li a.selected").parent().addClass("active");
+    $("div.arresultsinterpretation-container ul li").on("click", function() {
+      $(this).parent().find("li.active").removeClass("active");
+      return $(this).addClass("active");
+    });
     $('.bika-listing-table').each(function() {
       return fix_listing_table(this);
     });

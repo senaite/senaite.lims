@@ -73,7 +73,7 @@ $(document).ready ->
   fix_listing_table = (el) ->
     console.debug "Fix listing table"
     $el = $(el)
-    $el.find("*[style]").not(".progress-bar").removeAttr("style");
+    # $el.find("*[style]").not(".progress-bar").removeAttr("style");
     $el.addClass 'table table-condensed table-striped table-responsive'
     $el.find("th.column").addClass("small")
     $el.find("tbody.item-listing-tbody").addClass("small")
@@ -114,7 +114,7 @@ $(document).ready ->
     $(this).addClass "active"
 
   # AR Add Form
-  $('table.ar-table td [fieldname]').addClass 'form-inline'
+  $("table.ar-table td [fieldname]").addClass "form-inline"
 
   # Worksheets
   $('.worksheet_add_controls').addClass 'form-inline'
@@ -132,6 +132,22 @@ $(document).ready ->
 
   # Add table CSS classes
   $('table').not('.bika-listing-table-container table').addClass 'table table-condensed table-bordered table-striped'
+
+  ### AR View ###
+
+  # Header table
+  $('table.header_table').addClass("table-sm").removeClass("table-striped")
+  $('table.header_table td:first-child()').addClass("active")
+  $('table.header_table td.key').addClass("active")
+  $('table.header_table td').addClass 'small'
+  $('table.header_table div.field').removeClass 'field'
+
+  # Results interpretation
+  $("div.arresultsinterpretation-container ul").addClass("nav nav-tabs")
+  $("div.arresultsinterpretation-container ul li a.selected").parent().addClass("active")
+  $("div.arresultsinterpretation-container ul li").on "click", ->
+    $(this).parent().find("li.active").removeClass "active"
+    $(this).addClass "active"
 
   # Listing Table
   $('.bika-listing-table').each ->

@@ -8,37 +8,35 @@
 from cgi import escape
 
 from Acquisition import aq_inner
-from zExceptions import NotFound
-
-from Products.Five.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFPlone.utils import safe_unicode
-
-from zope.component import getMultiAdapter
-from zope.viewlet.interfaces import IViewlet
-from zope.publisher.interfaces.browser import IBrowserRequest
-
-from plone.app.customerize import registration
-from plone.app.layout.viewlets.common import ViewletBase
-from plone.app.layout.viewlets.common import LogoViewlet
-from plone.app.layout.viewlets.common import GlobalSectionsViewlet
-from plone.app.layout.viewlets.common import ContentViewsViewlet
-from plone.app.layout.viewlets.common import PathBarViewlet
-from plone.app.layout.viewlets.common import PersonalBarViewlet
-from plone.app.layout.viewlets.common import FooterViewlet
-from plone.app.layout.viewlets.content import DocumentActionsViewlet
-
 from bika.lims.browser.instrument import InstrumentQCFailuresViewlet
 from bika.lims.browser.viewlets.attachments import AttachmentsViewlet
 from bika.lims.browser.viewlets.attachments import WorksheetAttachmentsViewlet
+from plone.app.customerize import registration
+from plone.app.layout.viewlets.common import ContentViewsViewlet
+from plone.app.layout.viewlets.common import FooterViewlet
+from plone.app.layout.viewlets.common import GlobalSectionsViewlet
+from plone.app.layout.viewlets.common import LogoViewlet
+from plone.app.layout.viewlets.common import PathBarViewlet
+from plone.app.layout.viewlets.common import PersonalBarViewlet
+from plone.app.layout.viewlets.common import ViewletBase
+from plone.app.layout.viewlets.content import DocumentActionsViewlet
+from Products.CMFPlone.utils import safe_unicode
+from Products.Five.browser import BrowserView
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zExceptions import NotFound
+from zope.component import getMultiAdapter
+from zope.publisher.interfaces.browser import IBrowserRequest
+from zope.viewlet.interfaces import IViewlet
 
 
 class SenaiteLogoViewlet(LogoViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.logo.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.logo.pt')
 
 
 class SenaiteGlobalSectionsViewlet(GlobalSectionsViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.sections.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.sections.pt')
 
     def update(self):
         super(SenaiteGlobalSectionsViewlet, self).update()
@@ -50,7 +48,8 @@ class SenaiteGlobalSectionsViewlet(GlobalSectionsViewlet):
 
 
 class SenaiteSectionsDropdownViewlet(GlobalSectionsViewlet):
-    index = ViewPageTemplateFile('templates/senaite.lims.browser.bootstrap.viewlets.sections_dropdown.pt')
+    index = ViewPageTemplateFile(
+        'templates/senaite.lims.browser.bootstrap.viewlets.sections_dropdown.pt')
 
     def update(self):
         super(SenaiteSectionsDropdownViewlet, self).update()
@@ -62,43 +61,53 @@ class SenaiteSectionsDropdownViewlet(GlobalSectionsViewlet):
 
 
 class SenaitePathBarViewlet(PathBarViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.path_bar.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.path_bar.pt')
 
 
 class SenaitePersonalBarViewlet(PersonalBarViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.personal_bar.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.personal_bar.pt')
 
 
 class SenaitePersonalNavBarViewlet(PersonalBarViewlet):
-    index = ViewPageTemplateFile('templates/senaite.lims.browser.bootstrap.viewlets.personal_nav_bar.pt')
+    index = ViewPageTemplateFile(
+        'templates/senaite.lims.browser.bootstrap.viewlets.personal_nav_bar.pt')
 
 
 class SenaiteContentViewsViewlet(ContentViewsViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.contentviews.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.contentviews.pt')
 
 
 class SenaiteDocumentActionsViewlet(DocumentActionsViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.documentactions.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.documentactions.pt')
 
 
 class SenaiteColophonViewlet(ViewletBase):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.colophon.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.colophon.pt')
 
 
 class SenaiteFooterViewlet(FooterViewlet):
-    index = ViewPageTemplateFile('templates/plone.app.layout.viewlets.footer.pt')
+    index = ViewPageTemplateFile(
+        'templates/plone.app.layout.viewlets.footer.pt')
 
 
 class SenaiteInstrumentQCFailuresViewlet(InstrumentQCFailuresViewlet):
-    index = ViewPageTemplateFile('templates/bika.lims.browser.templates.instrument_qc_failures_viewlet.pt')
+    index = ViewPageTemplateFile(
+        'templates/bika.lims.browser.templates.instrument_qc_failures_viewlet.pt')
 
 
 class SenaiteAttachmentsViewlet(AttachmentsViewlet):
-    template = ViewPageTemplateFile('templates/bika.lims.browser.viewlets.templates.attachments.pt')
+    template = ViewPageTemplateFile(
+        'templates/bika.lims.browser.viewlets.templates.attachments.pt')
 
 
 class SenaiteWorksheetAttachmentsViewlet(WorksheetAttachmentsViewlet):
-    template = ViewPageTemplateFile('templates/bika.lims.browser.viewlets.templates.worksheet_attachments.pt')
+    template = ViewPageTemplateFile(
+        'templates/bika.lims.browser.viewlets.templates.worksheet_attachments.pt')
 
 
 class ViewletView(BrowserView):
@@ -130,8 +139,8 @@ class ViewletView(BrowserView):
         for v in views:
 
             if v.provided == IViewlet:
-                # Note that we might have conflicting BrowserView with the same name,
-                # thus we need to check for provided
+                # Note that we might have conflicting BrowserView with the same
+                # name, thus we need to check for provided
                 if v.name == name:
                     return v
 
@@ -163,7 +172,8 @@ class ViewletView(BrowserView):
         except TypeError:
             # Bad constructor call parameters
             raise RuntimeError(
-                "Unable to initialize viewlet {}. Factory method {} call failed."
+                "Unable to initialize viewlet {}. "
+                "Factory method {} call failed."
                 .format(name, str(factory)))
 
         return viewlet

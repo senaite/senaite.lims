@@ -59,8 +59,30 @@ This makes it also possible to easily to operate in the web interface with table
 
 ## Installation
 
+Before installing SENAITE LIMS or Plone, there are some system dependencies that must be installed.  They are listed below.
+
+For Debian or Ubuntu users:
+
+    sudo apt-get install build-essential gcc python-dev git-core libffi-dev
+    sudo apt-get install libpcre3 libpcre3-dev autoconf libtool pkg-config
+    sudo apt-get install zlib1g-dev libssl-dev libexpat1-dev libxslt1.1
+    sudo apt-get install gnuplot libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0
+
+For Fedora:
+
+    sudo dnf install make automake-1.15-1.fc22.noarch gcc gcc-c++-5.3.1-2.fc22.x86_64
+    sudo dnf install kernel-devel-4.3.4-200.fc22.x86_64 gdk-pixbuf2-devel-2.31.6-1.fc22.x86_64
+    sudo dnf install python-devel-2.7.10-8.fc22.x86_64 git-2.4.3-7.fc22.x86_64
+    sudo dnf install libffi-devel-3.1-7.fc22.x86_64 pcre-devel-8.38-1.fc22.x86_64
+    sudo dnf install autoconf-2.69-20.fc22.noarch libtool-2.4.2-35.fc22.x86_64
+    sudo dnf install pkgconfig-1\:0.28-8.fc22.x86_64 zlib-devel-1.2.8-7.fc22.x86_64
+    sudo dnf install openssl-devel-1\:1.0.1k-13.fc22.x86_64 expat-devel-2.1.0-10.fc22.x86_64
+    sudo dnf install libxslt-devel-1.1.28-8.fc22.x86_64 gnuplot-5.0.0-8.fc22.x86_64
+    sudo dnf install cairo-devel-1.14.2-1.fc22.x86_64 pango-devel-1.36.8-6.fc22.x86_64
+
 Please follow these steps to install Plone:
 https://docs.plone.org/4/en/manage/installing/index.html
+
 
 To install SENAITE LIMS, you simply have to add `senaite.lims` into the `eggs` section
 of your `buildout.cfg`:
@@ -73,7 +95,7 @@ Also see this section of the Plone documentation for further details:
 https://docs.plone.org/4/en/manage/installing/installing_addons.html
 
 ---
-**NOTE:** To install the latest version from the sources, follow the instructhion of the
+**NOTE:** To install the latest version from the sources, follow the instructions in the
 [Development](#development) section to install `senaite.lims` on your computer.
 
 ---

@@ -8,14 +8,12 @@
 from Acquisition import aq_inner
 from Acquisition import aq_parent
 from bika.lims import logger
-
 from bika.lims.upgrade import upgradestep
 from bika.lims.upgrade.utils import UpgradeUtils
-
 from senaite.lims.config import PROJECTNAME as product
 
-version = '1.2.1'
-profile = 'profile-{0}:default'.format(product)
+version = "1.2.1"
+profile = "profile-{0}:default".format(product)
 
 
 @upgradestep(product, version)
@@ -33,7 +31,16 @@ def upgrade(tool):
 
     logger.info("Upgrading {0}: {1} -> {2}".format(product, ver_from, version))
 
-    # Do nothing, we just only want the profile version to be 1.2.0
+    run_all_import_steps(portal)
 
     logger.info("{0} upgraded to version {1}".format(product, version))
     return True
+
+
+def run_all_import_steps(portal):
+    """Run all import steps from the profiles/default folder
+    """
+    logger.info("Run all import steps from SENAITE LIMS ...")
+    portal_setup = portal.portal_setup
+    portal_setup.runAllImportStepsFromProfile("profile-senaite.lims:default")
+    logger.info("Run all import steps from SENAITE LIMS [done]")

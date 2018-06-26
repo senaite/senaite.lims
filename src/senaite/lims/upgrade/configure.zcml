@@ -4,17 +4,10 @@
     i18n_domain="senaite.lims">
 
   <genericsetup:upgradeStep
-      title="Upgrade to SENAITE LIMS 1.0.0"
-      source="1000"
-      destination="1.0.0"
-      handler="senaite.lims.upgrade.v01_00_000.upgrade"
-      profile="senaite.lims:default"/>
-
-  <genericsetup:upgradeStep
-      title="Upgrade to SENAITE LIMS 1.1.0"
-      source="1.0.0"
-      destination="1.1.0"
-      handler="senaite.lims.upgrade.v01_01_000.upgrade"
+      title="Upgrade to SENAITE LIMS 1.2.1"
+      source="1.2.0"
+      destination="1.2.1"
+      handler="senaite.lims.upgrade.v01_02_001.upgrade"
       profile="senaite.lims:default"/>
 
   <genericsetup:upgradeStep
@@ -25,10 +18,17 @@
       profile="senaite.lims:default"/>
 
   <genericsetup:upgradeStep
-      title="Upgrade to SENAITE LIMS 1.2.0"
-      source="1.2.0"
-      destination="1.2.1"
-      handler="senaite.lims.upgrade.v01_02_001.upgrade"
+      title="Upgrade to SENAITE LIMS 1.1.0"
+      source="1.0.0"
+      destination="1.1.0"
+      handler="senaite.lims.upgrade.v01_01_000.upgrade"
+      profile="senaite.lims:default"/>
+
+  <genericsetup:upgradeStep
+      title="Upgrade to SENAITE LIMS 1.0.0"
+      source="1000"
+      destination="1.0.0"
+      handler="senaite.lims.upgrade.v01_00_000.upgrade"
       profile="senaite.lims:default"/>
 
 </configure>

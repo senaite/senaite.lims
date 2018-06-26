@@ -7,6 +7,8 @@
 
 **Changed**
 
+- #71 Readme/About docs updated
+
 **Fixed**
 
 - #70 Fixed Tests

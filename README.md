@@ -3,17 +3,26 @@
   <h1>
     <a href="https://github.com/senaite/senaite.lims">
       <div>
-        <img src="static/logo.png" alt="senaite.lims" />
+        <img src="static/senaite-logo.png" alt="senaite.lims" height="64" />
       </div>
     </a>
   </h1>
-
-  <p>SENAITE LIMS - Professional Open Source LIMS</p>
+  <p>Responsive User Interface for SENAITE Core</p>
 
   <div>
-    <a href="https://travis-ci.org/senaite/senaite.lims">
-      <img src="https://img.shields.io/travis/senaite/senaite.lims.svg?style=flat-square" alt="travis-ci" />
+    <a href="https://pypi.python.org/pypi/senaite.lims">
+      <img src="https://img.shields.io/pypi/v/senaite.lims.svg?style=flat-square" alt="pypi-version" />
     </a>
+    <a href="https://github.com/senaite/senaite.lims/pulls">
+      <img src="https://img.shields.io/github/issues-pr/senaite/senaite.lims.svg?style=flat-square" alt="open PRs" />
+    </a>
+    <a href="https://github.com/senaite/senaite.lims/issues">
+      <img src="https://img.shields.io/github/issues/senaite/senaite.lims.svg?style=flat-square" alt="open Issues" />
+    </a>
+    <a href="#">
+      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="pr" />
+    </a>
+  </div>
     <a href="docs/Contributing.rst">
       <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="travis-ci" />
     </a>
@@ -23,7 +32,7 @@
 
 ## What does SENAITE mean?
 
-[SENAITE](http://senaite.com) is a beautiful trigonal, oil-green to greenish
+[SENAITE](https://www.senaite.com) is a beautiful trigonal, oil-green to greenish
 black [crystal](https://www.mindat.org/min-3617.html), with almost the hardness
 of a diamond. Although the crystal is described with a complex formula, it still
 has clear and straight shapes. Therefore, it reflects nicely the complexity of
@@ -34,23 +43,23 @@ the LIMS, while providing a modern, intuitive and friendly [UI](https://en.wikip
 ## What is this Project about?
 
 The primary goal of [SENAITE Project](https://github.com/senaite/senaite.lims) is to provide
-a complete new and modern way to interact with [SENAITE CORE](https://github.com/senaite/bika.lims).
+a complete new and modern way to interact with [SENAITE CORE](https://github.com/senaite/senaite.core).
 
-[SENAITE CORE](https://github.com/senaite/bika.lims) depends heavily on [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+[SENAITE CORE](https://github.com/senaite/senaite.core) depends heavily on [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 and most of the logic is custom built with [jQuery](https://jquery.com).
 
-While this is applicable for smaller projects, it becomes almost impossible to maintain it in larger projects.
-Therefore, [SENAITE](http://senaite.com) introduces modern JavaScript frameworks like
-[ReactJS](https://reactjs.org), [BackboneJS](http://backbonejs.org) or [AngularJS](https://angularjs.org)
-to provide a robust user interface which follows industry standards.
+While this is applicable for smaller projects, it becomes almost impossible to
+maintain it in larger projects. Therefore, [SENAITE](https://www.senaite.com)
+introduces modern JavaScript frameworks to provide a robust user interface which
+follows industry standards.
 
-[SENAITE](http://senaite.com) ships with a complete [RESTful JSON API](https://github.com/senaite/senaite.jsonapi)
+[SENAITE](https://www.senaite.com) ships with a complete [RESTful JSON API](https://github.com/senaite/senaite.jsonapi)
 built on [plone.jsonapi.routes](http://plonejsonapiroutes.readthedocs.io/en/latest), which serves as the main communication interface
-between [SENAITE CORE](https://github.com/senaite/bika.lims) and any kind of modern web framework.
+between [SENAITE CORE](https://github.com/senaite/senaite.core) and any kind of modern web framework.
 
 This makes great web applications like the [Spotlight Search](http://www.ridingbytes.com/de/portfolio/bika-spotlight-search/#content)
 or the [Plone Commander](http://www.ridingbytes.com/de/portfolio/plone-commander/#content) possible
-and allows frontend develpers to interface custom web application with [SENAITE CORE](https://github.com/senaite/bika.lims).
+and allows frontend develpers to interface custom web application with [SENAITE CORE](https://github.com/senaite/senaite.core).
 
 The User Interface of [SENAITE LIMS](https://github.com/senaite/senaite.lims) follows
 a mobile first approach and is built with [Twitter Bootstrap](http://getbootstrap.com).
@@ -59,16 +68,21 @@ This makes it also possible to easily to operate in the web interface with table
 
 ## Installation
 
-Before installing SENAITE LIMS or Plone, there are some system dependencies that must be installed.  They are listed below.
+Please follow the installations instructions for
+[Plone 4](https://docs.plone.org/4/en/manage/installing/index.html)
 
-For Debian or Ubuntu users:
+
+Before installing SENAITE LIMS or Plone, there are some system dependencies that
+must be installed. They are listed below.
+
+Debian/Ubuntu:
 
     sudo apt-get install build-essential gcc python-dev git-core libffi-dev
     sudo apt-get install libpcre3 libpcre3-dev autoconf libtool pkg-config
     sudo apt-get install zlib1g-dev libssl-dev libexpat1-dev libxslt1.1
     sudo apt-get install gnuplot libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0
 
-For Fedora:
+Fedora:
 
     sudo dnf install make automake-1.15-1.fc22.noarch gcc gcc-c++-5.3.1-2.fc22.x86_64
     sudo dnf install kernel-devel-4.3.4-200.fc22.x86_64 gdk-pixbuf2-devel-2.31.6-1.fc22.x86_64
@@ -80,19 +94,73 @@ For Fedora:
     sudo dnf install libxslt-devel-1.1.28-8.fc22.x86_64 gnuplot-5.0.0-8.fc22.x86_64
     sudo dnf install cairo-devel-1.14.2-1.fc22.x86_64 pango-devel-1.36.8-6.fc22.x86_64
 
-Please follow these steps to install Plone:
-https://docs.plone.org/4/en/manage/installing/index.html
 
+To install SENAITE LIMS, you have to add `senaite.lims` into the `eggs`
+list inside the `[buildout]` section of your `buildout.cfg`:
 
-To install SENAITE LIMS, you simply have to add `senaite.lims` into the `eggs` section
-of your `buildout.cfg`:
-
+    [buildout]
+    parts =
+        instance
+    extends =
+        http://dist.plone.org/release/4.3.17/versions.cfg
+    find-links =
+        http://dist.plone.org/release/4.3.17
+        http://dist.plone.org/thirdparty
     eggs =
-      ...
-      senaite.lims
+        Plone
+        Pillow
+        senaite.lims
+    zcml =
+    eggs-directory = ${buildout:directory}/eggs
+
+    [instance]
+    recipe = plone.recipe.zope2instance
+    user = admin:admin
+    http-address = 0.0.0.0:8080
+    eggs =
+        ${buildout:eggs}
+    zcml =
+        ${buildout:zcml}
+
+    [versions]
+    setuptools =
+    zc.buildout =
+
+    
+**Note**
+
+The above example works for the buildout created by the unified installer. If
+you however have a custom buildout you might need to add the egg to the `eggs`
+list in the `[instance]` section rather than adding it in the `[buildout]`
+section.
 
 Also see this section of the Plone documentation for further details:
 https://docs.plone.org/4/en/manage/installing/installing_addons.html
+
+
+**Important**
+
+For the changes to take effect you need to re-run buildout from your console:
+
+    bin/buildout
+
+
+### Installation Requirements
+
+The following versions are required for SENAITE LIMS:
+
+- Plone >= 4.3.17
+- senaite.core >= 1.2.6
+- senaite.api >= 1.2.3
+- senaite.jsonapi
+
+Please follow these steps to install Plone:
+https://docs.plone.org/4/en/manage/installing/index.html
+
+---
+**IMPORTANT:** SENAITE is **not** yet compatible with Plone 5.x.x versions
+
+---
 
 ---
 **NOTE:** To install the latest version from the sources, follow the instructions in the
@@ -111,67 +179,16 @@ It is recommended that you use
 a [Virtualenv](https://virtualenv.pypa.io/en/stable) before preparing the
 environment with the following commands:
 
-```
-git clone https://github.com/senaite/senaite.lims.git
-cd senaite.lims
-python bootstrap.py
-bin/buildout
-bin/instance fg
-```
+    git clone https://github.com/senaite/senaite.lims.git
+    cd senaite.lims
+    python bootstrap.py
+    bin/buildout
+    bin/instance fg
 
 
 ## License
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fsenaite%2Fsenaite.lims.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fsenaite%2Fsenaite.lims?ref=badge_large)
-
-<h2 align="center">Core Team</h2>
-
-<table>
-  <tbody>
-    <tr>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/rockfruit.png?s=150">
-        <br>
-        <a href="https://github.com/rockfruit">Campbell McKellar Basset</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/xispa.png?s=150">
-        <br>
-        <a href="https://github.com/xispa">Jordi Puiggené</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/ramonski.png?s=150">
-        <br>
-        <a href="https://github.com/ramonski">Ramon Bartl</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/Espurna.png?s=150">
-        <br>
-        <a href="https://github.com/Espurna">Pau Soliva</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/juangallostra.png?s=150">
-        <br>
-        <a href="https://github.com/juangallostra">Juan Gallostra Acín</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/Nihadness.png?s=150">
-        <br>
-        <a href="https://github.com/Nihadness">Nihad M.</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/mikejmets.png?s=150">
-        <br>
-        <a href="https://github.com/mikejmets">Mike Metcalfe</a>
-      </td>
-      <td align="center" valign="top">
-        <img width="150" src="https://github.com/Lunga001.png?s=150">
-        <br>
-        <a href="https://github.com/Lunga001">Lunga Baliwe</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
 
 **We want contributing to SENAITE LIMS to be fun, enjoyable, and educational for

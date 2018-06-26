@@ -23,10 +23,6 @@
       <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="pr" />
     </a>
   </div>
-    <a href="docs/Contributing.rst">
-      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="travis-ci" />
-    </a>
-  </div>
 </div>
 
 

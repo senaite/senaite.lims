@@ -5,65 +5,50 @@
 # Copyright 2018 by it's authors.
 # Some rights reserved. See LICENSE and CONTRIBUTING.
 
-from zope import component
-
-from plone.portlets.interfaces import IPortletType
-
 from senaite.lims import logger
 
 
-def setupHandler(context):
-    """SENAITE setup handler
+def setup_handler(context):
+    """Generic setup handler
     """
 
     if context.readDataFile('senaite.lims.txt') is None:
         return
 
     logger.info("SENAITE setup handler [BEGIN]")
-
     portal = context.getSite()  # noqa
-
-    # Run Installers
-    setup_left_portlet_column(portal)
-    setup_right_portlet_column(portal)
-
     logger.info("SENAITE setup handler [DONE]")
 
 
-def setup_left_portlet_column(portal):
-    """Setup left column portlets
+def post_install(portal_setup):
+    """Runs after the last import step of the *default* profile
+
+    This handler is registered as a *post_handler* in the generic setup profile
+
+    :param portal_setup: SetupTool
     """
-    logger.info("********** Setup left portlet columns")
-    mapping = portal.restrictedTraverse('++contextportlets++plone.leftcolumn')
+    logger.info("SENAITE LIMS install handler [BEGIN]")
 
-    # delete all portlets on the left
-    for key in mapping.keys():
-        del mapping[key]
+    # https://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py
+    profile_id = "profile-senaite.impress:default"
+    context = portal_setup._getImportContext(profile_id)
+    portal = context.getSite()  # noqa
 
-    # create a new navigation portlet
-    navigation_portlet = component.getUtility(IPortletType, name='portlets.Navigation')
-    addview = mapping.restrictedTraverse('+/' + navigation_portlet.addview)
-    data = dict(name=u"Navigation",
-                root=None,
-                currentFolderOnly=False,
-                includeTop=False,
-                topLevel=0,
-                bottomLevel=0)
-    addview.createAndAdd(data)
-
-    # make the navigation portlet the first portlet
-    order = list(mapping.keys())
-    order.insert(0, order.pop())
-    logger.info("********** Changed portlet order from %s to %s" % (repr(list(mapping.keys())), repr(order)))
-    mapping.updateOrder(order)
+    logger.info("SENAITE LIMS install handler [DONE]")
 
 
-def setup_right_portlet_column(portal):
-    """Setup right column portlets
+def post_uninstall(portal_setup):
+    """Runs after the last import step of the *uninstall* profile
+
+    This handler is registered as a *post_handler* in the generic setup profile
+
+    :param portal_setup: SetupTool
     """
-    logger.info("********** Setup right portlet columns")
-    mapping = portal.restrictedTraverse('++contextportlets++plone.rightcolumn')
+    logger.info("SENAITE LIMS uninstall handler [BEGIN]")
 
-    for key in ['news', 'events', 'Calendar']:
-        if key in mapping:
-            del mapping[key]
+    # https://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py
+    profile_id = "profile-senaite.lims:uninstall"
+    context = portal_setup._getImportContext(profile_id)
+    portal = context.getSite()  # noqa
+
+    logger.info("SENAITE LIMS uninstall handler [DONE]")

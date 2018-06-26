@@ -1,4 +1,5 @@
+<?xml version="1.0"?>
 <layers>
   <layer name="senaite"
-         interface="senaite.lims.interfaces.ISenaiteLIMS" />
+         interface="senaite.lims.interfaces.ISenaiteLIMS"/>
 </layers>

@@ -4,7 +4,8 @@
         meta_type="Plone Actions Tool"
         purge="False">
 
-  <object name="portal_tabs" meta_type="CMF Action Category" purge="False">
+  <!-- Portal Tabs (Global Sections) -->
+  <object name="portal_tabs">
     <object name="spotlight_search" meta_type="CMF Action" i18n:domain="plone">
       <property name="title" i18n:translate="">Search</property>
       <property name="description" i18n:translate=""/>
@@ -16,6 +17,44 @@
         <element value="View"/>
       </property>
       <property name="visible">True</property>
+    </object>
+  </object>
+
+  <!-- Folder Buttons -->
+  <object name="folder_buttons">
+    <object name="copy">
+      <property name="visible">False</property>
+    </object>
+    <object name="cut">
+      <property name="visible">False</property>
+    </object>
+    <object name="paste">
+      <property name="visible">False</property>
+    </object>
+    <object name="delete">
+      <property name="visible">False</property>
+    </object>
+    <object name="rename">
+      <property name="visible">False</property>
+    </object>
+  </object>
+
+  <!-- Object Buttons -->
+  <object name="object_buttons">
+    <object name="copy">
+      <property name="visible">False</property>
+    </object>
+    <object name="cut">
+      <property name="visible">False</property>
+    </object>
+    <object name="paste">
+      <property name="visible">False</property>
+    </object>
+    <object name="delete">
+      <property name="visible">False</property>
+    </object>
+    <object name="rename">
+      <property name="visible">False</property>
     </object>
   </object>
 

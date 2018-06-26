@@ -2,12 +2,12 @@
 <object>
 
   <!-- Hidden vielets in plone.portalheader -->
-  <hidden manager="plone.portalheader" skinname="Plone Default" purge="True">
+  <hidden manager="plone.portalheader" skinname="*" purge="True">
     <viewlet name="plone.searchbox"/>
   </hidden>
 
   <!-- Order vielets in plone.portalheader -->
- <order manager="plone.portalheader" skinname="Sunburst Theme" purge="True">
+ <order manager="plone.portalheader" skinname="*" purge="True">
   <viewlet name="plone.skip_links"/>
   <viewlet name="plone.personal_bar"/>
   <viewlet name="senaite.sections_dropdown"/>
@@ -18,7 +18,7 @@
  </order>
 
   <!-- Hidden vielets in plone.portalfooter -->
-  <hidden manager="plone.portalfooter" skinname="Plone Default" purge="True">
+  <hidden manager="plone.portalfooter" skinname="*" purge="True">
     <viewlet name="plone.site_actions"/>
   </hidden>
 

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<layers>
+  <!-- Remove Browser Layer -->
+  <layer name="senaite"
+         interface="senaite.lims.interfaces.ISenaiteLIMS"
+         remove="True"/>
+</layers>

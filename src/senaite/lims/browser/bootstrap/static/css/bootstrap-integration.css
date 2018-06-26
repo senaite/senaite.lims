@@ -305,6 +305,8 @@ div.bika-listing-table-top-hooks div.listing-hook-top-wide {
 #portal-logo img {
     display: block;
     margin-top: 20px;
+    width: 200px;
+    height: auto;
 }
 .topbar-nav {
     margin-top: 20px;

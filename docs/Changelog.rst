@@ -9,6 +9,7 @@
 
 **Fixed**
 
+- #70 Fixed Tests
 - #67 Add buttons from SENAITE HEALTH's Add AR form visible when SENAITE LIMS is active  
 - #69 Bootstrap fixtures
 

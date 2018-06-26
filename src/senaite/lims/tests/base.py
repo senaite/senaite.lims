@@ -19,13 +19,13 @@ from plone.app.testing import FunctionalTesting
 from plone.app.testing import login
 from plone.app.testing import logout
 
-from bika.lims.testing import BIKA_LIMS_FUNCTIONAL_TESTING
+from bika.lims.testing import BASE_TESTING
 
 
 class SimpleTestLayer(PloneSandboxLayer):
     """Setup Plone with installed AddOn only
     """
-    defaultBases = (BIKA_LIMS_FUNCTIONAL_TESTING, PLONE_FIXTURE,)
+    defaultBases = (BASE_TESTING, PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         super(SimpleTestLayer, self).setUpZope(app, configurationContext)

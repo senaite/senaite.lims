@@ -14,6 +14,7 @@
   <authenticated_users_only value="False"/>
   <supported_langs>
     <element value="en"/>
+    <element value="es"/>
     <element value="de"/>
   </supported_langs>
 </object>

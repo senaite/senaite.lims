@@ -30,11 +30,16 @@
           <a tal:attributes="href python:use_remote_url and item_remote_url or item_url;
                              title node/Description;
                              class string:$item_class${li_class}${li_extr_class}${li_folder_class} $item_type_class">
-            <img tal:replace="structure item_icon/html_tag" />
-            <span tal:condition="not:item_icon">
-              <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
-            </span>
-            <span tal:replace="node/Title">Selected Item Title</span>
+            <tal:root tal:condition="python: level==1">
+              <img tal:replace="structure item_icon/html_tag" />
+              <span tal:condition="not:item_icon">
+                <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
+              </span>
+              <span tal:replace="node/Title">Selected Item Title</span>
+            </tal:root>
+            <tal:children tal:condition="python: level>1">
+              <span tal:replace="node/Title">Selected Item Title</span>
+            </tal:children>
           </a>
 
           <tal:children condition="has_children">

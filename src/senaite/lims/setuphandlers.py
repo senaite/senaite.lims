@@ -30,7 +30,7 @@ def post_install(portal_setup):
     logger.info("SENAITE LIMS install handler [BEGIN]")
 
     # https://docs.plone.org/develop/addons/components/genericsetup.html#custom-installer-code-setuphandlers-py
-    profile_id = "profile-senaite.impress:default"
+    profile_id = "profile-senaite.lims:default"
     context = portal_setup._getImportContext(profile_id)
     portal = context.getSite()  # noqa
 

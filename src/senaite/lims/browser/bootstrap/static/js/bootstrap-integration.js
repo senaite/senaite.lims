@@ -35,6 +35,8 @@
       $("a.link-parent").addClass("btn btn-link");
       $("button").addClass("btn btn-default");
       $("input[type='submit']").addClass("btn btn-default");
+      $("#plone-contentmenu-factories").remove();
+      $("#plone-contentmenu-display").remove();
       return this;
     }
 

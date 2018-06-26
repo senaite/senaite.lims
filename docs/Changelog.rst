@@ -1,3 +1,19 @@
+1.2.1 (unreleased)
+------------------
+
+**Added**
+
+**Removed**
+
+**Changed**
+
+**Fixed**
+
+- #69 Bootstrap fixtures
+
+**Security**
+
+
 1.2.0 (2018-01-03)
 ------------------
 

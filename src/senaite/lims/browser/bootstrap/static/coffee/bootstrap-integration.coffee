@@ -50,7 +50,6 @@ class Bootstrap
     $("a#setup-link").addClass "btn btn-link"
     $("a.link-parent").addClass "btn btn-link"
 
-    $("fieldset").addClass "panel"
     $("button").addClass "btn btn-default"
     $("input[type='submit']").addClass "btn btn-default"
 
@@ -115,6 +114,7 @@ class Bootstrap
     $el.find(".filter-search-input").addClass "input-sm"
     $el.find("td.batching").addClass "text-right"
     $el.find("a.bika_listing_show_more").addClass "btn btn-default btn-sm"
+    $el.find("select").removeClass "input-sm"
 
 
   fix_listing_table_tooltip: (el) ->
@@ -203,9 +203,31 @@ class Bootstrap
       console.error "Element is not a results interpretation container"
       return
 
-    $el.addClass "panel"
     $el.find("ul").addClass("nav nav-tabs")
     @activate_form_tabbing $el
+
+
+  fix_remarks_field: (el) ->
+    console.debug "Bootstrap::fix_remarks_field"
+
+    $el = $(el)
+
+    if $el.attr("id") isnt "archetypes-fieldname-Remarks"
+      console.error "Element is not a remarks field"
+      return
+
+    $el.css "padding-top", "2em"
+    $el.find("fieldset legend").css "margin", "0 0 0 0"
+    $el.find("fieldset legend").css "padding", "1em 0 0 0"
+    # Remarks text
+    remarks = $el.find "fieldset span"
+    remarks.find("br").remove()
+    remarks.addClass "text-danger"
+    remarks.css "font-size", "100%"
+    remarks.css "font-weight", "bold"
+    remarks.html (index, html) ->
+      html.replace /===/g, "<br/>☞"
+
 
 
   fix_manage_viewlets: (el) ->
@@ -229,6 +251,10 @@ class Bootstrap
     $el = $(el)
     if not $el.is "ul"
       console.error "Element is not a list element"
+      return
+
+    # skip dropdown menus
+    if $el.hasClass "dropdown-menu"
       return
 
     # Convert form-tabs to navigation pills
@@ -280,6 +306,12 @@ $(document).ready ->
   # some on-the-fly modificaitons on dynamically created elements
   $(document).on "onCreate", (event, el) ->
     $el = $(el)
+
+    if $el.text().startsWith "==="
+      remarks = $el.closest "#archetypes-fieldname-Remarks"
+      if remarks.length > 0
+        bs.fix_remarks_field remarks
+
     if $el.hasClass "tooltip"
       bs.fix_listing_table_tooltip el
 
@@ -317,6 +349,10 @@ $(document).ready ->
   $("div.arresultsinterpretation-container").each ->
     bs.fix_results_interpretation this
 
+  # Fix remarks field
+  $("#archetypes-fieldname-Remarks").each ->
+    bs.fix_remarks_field this
+
   # Fix all form tabs
   $("ul.formTabs").each ->
     bs.fix_form_tabs this
@@ -347,4 +383,3 @@ $(document).ready ->
       $("body").removeClass "loading"
       $(".modal").hide()
       return
-

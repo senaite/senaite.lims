@@ -33,7 +33,6 @@
       $(".portletItem ul.configlets").addClass("nav");
       $("a#setup-link").addClass("btn btn-link");
       $("a.link-parent").addClass("btn btn-link");
-      $("fieldset").addClass("panel");
       $("button").addClass("btn btn-default");
       $("input[type='submit']").addClass("btn btn-default");
       return this;
@@ -89,7 +88,8 @@
       $el.find("td.filter").addClass("text-right");
       $el.find(".filter-search-input").addClass("input-sm");
       $el.find("td.batching").addClass("text-right");
-      return $el.find("a.bika_listing_show_more").addClass("btn btn-default btn-sm");
+      $el.find("a.bika_listing_show_more").addClass("btn btn-default btn-sm");
+      return $el.find("select").removeClass("input-sm");
     };
 
     Bootstrap.prototype.fix_listing_table_tooltip = function(el) {
@@ -174,9 +174,29 @@
         console.error("Element is not a results interpretation container");
         return;
       }
-      $el.addClass("panel");
       $el.find("ul").addClass("nav nav-tabs");
       return this.activate_form_tabbing($el);
+    };
+
+    Bootstrap.prototype.fix_remarks_field = function(el) {
+      var $el, remarks;
+      console.debug("Bootstrap::fix_remarks_field");
+      $el = $(el);
+      if ($el.attr("id") !== "archetypes-fieldname-Remarks") {
+        console.error("Element is not a remarks field");
+        return;
+      }
+      $el.css("padding-top", "2em");
+      $el.find("fieldset legend").css("margin", "0 0 0 0");
+      $el.find("fieldset legend").css("padding", "1em 0 0 0");
+      remarks = $el.find("fieldset span");
+      remarks.find("br").remove();
+      remarks.addClass("text-danger");
+      remarks.css("font-size", "100%");
+      remarks.css("font-weight", "bold");
+      return remarks.html(function(index, html) {
+        return html.replace(/===/g, "<br/>☞");
+      });
     };
 
     Bootstrap.prototype.fix_manage_viewlets = function(el) {
@@ -200,6 +220,9 @@
       $el = $(el);
       if (!$el.is("ul")) {
         console.error("Element is not a list element");
+        return;
+      }
+      if ($el.hasClass("dropdown-menu")) {
         return;
       }
       $el.addClass("nav nav-tabs");
@@ -244,8 +267,14 @@
       subtree: true
     });
     $(document).on("onCreate", function(event, el) {
-      var $el, table;
+      var $el, remarks, table;
       $el = $(el);
+      if ($el.text().startsWith("===")) {
+        remarks = $el.closest("#archetypes-fieldname-Remarks");
+        if (remarks.length > 0) {
+          bs.fix_remarks_field(remarks);
+        }
+      }
       if ($el.hasClass("tooltip")) {
         bs.fix_listing_table_tooltip(el);
       }
@@ -277,6 +306,9 @@
     });
     $("div.arresultsinterpretation-container").each(function() {
       return bs.fix_results_interpretation(this);
+    });
+    $("#archetypes-fieldname-Remarks").each(function() {
+      return bs.fix_remarks_field(this);
     });
     $("ul.formTabs").each(function() {
       return bs.fix_form_tabs(this);

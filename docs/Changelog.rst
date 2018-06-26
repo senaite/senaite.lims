@@ -9,6 +9,7 @@
 
 **Changed**
 
+- #74 Updated Logo for Retina Displays
 - #71 Readme/About docs updated
 
 **Fixed**

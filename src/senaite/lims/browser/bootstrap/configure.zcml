@@ -67,6 +67,14 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
+  <!-- Sections Dropdown -->
+  <browser:viewlet
+      name="senaite.sections_dropdown"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SenaiteSectionsDropdownViewlet"
+      permission="zope2.View"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
   <!-- Content views (tabs) -->
   <browser:viewlet
       name="plone.contentviews"

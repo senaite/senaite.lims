@@ -349,9 +349,7 @@ div.bika-listing-table-top-hooks div.listing-hook-top-wide {
 .sidebar-nav .submenu li a {
     color: #777;
 }
-.sidebar-nav li.expanded>a:after {
-    content: "▼";
-    font-size: 50%;
+.sidebar-nav li.expanded {
 }
 .sidebar-nav .nav-level-1 li a {
     padding-left: 30px;

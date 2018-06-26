@@ -1,3 +1,6 @@
+<hr/>
+
+<tal:hidden condition="python:False">
 <nav class="topbar-nav navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,3 +56,4 @@
 
   </div>
 </nav>
+</tal:hidden>

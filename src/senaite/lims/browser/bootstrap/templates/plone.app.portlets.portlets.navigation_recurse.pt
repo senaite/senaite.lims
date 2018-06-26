@@ -38,6 +38,7 @@
               <span tal:replace="node/Title">Selected Item Title</span>
             </tal:root>
             <tal:children tal:condition="python: level>1">
+              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
               <span tal:replace="node/Title">Selected Item Title</span>
             </tal:children>
           </a>

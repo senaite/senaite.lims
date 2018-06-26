@@ -5,6 +5,8 @@
 
 **Removed**
 
+- #73 Removed "Add" and "Display" menus
+
 **Changed**
 
 - #71 Readme/About docs updated

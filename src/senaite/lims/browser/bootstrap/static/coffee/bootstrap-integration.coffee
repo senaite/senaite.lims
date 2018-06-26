@@ -53,6 +53,11 @@ class Bootstrap
     $("button").addClass "btn btn-default"
     $("input[type='submit']").addClass "btn btn-default"
 
+    # Remove the "Add" menu
+    $("#plone-contentmenu-factories").remove()
+    # Remove the "Display" menu
+    $("#plone-contentmenu-display").remove()
+
     return @
 
 

@@ -50,7 +50,7 @@ class Bootstrap
     $("a#setup-link").addClass "btn btn-link"
     $("a.link-parent").addClass "btn btn-link"
 
-    $("button").addClass "btn btn-default"
+    $("button").not(".navbar-toggle").addClass "btn btn-default"
     $("input[type='submit']").addClass "btn btn-default"
 
     # Remove the "Add" menu

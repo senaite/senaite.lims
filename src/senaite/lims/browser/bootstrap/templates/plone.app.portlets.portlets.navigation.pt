@@ -8,13 +8,15 @@
                 class="navbar-toggle"
                 data-toggle="collapse"
                 data-target=".sidebar-navbar-collapse">
-          <span class="sr-only" i18n:translate>Toggle navigation</span>
+          <span class="sr-only" i18n:translate="">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
         <span class="visible-xs navbar-brand"
-              i18n:translate=""></span>
+              i18n:translate="">
+          SENAITE
+        </span>
       </div>
 
       <div class="navbar-collapse collapse sidebar-navbar-collapse">

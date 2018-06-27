@@ -33,7 +33,7 @@
       $(".portletItem ul.configlets").addClass("nav");
       $("a#setup-link").addClass("btn btn-link");
       $("a.link-parent").addClass("btn btn-link");
-      $("button").addClass("btn btn-default");
+      $("button").not(".navbar-toggle").addClass("btn btn-default");
       $("input[type='submit']").addClass("btn btn-default");
       $("#plone-contentmenu-factories").remove();
       $("#plone-contentmenu-display").remove();

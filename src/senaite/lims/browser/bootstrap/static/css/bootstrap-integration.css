@@ -384,6 +384,9 @@ div.bika-listing-table-top-hooks div.listing-hook-top-wide {
 #cg-divHeader {
     height: 30px!important;
 }
+.cg-DivItem {
+    height: auto;
+}
 .cg-navTable .currentPage,
 .cg-navTable .recordXP {
     color: black!important;

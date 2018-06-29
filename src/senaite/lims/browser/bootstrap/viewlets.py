@@ -18,6 +18,7 @@ from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from plone.app.layout.viewlets.common import LogoViewlet
 from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
+from plone.app.layout.viewlets.common import SiteActionsViewlet
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.app.layout.viewlets.content import DocumentActionsViewlet
 from Products.CMFPlone.utils import safe_unicode
@@ -93,6 +94,11 @@ class SenaitePersonalNavBarViewlet(PersonalBarViewlet):
 class SenaiteContentViewsViewlet(ContentViewsViewlet):
     index = ViewPageTemplateFile(
         'templates/plone.app.layout.viewlets.contentviews.pt')
+
+
+class SenaiteSiteActionsViewlet(SiteActionsViewlet):
+    index = ViewPageTemplateFile(
+        "templates/plone.app.layout.viewlets.site_actions.pt")
 
 
 class SenaiteDocumentActionsViewlet(DocumentActionsViewlet):

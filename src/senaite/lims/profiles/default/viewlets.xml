@@ -19,7 +19,6 @@
 
   <!-- Hidden vielets in plone.portalfooter -->
   <hidden manager="plone.portalfooter" skinname="*" purge="True">
-    <viewlet name="plone.site_actions"/>
   </hidden>
 
 </object>

@@ -3,6 +3,8 @@
 
 **Added**
 
+- #75 Site-Actions Viewlet added to Portal footer
+
 **Removed**
 
 - #73 Removed "Add" and "Display" menus

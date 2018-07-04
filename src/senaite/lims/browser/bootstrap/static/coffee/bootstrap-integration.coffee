@@ -14,8 +14,6 @@ class Bootstrap
     # Remove default Bika spinner (Replaced with the modal spinner above)
     $("bika-spinner").remove()
 
-    # Remove inline styles in headlines
-    $("h1>span").not("h1#ar-header>span").attr "style", ""
     $("h1").next("p").addClass "text-info"
     $("div.documentDescription").addClass "text-info"
 

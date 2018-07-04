@@ -16,7 +16,6 @@
      */
     function Bootstrap() {
       $("bika-spinner").remove();
-      $("h1>span").not("h1#ar-header>span").attr("style", "");
       $("h1").next("p").addClass("text-info");
       $("div.documentDescription").addClass("text-info");
       $(".worksheet_add_controls").addClass("form-inline");

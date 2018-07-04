@@ -1,6 +1,6 @@
 <div id="ar-attachments"
      class="attachments"
-     i18n:domain="bika">
+     i18n:domain="senaite.core">
 
   <p>
     <button type="button"

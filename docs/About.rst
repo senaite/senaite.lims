@@ -3,7 +3,7 @@
    :height: 64 px
    :align: center
 
-- **SENAITE.LIMS**: Responsive User Interface for SENAITE Core**
+- **SENAITE.LIMS**: *Responsive User Interface for SENAITE Core*
 
 .. image:: https://img.shields.io/pypi/v/senaite.lims.svg?style=flat-square
    :target: https://pypi.python.org/pypi/senaite.lims

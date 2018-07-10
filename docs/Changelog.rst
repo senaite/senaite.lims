@@ -1,4 +1,4 @@
-1.2.1 (unreleased)
+1.2.1 (2018-07-10)
 ------------------
 
 **Added**
@@ -19,8 +19,6 @@
 - #70 Fixed Tests
 - #67 Add buttons from SENAITE HEALTH's Add AR form visible when SENAITE LIMS is active  
 - #69 Bootstrap fixtures
-
-**Security**
 
 
 1.2.0 (2018-01-03)
@@ -45,8 +43,6 @@
 
 - Added missing `attachments` CSS class to attachment templates
 
-**Security**
-
 
 1.1.0 (2017-10-03)
 ------------------
@@ -55,28 +51,12 @@
 
 - Spotlight search integration
 
-**Removed**
-
-**Changed**
-
-**Fixed**
-
-**Security**
-
 
 1.0.1 (2017-09-30)
 ------------------
 
-**Added**
-
-**Removed**
-
-**Changed**
-
 **Fixed**
 - Fixed broken release (missing MANIFEST.in)
-
-**Security**
 
 
 1.0.0 (2017-09-30)
@@ -86,11 +66,3 @@
 **Added**
 
 - First release
-
-**Removed**
-
-**Changed**
-
-**Fixed**
-
-**Security**

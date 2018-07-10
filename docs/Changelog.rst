@@ -1,3 +1,21 @@
+1.2.2 (unreleased)
+------------------
+
+**Added**
+
+
+**Removed**
+
+
+**Changed**
+
+
+**Fixed**
+
+
+**Security**
+
+
 1.2.1 (2018-07-10)
 ------------------
 
@@ -56,6 +74,7 @@
 ------------------
 
 **Fixed**
+
 - Fixed broken release (missing MANIFEST.in)
 
 

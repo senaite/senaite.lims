@@ -37,8 +37,7 @@
       directory="profiles/uninstall"
       description="SENAITE LIMS Add-on"
       post_handler="senaite.lims.setuphandlers.post_uninstall"
-      provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
+      provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
   <!-- Generic Setup *IMPORT STEP* -->
   <genericsetup:importStep

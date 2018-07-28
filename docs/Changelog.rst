@@ -12,6 +12,8 @@
 
 **Fixed**
 
+- #79 Fixed Unauthorized Error caused by Plone's safe_unlock JavaScript 
+
 
 **Security**
 

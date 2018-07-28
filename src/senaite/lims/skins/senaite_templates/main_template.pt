@@ -54,7 +54,9 @@
                       body_class python:plone_view.bodyClass(template, view);
                       classes python:bootstrapview.getColumnsClasses(view)"
           tal:attributes="class body_class;
-                          dir python:isRTL and 'rtl' or 'ltr'">
+                          dir python: isRTL and 'rtl' or 'ltr';
+                          data-portal-url portal_url;
+                          data-base-url context/absolute_url">
 
       <div id="visual-portal-wrapper" class="container-fluid">
         <div class="row">

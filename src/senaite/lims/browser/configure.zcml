@@ -5,10 +5,17 @@
 
   <!-- Package Includes -->
   <include package=".bootstrap"/>
+  <include package=".controlpanel"/>
   <include package=".fontawesome"/>
   <include package=".jquery"/>
   <include package=".backbone"/>
   <include package=".spotlight"/>
   <include package=".overwrites"/>
+
+  <!-- Register static directory for image files -->
+  <browser:resourceDirectory
+      name="senaite.lims.images"
+      directory="images"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
 </configure>

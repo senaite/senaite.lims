@@ -75,6 +75,17 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
+  <!-- Needed for bika.lims.ManageBika permission -->
+  <include package="bika.lims" file="permissions.zcml" />
+
+  <!-- Setup Button -->
+  <browser:viewlet
+      name="senaite.setup"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".viewlets.SenaiteSetupViewlet"
+      permission="bika.lims.ManageBika"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
   <!-- Content views (tabs) -->
   <browser:viewlet
       name="plone.contentviews"

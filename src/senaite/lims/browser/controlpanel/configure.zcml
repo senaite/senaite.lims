@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:browser="http://namespaces.zope.org/browser">
+
+  <!-- Needed for bika.lims.ManageBika permission -->
+  <include package="bika.lims" file="permissions.zcml" />
+
+  <browser:page
+      name="lims-controlpanel"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".views.LIMSControlPanel"
+      permission="bika.lims.ManageBika"
+      layer="senaite.lims.interfaces.ISenaiteLIMS" />
+      />
+
+</configure>

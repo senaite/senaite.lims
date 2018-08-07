@@ -3,6 +3,8 @@
 
 **Added**
 
+- #80 SENAITE Controlpanel View
+
 
 **Removed**
 

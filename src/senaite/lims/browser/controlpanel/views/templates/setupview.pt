@@ -6,7 +6,6 @@
       metal:use-macro="here/prefs_main_template/macros/master"
       i18n:domain="senaite.core">
 
-
   <head>
     <metal:block fill-slot="javascript_head_slot"
                  tal:define="portal context/@@plone_portal_state/portal;">
@@ -14,37 +13,8 @@
 
     <metal:block fill-slot="style_slot"
                  tal:define="portal context/@@plone_portal_state/portal;">
-      <style type="text/css">
-       #lims-controlpanel {
-       }
-       .tile {
-         width: 100%;
-         height: 7em;
-         box-sizing: border-box;
-         display: inline-block;
-         background: #d9edf7;
-         padding: 2em;
-         margin: auto auto 1em auto;
-         overflow: hidden;
-         vertical-align: middle;
-       }
-       .tile .title {
-         margin-top: 0px;
-         text-transform: uppercase;
-         font-weight: bold;
-         padding-left: 0.75em;
-         text-overflow: ellipsis;
-         overflow: hidden;
-       }
-       .tile .item {
-       }
-       .tile .icon {
-       }
-       .tile:hover {
-         background: #d9edff;
-         text-decoration: none;
-       }
-      </style>
+      <!-- Link in the Setup CSS -->
+      <link href="++resource++senaite.lims.controlpanel.static/css/setup.css" rel="stylesheet">
     </metal:block>
 
   </head>
@@ -69,18 +39,18 @@
 
         <!-- The setup item -->
         <tal:setup tal:define="setup python:view.setup">
-          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-            <a class="tile text-capitalized"
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <a class="tile setup text-capitalized"
                tal:attributes="href setup/absolute_url">
 
               <div class="row item">
-                <div class="col-xs-2">
+                <div class="col-xs-2 vcenter">
                   <img src="#"
                        class="icon"
                        tal:attributes="src python:view.get_icon_url(setup);
                                        title setup/Title"/>
                 </div>
-                <div class="col-xs-9">
+                <div class="col-xs-9 vcenter">
                   <div class="title"
                        i18n:translate=""
                        tal:content="setup/Title">
@@ -92,29 +62,30 @@
           </div>
         </tal:setup>
 
-        <tal:controlpanels tal:repeat="cp view/controlpanels">
-          <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+        <!-- The other setup items -->
+        <tal:tiles tal:repeat="brain view/setupitems">
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <a class="tile text-capitalized"
-               tal:attributes="href cp/getURL">
+               tal:attributes="href brain/getURL">
 
               <div class="row item">
-                <div class="col-xs-2">
+                <div class="col-xs-2 vcenter">
                   <img src="#"
                        class="icon"
-                       tal:attributes="src python:view.get_icon_url(cp);
-                                       title cp/Title"/>
+                       tal:attributes="src python:view.get_icon_url(brain);
+                                       title brain/Title"/>
                 </div>
-                <div class="col-xs-9">
+                <div class="col-xs-9 vcenter">
                   <div class="title"
                        i18n:translate=""
-                       tal:content="cp/Title">
+                       tal:content="brain/Title">
                     Setup Item Title
                   </div>
                 </div>
               </div>
             </a>
           </div>
-        </tal:controlpanels>
+        </tal:tiles>
       </div>
 
     </div>

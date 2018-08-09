@@ -24,7 +24,6 @@ from plone.app.layout.viewlets.content import DocumentActionsViewlet
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from senaite import api
 from zExceptions import NotFound
 from zope.component import getMultiAdapter
 from zope.publisher.interfaces.browser import IBrowserRequest
@@ -75,15 +74,6 @@ class SenaiteSectionsDropdownViewlet(GlobalSectionsViewlet):
         self.navigation_root_url = portal_state.navigation_root_url()
         self.portal_title = escape(
             safe_unicode(portal_state.navigation_root_title()))
-
-
-class SenaiteSetupViewlet(ViewletBase):
-    index = ViewPageTemplateFile(
-        'templates/senaite.lims.browser.bootstrap.viewlets.setup.pt')
-
-    def update(self):
-        super(SenaiteSetupViewlet, self).update()
-        self.setup_url = api.get_portal().absolute_url() + "/@@lims-controlpanel"
 
 
 class SenaitePathBarViewlet(PathBarViewlet):

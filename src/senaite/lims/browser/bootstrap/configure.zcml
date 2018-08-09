@@ -3,7 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:cmf="http://namespaces.zope.org/cmf"
-    i18n_domain="senaite">
+    i18n_domain="senaite.lims">
 
   <include package="plone.app.controlpanel" file="permissions.zcml" />
 
@@ -77,14 +77,6 @@
 
   <!-- Needed for bika.lims.ManageBika permission -->
   <include package="bika.lims" file="permissions.zcml" />
-
-  <!-- Setup Button -->
-  <browser:viewlet
-      name="senaite.setup"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaiteSetupViewlet"
-      permission="bika.lims.ManageBika"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
   <!-- Content views (tabs) -->
   <browser:viewlet

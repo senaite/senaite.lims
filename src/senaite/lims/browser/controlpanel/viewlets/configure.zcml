@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    i18n_domain="senaite.lims">
+
+  <include package="plone.app.controlpanel" file="permissions.zcml" />
+
+  <!-- Setup Button Viewlet -->
+  <browser:viewlet
+      name="senaite.setupbutton"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+      class=".setupbutton.SenaiteSetupButtonViewlet"
+      permission="bika.lims.ManageBika"
+      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+
+</configure>

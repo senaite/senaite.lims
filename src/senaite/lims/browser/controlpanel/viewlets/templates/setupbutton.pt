@@ -1,4 +1,5 @@
-<div id="senaite-setup"
+<!-- SENAITE Setup Button Viewlet -->
+<div id="senaite-setupbutton"
      class=" pull-right"
      style="padding-left: 1em;"
      i18n:domain="senaite.core">

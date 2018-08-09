@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite.lims">
+
+  <!-- Needed for bika.lims.ManageBika permission -->
+  <include package="bika.lims" file="permissions.zcml" />
+
+  <!-- SENAITE Setup View -->
+  <browser:page
+      name="lims-setup"
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      class=".setupview.SetupView"
+      permission="bika.lims.ManageBika"
+      layer="senaite.lims.interfaces.ISenaiteLIMS" />
+      />
+
+</configure>

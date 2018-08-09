@@ -1,0 +1,16 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="senaite.lims">
+
+  <!-- Package Includes -->
+  <include package=".views"/>
+  <include package=".viewlets"/>
+
+  <!-- Register static directory -->
+  <browser:resourceDirectory
+      name="senaite.lims.controlpanel.static"
+      directory="static"
+      layer="senaite.lims.interfaces.ISenaiteLIMS" />
+
+</configure>

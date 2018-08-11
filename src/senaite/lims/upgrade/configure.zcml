@@ -4,6 +4,13 @@
     i18n_domain="senaite.lims">
 
   <genericsetup:upgradeStep
+      title="Upgrade to SENAITE LIMS 1.2.3"
+      source="1.2.2"
+      destination="1.2.3"
+      handler="senaite.lims.upgrade.v01_02_003.upgrade"
+      profile="senaite.lims:default"/>
+
+  <genericsetup:upgradeStep
       title="Upgrade to SENAITE LIMS 1.2.2"
       source="1.2.1"
       destination="1.2.2"

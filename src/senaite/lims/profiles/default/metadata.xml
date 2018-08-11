@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1.2.2</version>
+  <version>1.2.3</version>
   <dependencies>
     <dependency>profile-senaite.lims:default</dependency>
   </dependencies>

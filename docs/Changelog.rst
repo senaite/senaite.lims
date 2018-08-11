@@ -1,23 +1,13 @@
-1.2.2 (unreleased)
+1.2.2 (2018-08-11)
 ------------------
 
 **Added**
 
 - #80 SENAITE Controlpanel View
 
-
-**Removed**
-
-
-**Changed**
-
-
 **Fixed**
 
 - #79 Fixed Unauthorized Error caused by Plone's safe_unlock JavaScript 
-
-
-**Security**
 
 
 1.2.1 (2018-07-10)
@@ -84,7 +74,6 @@
 
 1.0.0 (2017-09-30)
 ------------------
-
 
 **Added**
 

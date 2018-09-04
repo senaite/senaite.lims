@@ -3,6 +3,8 @@
 
 **Added**
 
+- #82 Support for searches against Analysis Requests catalog
+
 **Removed**
 
 **Changed**

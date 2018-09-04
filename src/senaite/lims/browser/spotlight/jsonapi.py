@@ -5,6 +5,8 @@
 # Copyright 2018 by it's authors.
 # Some rights reserved. See LICENSE and CONTRIBUTING.
 
+from bika.lims.catalog.analysisrequest_catalog import \
+    CATALOG_ANALYSIS_REQUEST_LISTING
 from senaite import api
 from senaite.jsonapi import add_route
 
@@ -14,6 +16,7 @@ def spotlight_search_route(context, request):
     """The spotlight search route
     """
     catalogs = [
+        CATALOG_ANALYSIS_REQUEST_LISTING,
         "portal_catalog",
         "bika_setup_catalog",
         "bika_catalog",

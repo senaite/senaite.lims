@@ -206,6 +206,7 @@
 
       SearchView.prototype.events = {
         "keyup #spotlight-search-field": "onKeyup",
+        "keypress #spotlight-search-field": "onKeyup",
         "click #spotlight-clear-button": "onClear"
       };
 

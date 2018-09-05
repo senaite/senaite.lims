@@ -11,6 +11,8 @@
 
 **Fixed**
 
+- #84: Fix Spotlight form submission on enter keypress
+
 **Security**
 
 

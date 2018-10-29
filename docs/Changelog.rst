@@ -9,6 +9,8 @@
 
 **Changed**
 
+- #86 Do not display setup items with exclude_from_nav setting set to True
+
 **Fixed**
 
 - #85: Fix logo link spanning over the whole header 

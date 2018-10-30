@@ -79,4 +79,6 @@ class SetupView(BrowserView):
             "sort_on": "sortable_title",
             "sort_order": "ascending"
         }
-        return api.search(query, "portal_catalog")
+        items = api.search(query, "portal_catalog")
+        return filter(lambda item: not item.exclude_from_nav, items)
+

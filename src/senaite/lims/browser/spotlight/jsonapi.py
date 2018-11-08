@@ -49,7 +49,6 @@ def get_brain_info(brain):
 
     id = api.get_id(brain)
     url = api.get_url(brain)
-    path = api.get_path(brain)
     title = api.get_title(brain)
     description = api.get_description(brain)
     parent = api.get_parent(brain)
@@ -61,7 +60,6 @@ def get_brain_info(brain):
         "title": title,
         "title_or_id": title or id,
         "description": description,
-        "path": path,
         "url": url,
         "parent_title": parent_title,
         "parent_url": parent_url,

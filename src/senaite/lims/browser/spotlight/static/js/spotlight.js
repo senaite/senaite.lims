@@ -106,7 +106,6 @@
         title: "",
         url: "",
         icon: "",
-        state: "",
         title_or_id: "",
         parent_title: "",
         parent_url: ""

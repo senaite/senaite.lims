@@ -4,45 +4,38 @@
        style="padding-left: 1em;"
        i18n:domain="plone">
 
+    <!-- Language Button -->
     <button class="btn btn-default dropdown-toggle"
             type="button"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false">
       <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-      <span tal:omit-tag="" i18n:translate="">Language</span>
       <span class="caret"></span>
     </button>
 
+    <!-- Available Languages -->
     <ul class="dropdown-menu"
         role="menu"
         aria-labelledby="portal-languageselector"
-        tal:define="showFlags view/showFlags;
-            languages view/languages;
-            here_url context/@@plone_context_state/view_url;
-            portal_url view/portal_url;">
-
+        tal:define="languages view/languages;
+                    base_url context/@@plone_context_state/current_base_url;">
       <tal:language repeat="lang languages">
         <li tal:define="code lang/code;
+                        qs request/QUERY_STRING;
+                        params python:filter(lambda x: x and not x.startswith('set_language'), qs.split('&'));
+                        lang_param string:set_language=${code};
+                        new_params python:'&'.join(params + [lang_param]);
                         selected lang/selected;
                         codeclass string:language-${code};
-                        current python: selected and 'currentLanguage ' or '';"
+                        current python: selected and 'currentLanguage active ' or '';"
             tal:attributes="class string:${current}${codeclass}">
-          <a href=""
-              tal:define="flag lang/flag|nothing;
-                          name lang/native|lang/name;
-                          showflag python:showFlags and flag;"
-              tal:attributes="href string:${here_url}/switchLanguage?set_language=${code};
-                              title name">
-            <tal:flag condition="showflag">
-              <img width="14" height="11" alt=""
-                    tal:attributes="src string:${portal_url}${flag};
-                                    alt name;
-                                    title name;" />
-            </tal:flag>
-            <tal:nonflag condition="not: showflag" replace="name">
-              language name
-            </tal:nonflag>
+          <a href="#"
+             tal:define="name lang/native|lang/name;"
+             tal:attributes="href string:${base_url}?${new_params};
+                             class string:${current} dropdown-item;
+                             title name">
+            <span tal:content="name"/>
           </a>
         </li>
       </tal:language>

@@ -9,6 +9,7 @@
 
 **Changed**
 
+- #88 Refactored spotlight backend and added more columns to results table
 - #87 Stay on current context when switching the language
 - #86 Do not display setup items with exclude_from_nav setting set to True
 

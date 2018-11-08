@@ -107,7 +107,9 @@
         url: "",
         icon: "",
         state: "",
-        title_or_id: ""
+        title_or_id: "",
+        parent_title: "",
+        parent_url: ""
       };
 
       return SearchResult;
@@ -296,7 +298,7 @@
         url = "@@API/spotlight/search";
         q = {
           q: query,
-          limit: 10
+          limit: 5
         };
         return $.getJSON(url, q, (function(_this) {
           return function(data) {

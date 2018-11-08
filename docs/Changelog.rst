@@ -9,11 +9,12 @@
 
 **Changed**
 
+- #87 Stay on current context when switching the language
 - #86 Do not display setup items with exclude_from_nav setting set to True
 
 **Fixed**
 
-- #85: Fix logo link spanning over the whole header 
+- #85: Fix logo link spanning over the whole header
 - #84: Fix Spotlight form submission on enter keypress
 
 **Security**
@@ -28,7 +29,7 @@
 
 **Fixed**
 
-- #79 Fixed Unauthorized Error caused by Plone's safe_unlock JavaScript 
+- #79 Fixed Unauthorized Error caused by Plone's safe_unlock JavaScript
 
 
 1.2.1 (2018-07-10)
@@ -50,7 +51,7 @@
 **Fixed**
 
 - #70 Fixed Tests
-- #67 Add buttons from SENAITE HEALTH's Add AR form visible when SENAITE LIMS is active  
+- #67 Add buttons from SENAITE HEALTH's Add AR form visible when SENAITE LIMS is active
 - #69 Bootstrap fixtures
 
 

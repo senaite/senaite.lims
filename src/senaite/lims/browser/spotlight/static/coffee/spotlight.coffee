@@ -78,6 +78,8 @@ $(document).ready ->
       icon: ""
       state: ""
       title_or_id: ""
+      parent_title: ""
+      parent_url: ""
 
   # Collection of search results
   class SearchResults extends Backbone.Collection
@@ -230,7 +232,7 @@ $(document).ready ->
       url = "@@API/spotlight/search"
 
       # prepare  the query
-      q = q: query, limit: 10
+      q = q: query, limit: 5
 
       # execute the search
       $.getJSON url, q, (data) =>

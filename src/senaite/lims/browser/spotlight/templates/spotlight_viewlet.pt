@@ -37,6 +37,8 @@
         <tr>
           <th></th>
           <th i18n:translate="">Title</th>
+          <th i18n:translate="">ID</th>
+          <th i18n:translate="">Location</th>
           <th i18n:translate="">Description</th>
         </tr>
       </thead>
@@ -50,6 +52,12 @@
     </td>
     <td>
       <a class="link" href="<%- url %>"><%- title_or_id %></a>
+    </td>
+    <td>
+      <a class="link" href="<%- url %>"><%- id %></a>
+    </td>
+    <td>
+      <a class="link" href="<%- parent_url %>"><%- parent_title %></a>
     </td>
     <td>
       <span><%- description %></span>

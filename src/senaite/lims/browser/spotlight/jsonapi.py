@@ -48,27 +48,21 @@ def get_brain_info(brain):
         icon = ""
 
     id = api.get_id(brain)
-    uid = api.get_uid(brain)
     url = api.get_url(brain)
-    path = api.get_path(brain)
     title = api.get_title(brain)
     description = api.get_description(brain)
     parent = api.get_parent(brain)
     parent_title = api.get_title(parent)
     parent_url = api.get_url(parent)
-    state = api.get_review_status(brain)
 
     return {
         "id": id,
         "title": title,
         "title_or_id": title or id,
         "description": description,
-        "uid": uid,
-        "path": path,
         "url": url,
         "parent_title": parent_title,
         "parent_url": parent_url,
-        "state": state,
         "icon": icon,
     }
 

@@ -242,62 +242,6 @@ table.analysisrequest.add {}
     table.analysisrequest.add tr:hover th span {
         border-right:none; }
 
-.bika-listing-table .progress-bar-container {
-    background-color: #efefef;
-    border: 1px solid #c1c1c1;
-    border-radius: 3px;
-    height: 16px;
-    width: 50px;
-    overflow: hidden;
-}
-.bika-listing-table .progress-bar-container .progress-bar {
-    background-color: #a2d0ce;
-    float: none;
-    height: inherit;
-}
-.bika-listing-table .progress-bar-container .progress-perc {
-    font-size: 0.85em;
-    margin-top: -16px;
-    width: inherit;
-    text-align:center;
-}
-
-.queued-items {
-    background: #fff9ee url(++resource++bika.lims.images/exclamation2_big.png) no-repeat scroll 15px center / 24px auto;
-    border-radius: 5px;
-    font-size: 1.1em;
-    margin-top: 10px;
-    padding: 15px 0 15px 48px;
-}
-.queued-items > a {
-    background-color: #436976;
-    border-radius: 5px;
-    font-size: 0.85em;
-    padding: 4px 10px;
-}
-
-div.bika-listing-table-top-hooks:after {
-    clear: both;
-    content: " ";
-    display: block;
-    font-size: 0;
-    height: 0;
-    visibility: hidden;
-}
-div.bika-listing-table-top-hooks div.listing-hook-top-left,
-div.bika-listing-table-top-hooks div.listing-hook-top-right {
-    width:50%;
-}
-div.bika-listing-table-top-hooks div.listing-hook-top-right {
-    float:right;
-}
-div.bika-listing-table-top-hooks div.listing-hook-top-left {
-    float:left;
-}
-div.bika-listing-table-top-hooks div.listing-hook-top-wide {
-    clear:both;
-    display:block;
-}
 /* /Bika Style overwrites */
 
 
@@ -427,9 +371,4 @@ a.edit-button {
 h2 a.add-button {
     padding: 12px 0 0 38px;
     background-position: 15px 10px;
-}
-.notext {
-    overflow: hidden;
-    visibility:hidden;
-    display:none;
 }

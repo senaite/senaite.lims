@@ -18,12 +18,6 @@
       $("bika-spinner").remove();
       $("h1").next("p").addClass("text-info");
       $("div.documentDescription").addClass("text-info");
-      $(".worksheet_add_controls").addClass("form-inline");
-      $("td.Pos").css("vertical-align", "top");
-      $("td.Pos table.worksheet-position tbody tr").css("border", "none");
-      $("td.Pos table.worksheet-position tbody tr td").css("vertical-align", "top");
-      $(".bika-listing-table td.result.remarks").parent("tr").children("td").css("border", "none");
-      $(".bika-listing-table td.result.remarks").css("padding-left", "23px");
       $("table").not(".bika-listing-table-container table").not(".ordered-selection-field").not(".recordswidget").addClass("table table-condensed table-bordered table-striped");
       $(".hiddenStructure").addClass("hidden");
       $(".alert-error").removeClass("alert-error").addClass("alert-danger");
@@ -34,8 +28,6 @@
       $("a.link-parent").addClass("btn btn-link");
       $("button").not(".navbar-toggle").addClass("btn btn-default");
       $("input[type='submit']").addClass("btn btn-default");
-      $("#plone-contentmenu-factories").remove();
-      $("#plone-contentmenu-display").remove();
       return this;
     }
 
@@ -73,40 +65,6 @@
       });
     };
 
-    Bootstrap.prototype.fix_listing_table = function(el) {
-      var $el;
-      console.debug("Bootstrap::fix_listing_table");
-      $el = $(el);
-      if (!$el.hasClass("bika-listing-table")) {
-        console.error("Element is not a listing table");
-        return;
-      }
-      $el.addClass("table table-condensed table-striped table-responsive");
-      $el.find("th.column").addClass("small");
-      $el.find("tbody.item-listing-tbody").addClass("small");
-      $el.find("td.review_state_selector a").addClass("btn btn-sm btn-default");
-      $el.find("span.workflow_action_buttons input").addClass("btn btn-sm btn-default");
-      $el.find("td.filter").addClass("text-right");
-      $el.find(".filter-search-input").addClass("input-sm");
-      $el.find("td.batching").addClass("text-right");
-      $el.find("a.bika_listing_show_more").addClass("btn btn-default btn-sm");
-      return $el.find("select").removeClass("input-sm");
-    };
-
-    Bootstrap.prototype.fix_listing_table_tooltip = function(el) {
-      var $el;
-      console.debug("Bootstrap::fix_listing_table_tooltip");
-      $el = $(el);
-      if (!$el.hasClass("tooltip")) {
-        console.error("Element is not a listing table tooltip");
-        return;
-      }
-      $el = $(el);
-      $el.addClass("bottom bika-tooltip");
-      $el.wrapInner("<div class='tooltip-inner'></div>");
-      return $el.append("<div class='tooltip-arrow'></div>");
-    };
-
     Bootstrap.prototype.fix_portal_message = function(el, remove_others) {
       var $el, cls, facility, mapping, message, replacement, title;
       if (remove_others == null) {
@@ -134,22 +92,6 @@
       replacement = $("<div data-alert=\"alert\" class=\"alert alert-dismissible alert-" + facility + "\">\n  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n    <span aria-hidden=\"true\">×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
       replacement.attr("style", $el.attr("style"));
       return $el.replaceWith(replacement);
-    };
-
-    Bootstrap.prototype.fix_pagination = function(el) {
-      var $el, ul;
-      console.debug("Bootstrap::fix_pagination");
-      $el = $(el);
-      if (!$el.hasClass("pagination")) {
-        console.error("Element is not a pagination element");
-        return;
-      }
-      ul = $("<ul class='pagination'></ul>");
-      ul.append($el.children());
-      ul.find("a").wrap("<li class='page-item'></li>");
-      ul.find("span").wrap("<li class='page-item active'></li>");
-      ul.find("a").addClass("page-link");
-      return $el.replaceWith(ul);
     };
 
     Bootstrap.prototype.fix_header_table = function(el) {
@@ -269,7 +211,7 @@
       subtree: true
     });
     $(document).on("onCreate", function(event, el) {
-      var $el, remarks, table;
+      var $el, remarks;
       $el = $(el);
       if ($el.text().startsWith("===")) {
         remarks = $el.closest("#archetypes-fieldname-Remarks");
@@ -277,34 +219,18 @@
           bs.fix_remarks_field(remarks);
         }
       }
-      if ($el.hasClass("tooltip")) {
-        bs.fix_listing_table_tooltip(el);
-      }
       if ($el.hasClass("portalMessage")) {
-        bs.fix_portal_message($el);
-      }
-      if ($el.hasClass("bika-listing-table")) {
-        bs.fix_listing_table(el);
-      }
-      if ($el.hasClass("workflow_action_button")) {
-        table = $el.closest("table.bika-listing-table");
-        return bs.fix_listing_table(table);
+        return bs.fix_portal_message($el);
       }
     });
     $("form").each(function() {
       return bs.fix_form(this);
-    });
-    $("table.bika-listing-table").each(function() {
-      return bs.fix_listing_table(this);
     });
     $("table.header_table").each(function() {
       return bs.fix_header_table(this);
     });
     $("dl.portalMessage").each(function() {
       return bs.fix_portal_message(this);
-    });
-    $(".pagination").each(function() {
-      return bs.fix_pagination(this);
     });
     $("div.arresultsinterpretation-container").each(function() {
       return bs.fix_results_interpretation(this);

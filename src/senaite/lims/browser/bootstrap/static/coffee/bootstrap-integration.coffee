@@ -17,14 +17,6 @@ class Bootstrap
     $("h1").next("p").addClass "text-info"
     $("div.documentDescription").addClass "text-info"
 
-    # Worksheets
-    $(".worksheet_add_controls").addClass "form-inline"
-    $("td.Pos").css("vertical-align", "top")
-    $("td.Pos table.worksheet-position tbody tr").css("border", "none")
-    $("td.Pos table.worksheet-position tbody tr td").css("vertical-align", "top")
-    $(".bika-listing-table td.result.remarks").parent("tr").children("td").css("border", "none")
-    $(".bika-listing-table td.result.remarks").css("padding-left", "23px")
-
     # Add table CSS classes
     $("table")
     .not(".bika-listing-table-container table")
@@ -52,9 +44,9 @@ class Bootstrap
     $("input[type='submit']").addClass "btn btn-default"
 
     # Remove the "Add" menu
-    $("#plone-contentmenu-factories").remove()
+    # $("#plone-contentmenu-factories").remove()
     # Remove the "Display" menu
-    $("#plone-contentmenu-display").remove()
+    # $("#plone-contentmenu-display").remove()
 
     return @
 
@@ -99,41 +91,6 @@ class Bootstrap
       input.replaceWith button
 
 
-  fix_listing_table: (el) ->
-    console.debug "Bootstrap::fix_listing_table"
-
-    $el = $(el)
-    if not $el.hasClass "bika-listing-table"
-      console.error "Element is not a listing table"
-      return
-
-    # $el.find("*[style]").not(".progress-bar").removeAttr("style");
-    $el.addClass "table table-condensed table-striped table-responsive"
-    $el.find("th.column").addClass("small")
-    $el.find("tbody.item-listing-tbody").addClass("small")
-    $el.find("td.review_state_selector a").addClass "btn btn-sm btn-default"
-    $el.find("span.workflow_action_buttons input").addClass "btn btn-sm btn-default"
-    $el.find("td.filter").addClass "text-right"
-    $el.find(".filter-search-input").addClass "input-sm"
-    $el.find("td.batching").addClass "text-right"
-    $el.find("a.bika_listing_show_more").addClass "btn btn-default btn-sm"
-    $el.find("select").removeClass "input-sm"
-
-
-  fix_listing_table_tooltip: (el) ->
-    console.debug "Bootstrap::fix_listing_table_tooltip"
-
-    $el = $(el)
-    if not $el.hasClass "tooltip"
-      console.error "Element is not a listing table tooltip"
-      return
-
-    $el = $(el)
-    $el.addClass "bottom bika-tooltip"
-    $el.wrapInner "<div class='tooltip-inner'></div>"
-    $el.append "<div class='tooltip-arrow'></div>"
-
-
   fix_portal_message: (el, remove_others=yes) ->
     console.debug "Bootstrap::fix_portal_message"
 
@@ -165,22 +122,6 @@ class Bootstrap
     """)
     replacement.attr "style", $el.attr("style")
     $el.replaceWith replacement
-
-
-  fix_pagination: (el) ->
-    console.debug "Bootstrap::fix_pagination"
-
-    $el = $(el)
-    if not $el.hasClass "pagination"
-      console.error "Element is not a pagination element"
-      return
-
-    ul = $("<ul class='pagination'></ul>")
-    ul.append $el.children()
-    ul.find("a").wrap("<li class='page-item'></li>")
-    ul.find("span").wrap("<li class='page-item active'></li>")
-    ul.find("a").addClass "page-link"
-    $el.replaceWith ul
 
 
   fix_header_table: (el) ->
@@ -232,7 +173,6 @@ class Bootstrap
     remarks.css "font-weight", "bold"
     remarks.html (index, html) ->
       html.replace /===/g, "<br/>☞"
-
 
 
   fix_manage_viewlets: (el) ->
@@ -317,26 +257,12 @@ $(document).ready ->
       if remarks.length > 0
         bs.fix_remarks_field remarks
 
-    if $el.hasClass "tooltip"
-      bs.fix_listing_table_tooltip el
-
     if $el.hasClass("portalMessage")
       bs.fix_portal_message $el
-
-    if $el.hasClass "bika-listing-table"
-      bs.fix_listing_table el
-
-    if $el.hasClass "workflow_action_button"
-      table = $el.closest "table.bika-listing-table"
-      bs.fix_listing_table table
 
   # Fix all forms
   $("form").each ->
     bs.fix_form this
-
-  # Fix all listing tables
-  $("table.bika-listing-table").each ->
-    bs.fix_listing_table this
 
   # Fix all header tables
   $("table.header_table").each ->
@@ -345,10 +271,6 @@ $(document).ready ->
   # Fix all Portal messages
   $("dl.portalMessage").each ->
     bs.fix_portal_message this
-
-  # Fix Pagination
-  $(".pagination").each ->
-    bs.fix_pagination this
 
   # Fix all results interpretations
   $("div.arresultsinterpretation-container").each ->

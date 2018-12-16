@@ -27,7 +27,6 @@ class Bootstrap
 
     # Add table CSS classes
     $("table")
-    .not(".bika-listing-table-container table")
     .not(".ordered-selection-field")
     .not(".recordswidget")
     .addClass "table table-condensed table-bordered table-striped"

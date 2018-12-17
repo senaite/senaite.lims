@@ -37,6 +37,6 @@ before_install:
   - python bootstrap.py
   # - bin/pip install --upgrade pip setuptools zc.buildout
 install:
-  - bin/buildout -n -t 3 -c travis.cfg
+  - bin/buildout -c travis.cfg
 script:
   - bin/test -m senaite.lims

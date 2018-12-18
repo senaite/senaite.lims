@@ -146,9 +146,6 @@ class Bootstrap
       console.error "Element is not a results interpretation container"
       return
 
-    $el.parent().find("input[type='submit']").css("margin", "0.5em 0 0 0").addClass "btn-primary"
-
-    $el.find("ul").addClass("nav nav-tabs")
     @activate_form_tabbing $el
 
 

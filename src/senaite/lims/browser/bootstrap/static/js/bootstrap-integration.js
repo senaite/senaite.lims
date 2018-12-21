@@ -18,10 +18,11 @@
       $("bika-spinner").remove();
       $("h1").next("p").addClass("text-info");
       $("div.documentDescription").addClass("text-info");
-      $("table").not(".bika-listing-table-container table").not(".ordered-selection-field").not(".recordswidget").addClass("table table-condensed table-bordered table-striped");
+      $("table").not(".ordered-selection-field").not(".recordswidget").addClass("table table-condensed table-bordered table-striped");
       $(".hiddenStructure").addClass("hidden");
       $(".alert-error").removeClass("alert-error").addClass("alert-danger");
       $(".managePortletsLink a").addClass("btn btn-default btn-xs");
+      $(".portletWrapper dl").addClass("panel panel-default");
       $("#content-core ul.configlets").addClass("nav nav-stacked well");
       $(".portletItem ul.configlets").addClass("nav");
       $("a#setup-link").addClass("btn btn-link");

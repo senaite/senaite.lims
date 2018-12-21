@@ -32,6 +32,9 @@ class Bootstrap
     # Manage Portlets Link
     $(".managePortletsLink a").addClass "btn btn-default btn-xs"
 
+    # Wrap portlets into panels
+    $(".portletWrapper dl").addClass "panel panel-default"
+
     # Plone Add-on Panel
     $("#content-core ul.configlets").addClass "nav nav-stacked well"
     $(".portletItem ul.configlets").addClass "nav"

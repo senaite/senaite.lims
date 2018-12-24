@@ -103,6 +103,7 @@ class Bootstrap
 
     mapping =
       "error": "danger"
+      "warn": "warning"
 
     if remove_others
       # remove all previous error messages
@@ -112,7 +113,7 @@ class Bootstrap
     cls = $el[0].className
     title = $el.find("dt").html()
     message = $el.find("dd").html()
-    facility = mapping[cls] if cls of mapping or cls
+    facility = if cls of mapping then mapping[cls] else cls
     replacement = $("""
       <div data-alert="alert" class="alert alert-dismissible alert-#{facility}">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">

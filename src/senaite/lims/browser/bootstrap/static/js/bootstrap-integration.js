@@ -78,7 +78,8 @@
         return;
       }
       mapping = {
-        "error": "danger"
+        "error": "danger",
+        "warn": "warning"
       };
       if (remove_others) {
         $("#viewlet-above-content div[data-alert='alert']").remove();
@@ -87,9 +88,7 @@
       cls = $el[0].className;
       title = $el.find("dt").html();
       message = $el.find("dd").html();
-      if (cls in mapping || cls) {
-        facility = mapping[cls];
-      }
+      facility = cls in mapping ? mapping[cls] : cls;
       replacement = $("<div data-alert=\"alert\" class=\"alert alert-dismissible alert-" + facility + "\">\n  <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\">\n    <span aria-hidden=\"true\">×</span>\n  </button>\n  <strong>" + title + "</strong>\n  <p>" + message + "</p>\n</div>");
       replacement.attr("style", $el.attr("style"));
       return $el.replaceWith(replacement);

@@ -372,3 +372,9 @@ h2 a.add-button {
     padding: 12px 0 0 38px;
     background-position: 15px 10px;
 }
+
+/* Flatten the first heading from content a bit
+https://github.com/senaite/senaite.lims/pull/92 */
+#content > h1:first-of-type {
+    margin-top: 0;
+}

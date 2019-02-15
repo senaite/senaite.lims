@@ -77,6 +77,7 @@ Debian/Ubuntu:
     sudo apt-get install libpcre3 libpcre3-dev autoconf libtool pkg-config
     sudo apt-get install zlib1g-dev libssl-dev libexpat1-dev libxslt1.1
     sudo apt-get install gnuplot libcairo2 libpango1.0-0 libgdk-pixbuf2.0-0
+    sudo apt-get install libxslt-dev python-pil libjpeg-turbo8-dev
 
 Fedora:
 

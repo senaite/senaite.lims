@@ -104,6 +104,12 @@ bin
 src/bika.lims
 src/senaite.api
 src/senaite.jsonapi
+src/senaite.lims
 src/senaite.core
+src/senaite.impress
 src/senaite.core.supermodel
+src/senaite.core.listing
 eggs
+
+# editor stuff
+*.swp

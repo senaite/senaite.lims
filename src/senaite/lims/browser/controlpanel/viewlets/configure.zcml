@@ -12,7 +12,7 @@
       name="senaite.setupbutton"
       manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
       class=".setupbutton.SenaiteSetupButtonViewlet"
-      permission="bika.lims.ManageBika"
+      permission="senaite.core.permissions.ManageBika"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
 </configure>

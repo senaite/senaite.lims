@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-version = "1.2.3"
+version = "1.3.0"
 
 with open("docs/About.rst", "r") as fh:
     long_description = fh.read()
@@ -40,8 +40,10 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        "senaite.core>=1.3.0",
         "senaite.api",
+        "senaite.core.listing>=1.0.0",
+        "senaite.core>=1.3.0",
+        "senaite.impress",
         "senaite.jsonapi",
         "setuptools",
     ],

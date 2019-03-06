@@ -11,8 +11,10 @@ from bika.lims import logger
 from bika.lims.upgrade import upgradestep
 from bika.lims.upgrade.utils import UpgradeUtils
 from senaite.lims.config import PROJECTNAME as product
+from senaite.lims.setuphandlers import setup_html_filter
 
-version = "1.2.3"
+
+version = "1.3.0"
 profile = "profile-{0}:default".format(product)
 
 
@@ -32,6 +34,9 @@ def upgrade(tool):
     logger.info("Upgrading {0}: {1} -> {2}".format(product, ver_from, version))
 
     run_all_import_steps(portal)
+
+    # setup HTML filtering
+    setup_html_filter(portal)
 
     logger.info("{0} upgraded to version {1}".format(product, version))
     return True

@@ -5,7 +5,13 @@
 # Copyright 2018 by it's authors.
 # Some rights reserved. See LICENSE and CONTRIBUTING.
 
+from plone.app.controlpanel.filter import IFilterSchema
 from senaite.lims import logger
+
+ALLOWED_STYLES = [
+    "color",
+    "background-color"
+]
 
 
 def setup_handler(context):
@@ -17,7 +23,25 @@ def setup_handler(context):
 
     logger.info("SENAITE setup handler [BEGIN]")
     portal = context.getSite()  # noqa
+
+    # Custom setup handlers
+    setup_html_filter(portal)
+
     logger.info("SENAITE setup handler [DONE]")
+
+
+def setup_html_filter(portal):
+    """Setup HTML filtering for resultsinterpretations
+    """
+    logger.info("*** Setup HTML Filter ***")
+    # bypass the broken API from portal_transforms
+    adapter = IFilterSchema(portal)
+    style_whitelist = adapter.style_whitelist
+    for style in ALLOWED_STYLES:
+        logger.info("Allow style '{}'".format(style))
+        if style not in style_whitelist:
+            style_whitelist.append(style)
+    adapter.style_whitelist = style_whitelist
 
 
 def post_install(portal_setup):

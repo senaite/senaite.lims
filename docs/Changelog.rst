@@ -16,6 +16,7 @@
 
 **Fixed**
 
+- #96: Bootstrapped TinyMCE
 - #91: Fix CSS class for portal message in control-panel
 - #85: Fix logo link spanning over the whole header
 - #84: Fix Spotlight form submission on enter keypress

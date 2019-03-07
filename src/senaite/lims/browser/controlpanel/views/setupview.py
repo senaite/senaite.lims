@@ -7,6 +7,7 @@
 
 import os
 
+from bika.lims.utils import t
 from plone.memoize.volatile import cache
 from plone.memoize.volatile import store_on_context
 from Products.Five.browser import BrowserView
@@ -76,9 +77,15 @@ class SetupView(BrowserView):
                 "query": api.get_path(self.setup),
                 "depth": 1,
             },
-            "sort_on": "sortable_title",
-            "sort_order": "ascending"
         }
         items = api.search(query, "portal_catalog")
-        return filter(lambda item: not item.exclude_from_nav, items)
+        # filter out items
+        items = filter(lambda item: not item.exclude_from_nav, items)
 
+        # sort by (translated) title
+        def cmp_by_translated_title(brain1, brain2):
+            title1 = t(api.get_title(brain1))
+            title2 = t(api.get_title(brain2))
+            return cmp(title1, title2)
+
+        return sorted(items, cmp=cmp_by_translated_title)

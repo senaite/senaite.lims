@@ -9,6 +9,7 @@
 
 **Changed**
 
+- #97 Sort setup items by translated title
 - #90 Integration for senaite.core 1.3
 - #88 Refactored spotlight backend and added more columns to results table
 - #87 Stay on current context when switching the language

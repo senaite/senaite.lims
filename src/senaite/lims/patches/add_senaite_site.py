@@ -19,7 +19,7 @@ ADD_SENAITE_SITE = """
         action="&dtml-URL1;/@@senaite-addsite"
         target="_top">
     <input type="hidden" name="site_id" value="senaite" />
-    <input class="button" type="submit" value="Add SENAITE Site" />
+    <input class="button" type="submit" value="Install SENAITE LIMS" />
   </form>
 </dtml-if>
 """

@@ -33,7 +33,12 @@
         <form class="form"
               action="/"
               method="post"
-              tal:attributes="action string:${context/absolute_url}/@@senaite-addsite">
+              tal:attributes="action string:${context/absolute_url}/@@senaite-addsite"
+              tal:define="profiles view/profiles;
+                          base_profiles profiles/base;
+                          default_profile profiles/default;
+                          extension_profiles profiles/extensions;
+                          advanced request/advanced|nothing;">
 
           <div class="form-group">
             <label for="site_id" i18n:translate="">Path identifier</label>
@@ -73,6 +78,25 @@
             </div>
 
           </div>
+
+          <tal:extensionprofiles condition="extension_profiles">
+            <tal:addons tal:repeat="info extension_profiles">
+              <tal:info tal:define="selected info/selected|nothing">
+                <tal:normal tal:condition="python: not selected or advanced">
+                  <input type="checkbox" name="extension_ids:list" value=""
+                         style="display:none;"
+                         tal:attributes="value info/id;
+                               id info/id;
+                               checked info/selected|nothing;" />
+                </tal:normal>
+                <tal:hidden tal:condition="python: selected and not advanced">
+                  <input type="hidden" name="extension_ids:list" value=""
+                         tal:attributes="value info/id;
+                               checked info/selected|nothing;" />
+                </tal:hidden>
+              </tal:info>
+            </tal:addons>
+          </tal:extensionprofiles>
 
           <div>
             <input type="hidden" name="extension_ids:list" value="senaite.lims:default" />

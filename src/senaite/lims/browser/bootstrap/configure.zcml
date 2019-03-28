@@ -7,6 +7,15 @@
 
   <include package="plone.app.controlpanel" file="permissions.zcml" />
 
+  <!-- Overrides the plone-addsite browser view -->
+  <browser:page
+      for="OFS.interfaces.IApplication"
+      name="senaite-addsite"
+      class="Products.CMFPlone.browser.admin.AddPloneSite"
+      permission="zope2.ViewManagementScreens"
+      template="templates/senaite-addsite.pt"
+      />
+
   <!-- Bootstrap Helper View -->
   <browser:page
       name="bootstrapview"

@@ -18,4 +18,16 @@
       directory="images"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
+  <browser:resource
+      file="images/logo.png"
+      name="senaite-logo.png"/>
+
+  <browser:resource
+      file="images/favicon.ico"
+      name="favicon.ico"/>
+
+  <browser:resource
+      file="bootstrap/vendor/css/bootstrap.min.css"
+      name="bootstrap.min.css"/>
+
 </configure>

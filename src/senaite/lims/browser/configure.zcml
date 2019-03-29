@@ -23,6 +23,10 @@
       name="senaite-logo.png"/>
 
   <browser:resource
+      file="images/icon.png"
+      name="senaite-icon.png"/>
+
+  <browser:resource
       file="images/favicon.ico"
       name="favicon.ico"/>
 

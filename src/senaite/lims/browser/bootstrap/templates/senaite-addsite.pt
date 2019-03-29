@@ -5,12 +5,12 @@
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
-      i18n:domain="plone">
+      i18n:domain="senaite.lims">
 
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title i18n:translate="" i18n:domain="senaite.lims">Install SENAITE LIMS</title>
+  <title i18n:translate="">Install SENAITE LIMS</title>
   <link rel="stylesheet" type="text/css"
         tal:attributes="href string:${context/absolute_url}/++resource++bootstrap.min.css"
         href="bootstrap.min.css" />
@@ -22,13 +22,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">
-
-        <!-- SENAITE LOGO -->
-        <img src="senaite-logo.png"
-             class="img"
-             style="margin:2.5em auto;"
-             width="250"
-             tal:attributes="src string:${context/absolute_url}/++resource++senaite-logo.png" />
+        <h1>
+          <!-- SENAITE LOGO -->
+          <img src="senaite-logo.png"
+               width="250"
+               tal:attributes="src string:${context/absolute_url}/++resource++senaite-logo.png" />
+          <small class="lead">Open Source LIMS Project</small>
+        </h1>
+        <hr/>
 
         <form class="form"
               action="/"
@@ -102,14 +103,31 @@
             <input type="hidden" name="extension_ids:list" value="senaite.lims:default" />
             <input type="hidden" name="form.submitted:boolean" value="True" />
             <input  class="btn btn-primary btn-xl" type="submit" name="submit" value="Install SENAITE LIMS"
-                    i18n:attributes="value;" i18n:domain="senaite.lims" />
+                    i18n:attributes="value;" />
           </div>
 
         </form>
 
-      </div>
-    </div>
-  </div>
+        <!-- Community Links -->
+        <div class="row">
+          <div class="col-sm-12">
+            <hr/>
+            <div i18n:translate="" class="lead">
+              Meet the community, browse the code and get support on
+            </div>
+            <ul class="list list-inline list-justified">
+              <li><a class="btn btn-default" href="https://www.senaite.com" title="Website" target="_blank">Website</a></li>
+              <li><a class="btn btn-default" href="https://community.senaite.com" title="SENAITE community" target="_blank">Community Site</a></li>
+              <li><a class="btn btn-default" href="https://gitter.im/senaite/Lobby" title="Gitter Chat" target="_blank">Gitter Chat</a></li>
+              <li><a class="btn btn-default" href="https://github.com/senaite" title="GitHub" target="_blank">GitHub</a></li>
+              <li><a class="btn btn-default" href="https://twitter.com/senaitelims" title="Twitter" target="_blank">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div> <!-- col-sm-6 col-sm-offset-3 -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
 
 </body>
 </html>

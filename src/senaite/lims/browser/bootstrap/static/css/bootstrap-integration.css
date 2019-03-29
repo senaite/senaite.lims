@@ -276,6 +276,13 @@ table.analysisrequest.add {}
     max-height: none;
     padding: 0;
 }
+.sidebar-nav .navbar-nav {
+    margin: 0;
+}
+.sidebar-nav li a>* {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 .sidebar-nav .navbar ul {
     float: none;
 }

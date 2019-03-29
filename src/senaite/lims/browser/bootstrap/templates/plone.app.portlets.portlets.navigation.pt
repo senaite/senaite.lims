@@ -13,9 +13,8 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <span class="visible-xs navbar-brand"
-              i18n:translate="">
-          SENAITE
+        <span class="visible-xs navbar-brand" tal:content="view/title">
+          Navigation
         </span>
       </div>
 

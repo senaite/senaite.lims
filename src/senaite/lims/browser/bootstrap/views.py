@@ -5,19 +5,27 @@
 # Copyright 2018 by it's authors.
 # Some rights reserved. See LICENSE and CONTRIBUTING.
 
+from bika.lims import api
+from plone.app.controlpanel.overview import OverviewControlPanel
+from plone.memoize.volatile import cache
+from plone.memoize.volatile import store_on_context
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-
 from zope.component import getMultiAdapter
 from zope.interface import implements
-
-from plone.app.controlpanel.overview import OverviewControlPanel
 
 from .interfaces import IBootstrapView
 
 
+def modified_cache_key(method, self, brain_or_object):
+    """A cache key that returns the millis of the last modification time
+    """
+    return api.get_modification_date(brain_or_object).millis()
+
+
 class SenaiteOverviewControlPanel(OverviewControlPanel):
-    template = ViewPageTemplateFile('templates/plone.app.controlpanel.overview.pt')
+    template = ViewPageTemplateFile(
+        "templates/plone.app.controlpanel.overview.pt")
 
 
 class BootstrapView(BrowserView):
@@ -27,6 +35,26 @@ class BootstrapView(BrowserView):
 
     def __init__(self, context, request):
         super(BrowserView, self).__init__(context, request)
+
+    @cache(modified_cache_key, store_on_context)
+    def get_icon_for(self, brain_or_object):
+        """Get the icon for the brain or object
+        """
+        portal_types = api.get_tool("portal_types")
+        fti = portal_types.getTypeInfo(api.get_portal_type(brain_or_object))
+        icon = fti.getIcon()
+        if not icon:
+            return ""
+        # Always try to get the big icon for high-res displays
+        icon_big = icon.replace(".png", "_big.png")
+        # fall back to a default icon if the looked up icon does not exist
+        if self.context.restrictedTraverse(icon_big, None) is None:
+            icon_big = None
+        portal_url = api.get_url(api.get_portal())
+        title = api.get_title(brain_or_object)
+        html_tag = "<img title='{}' src='{}/{}' width='16' />".format(
+            title, portal_url, icon_big or icon)
+        return html_tag
 
     def getViewportValues(self, view=None):
         """Determine the value of the viewport meta-tag

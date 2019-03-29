@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
 <metadata>
-  <version>1.2.3</version>
+  <version>1000</version>
   <dependencies>
     <dependency>profile-senaite.lims:default</dependency>
+    <dependency>profile-senaite.impress:default</dependency>
+    <dependency>profile-senaite.core.listing:default</dependency>
   </dependencies>
 </metadata>

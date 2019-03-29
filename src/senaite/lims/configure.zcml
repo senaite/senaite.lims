@@ -10,13 +10,10 @@
 
   <five:registerPackage package="." initialize=".initialize"/>
 
-  <!--  NB: We override bika and plone translations. Therefore, we have to ensure that -->
-  <!-- this packages' zcml is loaded before the others. -->
-  <!-- <i18n:registerTranslations directory="locales"/> -->
-
   <!-- Package Includes -->
   <include package=".browser"/>
-  <include package=".upgrade"/>
+  <include package=".upgrades"/>
+  <include package=".patches" />
 
   <!-- Filesystem directory view -->
   <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
@@ -27,6 +24,7 @@
       title="SENAITE LIMS"
       directory="profiles/default"
       description="SENAITE LIMS Add-on"
+      pre_handler="senaite.lims.setuphandlers.pre_install"
       post_handler="senaite.lims.setuphandlers.post_install"
       provides="Products.GenericSetup.interfaces.EXTENSION"/>
 

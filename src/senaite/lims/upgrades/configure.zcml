@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="senaite.lims">
+
+  <genericsetup:upgradeStep
+      title="Upgrade SENAITE LIMS"
+      description="Initial Profile"
+      sortkey="1"
+      source="*"
+      destination="1000"
+      handler="senaite.lims.upgrades.handlers.to_1000"
+      profile="senaite.lims:default" />
+
+</configure>

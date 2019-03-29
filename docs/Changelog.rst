@@ -3,6 +3,7 @@
 
 **Added**
 
+- #99 SENAITE Install Screen
 - #82 Support for searches against Analysis Requests catalog
 
 **Removed**

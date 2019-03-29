@@ -7,6 +7,28 @@
 
   <include package="plone.app.controlpanel" file="permissions.zcml" />
 
+  <!-- SENAITE install screen -->
+  <browser:page
+      for="OFS.interfaces.IApplication"
+      name="senaite-addsite"
+      class="Products.CMFPlone.browser.admin.AddPloneSite"
+      permission="zope2.ViewManagementScreens"
+      template="templates/senaite-addsite.pt"/>
+
+  <!-- ZOPE root overview screen -->
+  <browser:page
+      for="OFS.interfaces.IApplication"
+      name="senaite-overview"
+      class="Products.CMFPlone.browser.admin.Overview"
+      permission="zope.Public"
+      template="templates/senaite-overview.pt"/>
+
+  <!-- App traverser to show the overview screen -->
+  <adapter
+      for="OFS.interfaces.IApplication
+           zope.publisher.interfaces.browser.IBrowserRequest"
+      factory=".adapters.SenaiteAppTraverser"/>
+
   <!-- Bootstrap Helper View -->
   <browser:page
       name="bootstrapview"

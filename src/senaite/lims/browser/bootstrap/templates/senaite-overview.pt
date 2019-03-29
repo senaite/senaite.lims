@@ -34,57 +34,63 @@
 
         <!-- Found 1 SENAITE installation -->
         <tal:block tal:condition="sites">
-          <p class="lead text-muted" i18n:translate="">Current SENAITE Installations</p>
-          <div class="list-group">
-            <div class="list-group-item" tal:repeat="site sites">
-              <img class="img"
-                   height="16"
-                   style="vertical-align:middle;"
-                   tal:attributes="src string:${site/absolute_url}/++resource++senaite-icon.png"/>
-              <a href="#"
-                 tal:attributes="href site/absolute_url"
-                 title="Go to your SENAITE installation"
-                 i18n:attributes="title;">
-                <span tal:replace="site/title"/> (<span tal:replace="site/id"/>)
-              </a>
-              <form action=""
-                    method="get"
-                    class="form-inline"
-                    tal:condition="python:view.outdated(site)"
-                    tal:attributes="action python:view.upgrade_url(site)">
-                <div i18n:translate="" class="help-block">
-                  This site configuration is outdated and needs to be upgraded:
+          <div class="row">
+            <div class="col-sm-12">
+              <p class="lead text-muted" i18n:translate="">Current SENAITE Installations</p>
+              <div class="list-group">
+                <div class="list-group-item" tal:repeat="site sites">
+                  <img class="img"
+                       height="16"
+                       style="vertical-align:middle;"
+                       tal:attributes="src string:${site/absolute_url}/++resource++senaite-icon.png"/>
+                  <a href="#"
+                     tal:attributes="href site/absolute_url"
+                     title="Go to your SENAITE installation"
+                     i18n:attributes="title;">
+                    <span tal:replace="site/title"/> (<span tal:replace="site/id"/>)
+                  </a>
+                  <form action=""
+                        method="get"
+                        class="form-inline"
+                        tal:condition="python:view.outdated(site)"
+                        tal:attributes="action python:view.upgrade_url(site)">
+                    <div i18n:translate="" class="help-block">
+                      This site configuration is outdated and needs to be upgraded:
+                    </div>
+                    <input tal:condition="not:view/can_manage"
+                           type="hidden" name="came_from"
+                           tal:attributes="value python:view.upgrade_url(site, can_manage=True)"/>
+                    <input type="submit"
+                           class="btn btn-xs btn-success"
+                           value="Upgrade&hellip;"
+                           i18n:attributes="value label_upgrade_hellip" />
+                  </form>
                 </div>
-                <input tal:condition="not:view/can_manage"
-                      type="hidden" name="came_from"
-                      tal:attributes="value python:view.upgrade_url(site, can_manage=True)"/>
-                <input type="submit"
-                      class="btn btn-xs btn-success"
-                      value="Upgrade&hellip;"
-                      i18n:attributes="value label_upgrade_hellip" />
-              </form>
+              </div>
             </div>
           </div>
         </tal:block>
 
-        <div class="row">
-          <!-- SENAITE not installed -->
-          <div tal:condition="not:sites">
-            <form id="add-senaite-site"
-                  method="get"
-                  action="#"
-                  tal:attributes="action string:${context/absolute_url}/@@senaite-addsite">
-              <p i18n:translate="" class="">
-                SENAITE is not installed yet. Click the button below to install it now:
-              </p>
-              <input type="hidden" name="site_id" value="senaite" />
-              <input type="submit"
-                     class="btn btn-xl btn-primary"
-                     i18n:attributes="value"
-                     value="Install SENAITE LIMS" />
-            </form>
+        <!-- SENAITE not installed -->
+        <tal:block tal:condition="not:sites">
+          <div class="row">
+            <div class="col-sm-12">
+              <form id="add-senaite-site"
+                    method="get"
+                    action="#"
+                    tal:attributes="action string:${context/absolute_url}/@@senaite-addsite">
+                <p i18n:translate="" class="">
+                  SENAITE is not installed yet. Click the button below to install it now:
+                </p>
+                <input type="hidden" name="site_id" value="senaite" />
+                <input type="submit"
+                       class="btn btn-xl btn-primary"
+                       i18n:attributes="value"
+                       value="Install SENAITE LIMS" />
+              </form>
+            </div>
           </div>
-        </div>
+        </tal:block>
 
         <!-- Community Links -->
         <div class="row">

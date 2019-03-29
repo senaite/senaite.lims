@@ -1,6 +1,7 @@
 <tal:master define="level options/level|python:0;
                     children options/children | nothing;
-                    bottomLevel options/bottomLevel | nothing;"
+                    bottomLevel options/bottomLevel | nothing;
+                    bootstrapview nocall:context/@@bootstrapview"
             i18n:domain="plone">
 
   <metal:main define-macro="nav_main">
@@ -12,7 +13,8 @@
                       item_url        node/getURL;
                       item_remote_url node/getRemoteUrl;
                       use_remote_url  node/useRemoteUrl | nothing;
-                      item_icon       nocall:node/item_icon;
+                      item            nocall:node/item;
+                      item_icon       python:bootstrapview.get_icon_for(item);
                       item_type       node/portal_type;
                       is_current      node/currentItem;
                       is_in_path      node/currentParent;
@@ -31,15 +33,17 @@
                              title node/Description;
                              class string:$item_class${li_class}${li_extr_class}${li_folder_class} $item_type_class">
             <tal:root tal:condition="python: level==1">
-              <img tal:replace="structure item_icon/html_tag" />
+              <img tal:replace="structure item_icon"/>
               <span tal:condition="not:item_icon">
                 <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>
               </span>
               <span tal:replace="node/Title">Selected Item Title</span>
             </tal:root>
             <tal:children tal:condition="python: level>1">
-              <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
-              <span tal:replace="node/Title">Selected Item Title</span>
+              <div style="white-space:nowrap;">
+                <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                <span tal:replace="node/Title">Selected Item Title</span>
+              </div>
             </tal:children>
           </a>
 

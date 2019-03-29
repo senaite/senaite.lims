@@ -10,6 +10,7 @@
 
 **Changed**
 
+- #100 Improve Styling of Navigation Portlet
 - #97 Sort setup items by translated title
 - #90 Integration for senaite.core 1.3
 - #88 Refactored spotlight backend and added more columns to results table

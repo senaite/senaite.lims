@@ -31,47 +31,41 @@ class SimpleTestLayer(PloneSandboxLayer):
         super(SimpleTestLayer, self).setUpZope(app, configurationContext)
 
         # Load ZCML
+        import bika.lims
         import senaite.lims
+        import senaite.impress
+        import senaite.core.listing
 
+        self.loadZCML(package=bika.lims)
         self.loadZCML(package=senaite.lims)
+        self.loadZCML(package=senaite.impress)
+        self.loadZCML(package=senaite.core.listing)
 
         # Install product and call its initialize() function
-        z2.installProduct(app, 'senaite.lims')
+        z2.installProduct(app, "senaite.lims")
 
     def setUpPloneSite(self, portal):
         super(SimpleTestLayer, self).setUpPloneSite(portal)
 
         # Apply Setup Profile (portal_quickinstaller)
-        applyProfile(portal, 'bika.lims:default')
-        applyProfile(portal, 'senaite.lims:default')
+        applyProfile(portal, "senaite.lims:default")
 
         login(portal.aq_parent, SITE_OWNER_NAME)
 
         # Add some test users
-        for role in ('LabManager',
-                     'LabClerk',
-                     'Analyst',
-                     'Verifier',
-                     'Sampler',
-                     'Preserver',
-                     'Publisher',
-                     'Member',
-                     'Reviewer',
-                     'RegulatoryInspector'):
+        ROLES = ["LabManager", "LabClerk", "Analyst"]
+        for role in ROLES:
+
             for user_nr in range(2):
-                if user_nr == 0:
-                    username = "test_%s" % (role.lower())
-                else:
-                    username = "test_%s%s" % (role.lower(), user_nr)
+                username = "test_%s_%s" % (role.lower(), user_nr)
                 try:
                     member = portal.portal_registration.addMember(
                         username,
                         username,
                         properties={
-                            'username': username,
-                            'email': username + "@example.com",
-                            'fullname': username}
-                    )
+                            "username": username,
+                            "email": username + "@example.com",
+                            "fullname": username})
                     # Add user to all specified groups
                     group_id = role + "s"
                     group = portal.portal_groups.getGroupById(group_id)
@@ -79,14 +73,14 @@ class SimpleTestLayer(PloneSandboxLayer):
                         group.addMember(username)
                     # Add user to all specified roles
                     member._addRole(role)
-                    # If user is in LabManagers, add Owner local role on clients folder
-                    if role == 'LabManager':
-                        portal.clients.manage_setLocalRoles(username,
-                                                            ['Owner', ])
                 except ValueError:
                     pass  # user exists
 
-    logout()
+        logout()
+
+    def tearDownZope(self, app):
+        # Uninstall product
+        z2.uninstallProduct(app, "senaite.lims")
 
 
 ###
@@ -105,8 +99,8 @@ class SimpleTestCase(unittest.TestCase):
     def setUp(self):
         super(SimpleTestCase, self).setUp()
 
-        self.app = self.layer['app']
-        self.portal = self.layer['portal']
-        self.request = self.layer['request']
-        self.request['ACTUAL_URL'] = self.portal.absolute_url()
-        setRoles(self.portal, TEST_USER_ID, ['LabManager', 'Manager'])
+        self.app = self.layer["app"]
+        self.portal = self.layer["portal"]
+        self.request = self.layer["request"]
+        self.request["ACTUAL_URL"] = self.portal.absolute_url()
+        setRoles(self.portal, TEST_USER_ID, ["LabManager", "Manager"])

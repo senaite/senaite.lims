@@ -1,12 +1,10 @@
-1.3.0 (unreleased)
+1.3.0 (2019-03-30)
 ------------------
 
 **Added**
 
 - #99 SENAITE Install Screen
 - #82 Support for searches against Analysis Requests catalog
-
-**Removed**
 
 **Changed**
 
@@ -23,8 +21,6 @@
 - #91: Fix CSS class for portal message in control-panel
 - #85: Fix logo link spanning over the whole header
 - #84: Fix Spotlight form submission on enter keypress
-
-**Security**
 
 
 1.2.2 (2018-08-11)

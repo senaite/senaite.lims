@@ -17,7 +17,7 @@ with open("docs/Changelog.rst", "r") as fh:
 setup(
     name="senaite.lims",
     version=version,
-    description="SENAITE LIMS User Interface",
+    description="SENAITE LIMS - Meta Package for Core and UI/UX Components",
     long_description=long_description,
     # long_description_content_type="text/markdown",
     # Get more strings from
@@ -41,9 +41,9 @@ setup(
     zip_safe=False,
     install_requires=[
         "senaite.api",
-        "senaite.core.listing>=1.0.0",
+        "senaite.core.listing>=1.1.0",
         "senaite.core>=1.3.0",
-        "senaite.impress",
+        "senaite.impress>=1.2.0",
         "senaite.jsonapi",
         "setuptools",
     ],

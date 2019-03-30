@@ -1,7 +1,7 @@
-.. image:: https://raw.githubusercontent.com/senaite/senaite.lims/master/static/senaite-logo.png
+.. image:: https://raw.githubusercontent.com/senaite/senaite.lims/master/static/logo_pypi.png
+   :target: https://github.com/senaite/senaite.lims#readme
    :alt: senaite.lims
-   :height: 64 px
-   :align: center
+   :height: 128
 
 - **SENAITE.LIMS**: *Responsive User Interface for SENAITE Core*
 
@@ -16,6 +16,12 @@
 
 .. image:: https://img.shields.io/badge/README-GitHub-blue.svg?style=flat-square
    :target: https://github.com/senaite/senaite.lims#readme
+
+.. image:: https://img.shields.io/badge/Built%20with-%E2%9D%A4-red.svg
+   :target: https://github.com/senaite/senaite.impress
+
+.. image:: https://img.shields.io/badge/Made%20for%20SENAITE-%E2%AC%A1-lightgrey.svg
+   :target: https://www.senaite.com
 
 
 About
@@ -39,9 +45,9 @@ To install SENAITE.LIMS, you have to add `senaite.lims` into the
    parts =
        instance
    extends =
-       http://dist.plone.org/release/4.3.17/versions.cfg
+       http://dist.plone.org/release/4.3.18/versions.cfg
    find-links =
-       http://dist.plone.org/release/4.3.17
+       http://dist.plone.org/release/4.3.18
        http://dist.plone.org/thirdparty
    eggs =
        Plone
@@ -53,7 +59,7 @@ To install SENAITE.LIMS, you have to add `senaite.lims` into the
    [instance]
    recipe = plone.recipe.zope2instance
    user = admin:admin
-   http-address = 0.0.0.0:8080
+   http-address = 127.0.0.1:8080
    eggs =
        ${buildout:eggs}
    zcml =
@@ -87,9 +93,8 @@ Installation Requirements
 
 The following versions are required for SENAITE.LIMS:
 
--  Plone 4.3.17
--  senaite.core >= 1.2.7
--  senaite.api >= 1.2.0
+-  Plone 4.3.18
+-  senaite.core >= 1.3.0
 
 
 .. _Plone 4: https://docs.plone.org/4/en/manage/installing/index.html

@@ -19,8 +19,11 @@
     <a href="https://github.com/senaite/senaite.lims/issues">
       <img src="https://img.shields.io/github/issues/senaite/senaite.lims.svg?style=flat-square" alt="open Issues" />
     </a>
-    <a href="#">
+    <a href="https://github.com/senaite/senaite.lims">
       <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="pr" />
+    </a>
+    <a href="https://www.senaite.com">
+      <img src="https://img.shields.io/badge/Made%20for%20SENAITE-%E2%AC%A1-lightgrey.svg" alt="Made for SENAITE" />
     </a>
   </div>
 </div>
@@ -99,9 +102,9 @@ list inside the `[buildout]` section of your `buildout.cfg`:
     parts =
         instance
     extends =
-        http://dist.plone.org/release/4.3.17/versions.cfg
+        http://dist.plone.org/release/4.3.18/versions.cfg
     find-links =
-        http://dist.plone.org/release/4.3.17
+        http://dist.plone.org/release/4.3.18
         http://dist.plone.org/thirdparty
     eggs =
         Plone
@@ -113,7 +116,7 @@ list inside the `[buildout]` section of your `buildout.cfg`:
     [instance]
     recipe = plone.recipe.zope2instance
     user = admin:admin
-    http-address = 0.0.0.0:8080
+    http-address = 127.0.0.1:8080
     eggs =
         ${buildout:eggs}
     zcml =
@@ -123,7 +126,7 @@ list inside the `[buildout]` section of your `buildout.cfg`:
     setuptools =
     zc.buildout =
 
-    
+
 **Note**
 
 The above example works for the buildout created by the unified installer. If
@@ -146,10 +149,8 @@ For the changes to take effect you need to re-run buildout from your console:
 
 The following versions are required for SENAITE LIMS:
 
-- Plone >= 4.3.17
-- senaite.core >= 1.2.6
-- senaite.api >= 1.2.3
-- senaite.jsonapi
+- Plone >= 4.3.18
+- senaite.core >= 1.3.0
 
 Please follow these steps to install Plone:
 https://docs.plone.org/4/en/manage/installing/index.html

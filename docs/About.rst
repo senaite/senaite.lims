@@ -18,7 +18,7 @@
    :target: https://github.com/senaite/senaite.lims#readme
 
 .. image:: https://img.shields.io/badge/Built%20with-%E2%9D%A4-red.svg
-   :target: https://github.com/senaite/senaite.impress
+   :target: https://github.com/senaite/senaite.lims
 
 .. image:: https://img.shields.io/badge/Made%20for%20SENAITE-%E2%AC%A1-lightgrey.svg
    :target: https://www.senaite.com

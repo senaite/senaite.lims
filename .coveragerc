@@ -1,5 +1,0 @@
-[report]
-include =
-  src/senaite/lims/*
-omit =
-  src/senaite/lims/tests/*

@@ -22,7 +22,7 @@ import logging
 from zope.i18nmessageid import MessageFactory
 
 # Defining a Message Factory for when this product is internationalized.
-senaiteMessageFactory = MessageFactory('senaite.lims')
+senaiteMessageFactory = MessageFactory("senaite.lims")
 
 logger = logging.getLogger("SENAITE")
 

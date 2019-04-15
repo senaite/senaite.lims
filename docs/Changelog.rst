@@ -1,7 +1,7 @@
-1.4.0 (unreleased)
+1.3.1 (unreleased)
 ------------------
 
-- no changes yet
+- #102 Improved navigation portlet icon lookup cache
 
 
 1.3.0 (2019-03-30)

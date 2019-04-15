@@ -20,20 +20,27 @@
 
 from bika.lims import api
 from plone.app.controlpanel.overview import OverviewControlPanel
-from plone.memoize.volatile import cache
-from plone.memoize.volatile import store_on_context
+from plone.memoize.ram import cache
 from Products.Five import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from senaite.lims import logger
 from zope.component import getMultiAdapter
 from zope.interface import implements
 
 from .interfaces import IBootstrapView
 
 
-def modified_cache_key(method, self, brain_or_object):
-    """A cache key that returns the millis of the last modification time
+def icon_cache_key(method, self, brain_or_object):
+    """Generates a cache key for the icon lookup
+
+    Includes the virtual URL to handle multiple HTTP/HTTPS domains
+    Example: http://senaite.local/clients?modified=1512033263370
     """
-    return api.get_modification_date(brain_or_object).millis()
+    url = api.get_url(brain_or_object)
+    modified = api.get_modification_date(brain_or_object).millis()
+    key = "{}?modified={}".format(url, modified)
+    logger.debug("Generated Cache Key: {}".format(key))
+    return key
 
 
 class SenaiteOverviewControlPanel(OverviewControlPanel):
@@ -49,9 +56,11 @@ class BootstrapView(BrowserView):
     def __init__(self, context, request):
         super(BrowserView, self).__init__(context, request)
 
-    @cache(modified_cache_key, store_on_context)
+    @cache(icon_cache_key)
     def get_icon_for(self, brain_or_object):
-        """Get the icon for the brain or object
+        """Get the navigation portlet icon for the brain or object
+
+        The cache key ensures that the lookup is done only once per domain name
         """
         portal_types = api.get_tool("portal_types")
         fti = portal_types.getTypeInfo(api.get_portal_type(brain_or_object))
@@ -67,6 +76,8 @@ class BootstrapView(BrowserView):
         title = api.get_title(brain_or_object)
         html_tag = "<img title='{}' src='{}/{}' width='16' />".format(
             title, portal_url, icon_big or icon)
+        logger.info("Generated Icon Tag for {}: {}".format(
+            api.get_path(brain_or_object), html_tag))
         return html_tag
 
     def getViewportValues(self, view=None):

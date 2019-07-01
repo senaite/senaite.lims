@@ -41,9 +41,9 @@ setup(
     zip_safe=False,
     install_requires=[
         "senaite.api",
-        "senaite.core.listing>=1.1.0",
-        "senaite.core>=1.3.0",
-        "senaite.impress>=1.2.0",
+        "senaite.core.listing>=1.2.0",
+        "senaite.core>=1.3.1",
+        "senaite.impress>=1.2.1",
         "senaite.jsonapi",
         "setuptools",
     ],

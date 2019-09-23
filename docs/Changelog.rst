@@ -1,7 +1,7 @@
 1.3.2 (unreleased)
 ------------------
 
-- no changes yet
+- #104: Capitalize WF state titles for better translation handling
 
 
 1.3.1 (2019-07-01)

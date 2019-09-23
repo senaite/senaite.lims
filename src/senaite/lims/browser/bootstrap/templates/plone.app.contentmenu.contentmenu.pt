@@ -26,7 +26,8 @@
           </span>
           <span tal:condition="menuItem/extra/stateTitle | nothing"
                 tal:attributes="class menuItem/extra/class | nothing"
-                tal:content="menuItem/extra/stateTitle"
+                tal:define="title menuItem/extra/stateTitle"
+                tal:content="python:title.capitalize()"
                 i18n:translate="">
             State title
           </span>

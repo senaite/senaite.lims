@@ -153,28 +153,6 @@ class Bootstrap
     @activate_form_tabbing $el
 
 
-  fix_remarks_field: (el) ->
-    console.debug "Bootstrap::fix_remarks_field"
-
-    $el = $(el)
-
-    if $el.attr("id") isnt "archetypes-fieldname-Remarks"
-      console.error "Element is not a remarks field"
-      return
-
-    $el.css "padding-top", "2em"
-    $el.find("fieldset legend").css "margin", "0 0 0 0"
-    $el.find("fieldset legend").css "padding", "1em 0 0 0"
-    # Remarks text
-    remarks = $el.find "fieldset span"
-    remarks.find("br").remove()
-    remarks.addClass "text-danger"
-    remarks.css "font-size", "100%"
-    remarks.css "font-weight", "bold"
-    remarks.html (index, html) ->
-      html.replace /===/g, "<br/>☞"
-
-
   fix_manage_viewlets: (el) ->
     console.debug "Bootstrap::fix_manage_viewlets"
 
@@ -252,11 +230,6 @@ $(document).ready ->
   $(document).on "onCreate", (event, el) ->
     $el = $(el)
 
-    if $el.text().startsWith "==="
-      remarks = $el.closest "#archetypes-fieldname-Remarks"
-      if remarks.length > 0
-        bs.fix_remarks_field remarks
-
     if $el.hasClass("portalMessage")
       bs.fix_portal_message $el
 
@@ -275,10 +248,6 @@ $(document).ready ->
   # Fix all results interpretations
   $("div.arresultsinterpretation-container").each ->
     bs.fix_results_interpretation this
-
-  # Fix remarks field
-  $("#archetypes-fieldname-Remarks").each ->
-    bs.fix_remarks_field this
 
   # Fix all form tabs
   $("ul.formTabs").each ->

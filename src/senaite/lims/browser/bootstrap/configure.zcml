@@ -56,25 +56,6 @@
       provides="zope.contentprovider.interfaces.IContentProvider"
       />
 
-  <!-- Needed for bika.lims.ManageBika permission -->
-  <include package="bika.lims" file="permissions.zcml" />
-
-  <!-- Content views (tabs) -->
-  <browser:viewlet
-      name="plone.contentviews"
-      manager="plone.app.layout.viewlets.interfaces.IContentViews"
-      class=".viewlets.SenaiteContentViewsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Viewlet Traverser View -->
-  <browser:page
-      for="*"
-      name="viewlets"
-      class=".viewlets.ViewletView"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Navigation Portlet -->
   <include package="plone.app.portlets"/>
 

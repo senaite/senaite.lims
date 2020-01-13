@@ -21,7 +21,6 @@
 from Acquisition import aq_inner
 from plone.app.customerize import registration
 from plone.app.layout.viewlets.common import ContentViewsViewlet
-from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zExceptions import NotFound
@@ -32,11 +31,6 @@ from zope.viewlet.interfaces import IViewlet
 class SenaiteContentViewsViewlet(ContentViewsViewlet):
     index = ViewPageTemplateFile(
         'templates/plone.app.layout.viewlets.contentviews.pt')
-
-
-class SenaiteColophonViewlet(ViewletBase):
-    index = ViewPageTemplateFile(
-        'templates/plone.app.layout.viewlets.colophon.pt')
 
 
 class ViewletView(BrowserView):

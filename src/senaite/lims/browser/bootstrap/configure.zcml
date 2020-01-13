@@ -156,14 +156,6 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Footer Viewlet -->
-  <browser:viewlet
-      name="plone.footer"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.SenaiteFooterViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Viewlet Traverser View -->
   <browser:page
       for="*"

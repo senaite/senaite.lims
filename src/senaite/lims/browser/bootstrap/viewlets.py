@@ -26,7 +26,6 @@ from bika.lims.browser.viewlets.attachments import AttachmentsViewlet
 from bika.lims.browser.viewlets.attachments import WorksheetAttachmentsViewlet
 from plone.app.customerize import registration
 from plone.app.layout.viewlets.common import ContentViewsViewlet
-from plone.app.layout.viewlets.common import FooterViewlet
 from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from plone.app.layout.viewlets.common import LogoViewlet
 from plone.app.layout.viewlets.common import PathBarViewlet
@@ -122,11 +121,6 @@ class SenaiteDocumentActionsViewlet(DocumentActionsViewlet):
 class SenaiteColophonViewlet(ViewletBase):
     index = ViewPageTemplateFile(
         'templates/plone.app.layout.viewlets.colophon.pt')
-
-
-class SenaiteFooterViewlet(FooterViewlet):
-    index = ViewPageTemplateFile(
-        'templates/plone.app.layout.viewlets.footer.pt')
 
 
 class SenaiteInstrumentQCFailuresViewlet(InstrumentQCFailuresViewlet):

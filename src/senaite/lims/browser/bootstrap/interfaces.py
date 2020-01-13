@@ -19,12 +19,6 @@
 # Some rights reserved, see README and LICENSE.
 
 from zope.interface import Interface
-from zope.viewlet.interfaces import IViewletManager
-
-
-class IBelowNavbarSections(IViewletManager):
-    """A viewlet manager that sits below the navbar sections
-    """
 
 
 class IBootstrapView(Interface):

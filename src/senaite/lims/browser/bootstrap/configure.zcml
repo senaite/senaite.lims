@@ -46,14 +46,6 @@
       permission="plone.app.controlpanel.Overview"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Viewlet Manager -->
-  <browser:viewletManager
-      name="senaite.belownavbarsections"
-      provides=".interfaces.IBelowNavbarSections"
-      permission="zope2.View"
-      class="plone.app.viewletmanager.manager.OrderedViewletManager"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Content Menu -->
   <adapter
       name="plone.contentmenu"
@@ -81,22 +73,6 @@
       name="plone.contentviews"
       manager="plone.app.layout.viewlets.interfaces.IContentViews"
       class=".viewlets.SenaiteContentViewsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Personal bar -->
-  <browser:viewlet
-      name="plone.personal_bar"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaitePersonalBarViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- SENAITE Personal Navigation Bar -->
-  <browser:viewlet
-      name="senaite.personal_nav_bar"
-      manager=".interfaces.IBelowNavbarSections"
-      class=".viewlets.SenaitePersonalNavBarViewlet"
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 

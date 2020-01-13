@@ -21,23 +21,12 @@
 from Acquisition import aq_inner
 from plone.app.customerize import registration
 from plone.app.layout.viewlets.common import ContentViewsViewlet
-from plone.app.layout.viewlets.common import PersonalBarViewlet
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zExceptions import NotFound
 from zope.publisher.interfaces.browser import IBrowserRequest
 from zope.viewlet.interfaces import IViewlet
-
-
-class SenaitePersonalBarViewlet(PersonalBarViewlet):
-    index = ViewPageTemplateFile(
-        'templates/plone.app.layout.viewlets.personal_bar.pt')
-
-
-class SenaitePersonalNavBarViewlet(PersonalBarViewlet):
-    index = ViewPageTemplateFile(
-        'templates/senaite.lims.browser.bootstrap.viewlets.personal_nav_bar.pt')
 
 
 class SenaiteContentViewsViewlet(ContentViewsViewlet):

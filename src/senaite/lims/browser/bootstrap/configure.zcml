@@ -56,15 +56,6 @@
       provides="zope.contentprovider.interfaces.IContentProvider"
       />
 
-  <!-- Language Selector -->
-  <browser:viewlet
-      name="plone.app.i18n.locales.languageselector"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class="plone.app.i18n.locales.browser.selector.LanguageSelector"
-      permission="zope2.View"
-      template="templates/plone.app.i18n.locales.browser.languageselector.pt"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Needed for bika.lims.ManageBika permission -->
   <include package="bika.lims" file="permissions.zcml" />
 

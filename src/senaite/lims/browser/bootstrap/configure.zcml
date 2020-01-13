@@ -119,15 +119,6 @@
   <!-- Navigation Portlet -->
   <include package="plone.app.portlets"/>
 
-  <!-- Bika Instrument QC failures viewlet -->
-  <browser:viewlet
-      for="*"
-      name="bika.lims.instrument_qc_failures_viewlet"
-      class=".viewlets.SenaiteInstrumentQCFailuresViewlet"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Bika AR Attachments viewlet -->
   <browser:viewlet
       for="bika.lims.interfaces.IAnalysisRequest"

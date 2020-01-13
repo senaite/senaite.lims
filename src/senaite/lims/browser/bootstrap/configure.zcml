@@ -73,14 +73,6 @@
       template="templates/plone.app.i18n.locales.browser.languageselector.pt"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Sections Dropdown -->
-  <browser:viewlet
-      name="senaite.sections_dropdown"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaiteSectionsDropdownViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Needed for bika.lims.ManageBika permission -->
   <include package="bika.lims" file="permissions.zcml" />
 

@@ -18,39 +18,21 @@
 # Copyright 2018-2019 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
-from cgi import escape
-
 from Acquisition import aq_inner
 from bika.lims.browser.instrument import InstrumentQCFailuresViewlet
 from bika.lims.browser.viewlets.attachments import AttachmentsViewlet
 from bika.lims.browser.viewlets.attachments import WorksheetAttachmentsViewlet
 from plone.app.customerize import registration
 from plone.app.layout.viewlets.common import ContentViewsViewlet
-from plone.app.layout.viewlets.common import GlobalSectionsViewlet
 from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
 from plone.app.layout.viewlets.common import SiteActionsViewlet
 from plone.app.layout.viewlets.common import ViewletBase
-from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zExceptions import NotFound
-from zope.component import getMultiAdapter
 from zope.publisher.interfaces.browser import IBrowserRequest
 from zope.viewlet.interfaces import IViewlet
-
-
-class SenaiteSectionsDropdownViewlet(GlobalSectionsViewlet):
-    index = ViewPageTemplateFile(
-        'templates/senaite.lims.browser.bootstrap.viewlets.sections_dropdown.pt')
-
-    def update(self):
-        super(SenaiteSectionsDropdownViewlet, self).update()
-        portal_state = getMultiAdapter((self.context, self.request),
-                                       name=u'plone_portal_state')
-        self.navigation_root_url = portal_state.navigation_root_url()
-        self.portal_title = escape(
-            safe_unicode(portal_state.navigation_root_title()))
 
 
 class SenaitePathBarViewlet(PathBarViewlet):

@@ -25,7 +25,6 @@ from bika.lims.browser.viewlets.attachments import WorksheetAttachmentsViewlet
 from plone.app.customerize import registration
 from plone.app.layout.viewlets.common import ContentViewsViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
-from plone.app.layout.viewlets.common import SiteActionsViewlet
 from plone.app.layout.viewlets.common import ViewletBase
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -47,11 +46,6 @@ class SenaitePersonalNavBarViewlet(PersonalBarViewlet):
 class SenaiteContentViewsViewlet(ContentViewsViewlet):
     index = ViewPageTemplateFile(
         'templates/plone.app.layout.viewlets.contentviews.pt')
-
-
-class SenaiteSiteActionsViewlet(SiteActionsViewlet):
-    index = ViewPageTemplateFile(
-        "templates/plone.app.layout.viewlets.site_actions.pt")
 
 
 class SenaiteColophonViewlet(ViewletBase):

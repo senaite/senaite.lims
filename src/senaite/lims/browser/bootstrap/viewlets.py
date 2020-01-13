@@ -24,7 +24,6 @@ from bika.lims.browser.viewlets.attachments import AttachmentsViewlet
 from bika.lims.browser.viewlets.attachments import WorksheetAttachmentsViewlet
 from plone.app.customerize import registration
 from plone.app.layout.viewlets.common import ContentViewsViewlet
-from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
 from plone.app.layout.viewlets.common import SiteActionsViewlet
 from plone.app.layout.viewlets.common import ViewletBase
@@ -33,11 +32,6 @@ from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zExceptions import NotFound
 from zope.publisher.interfaces.browser import IBrowserRequest
 from zope.viewlet.interfaces import IViewlet
-
-
-class SenaitePathBarViewlet(PathBarViewlet):
-    index = ViewPageTemplateFile(
-        'templates/plone.app.layout.viewlets.path_bar.pt')
 
 
 class SenaitePersonalBarViewlet(PersonalBarViewlet):

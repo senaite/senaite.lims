@@ -92,14 +92,6 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Breadcrumbs -->
-  <browser:viewlet
-      name="plone.path_bar"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-      class=".viewlets.SenaitePathBarViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Personal bar -->
   <browser:viewlet
       name="plone.personal_bar"

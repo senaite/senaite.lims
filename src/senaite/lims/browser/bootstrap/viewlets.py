@@ -31,7 +31,6 @@ from plone.app.layout.viewlets.common import PathBarViewlet
 from plone.app.layout.viewlets.common import PersonalBarViewlet
 from plone.app.layout.viewlets.common import SiteActionsViewlet
 from plone.app.layout.viewlets.common import ViewletBase
-from plone.app.layout.viewlets.content import DocumentActionsViewlet
 from Products.CMFPlone.utils import safe_unicode
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
@@ -90,11 +89,6 @@ class SenaiteContentViewsViewlet(ContentViewsViewlet):
 class SenaiteSiteActionsViewlet(SiteActionsViewlet):
     index = ViewPageTemplateFile(
         "templates/plone.app.layout.viewlets.site_actions.pt")
-
-
-class SenaiteDocumentActionsViewlet(DocumentActionsViewlet):
-    index = ViewPageTemplateFile(
-        'templates/plone.app.layout.viewlets.documentactions.pt')
 
 
 class SenaiteColophonViewlet(ViewletBase):

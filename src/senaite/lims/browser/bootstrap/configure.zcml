@@ -108,14 +108,6 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Document actions -->
-  <browser:viewlet
-      name="plone.abovecontenttitle.documentactions"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-      class=".viewlets.SenaiteDocumentActionsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Breadcrumbs -->
   <browser:viewlet
       name="plone.path_bar"

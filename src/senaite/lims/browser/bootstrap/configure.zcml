@@ -73,14 +73,6 @@
       template="templates/plone.app.i18n.locales.browser.languageselector.pt"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Global sections -->
-  <browser:viewlet
-      name="plone.global_sections"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaiteGlobalSectionsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Sections Dropdown -->
   <browser:viewlet
       name="senaite.sections_dropdown"

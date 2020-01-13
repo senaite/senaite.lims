@@ -21,13 +21,13 @@
       permission="zope2.View"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <browser:viewlet
-      for="*"
-      name="spotlight_trigger_viewlet"
-      manager="senaite.lims.browser.bootstrap.interfaces.IBelowNavbarSections"
-      template="templates/spotlight_trigger_viewlet.pt"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
+  <!-- <browser:viewlet -->
+  <!--     for="*" -->
+  <!--     name="spotlight_trigger_viewlet" -->
+  <!--     manager="senaite.lims.browser.bootstrap.interfaces.IBelowNavbarSections" -->
+  <!--     template="templates/spotlight_trigger_viewlet.pt" -->
+  <!--     permission="zope2.View" -->
+  <!--     layer="senaite.lims.interfaces.ISenaiteLIMS"/> -->
 
   <!-- Register directory for static files-->
   <browser:resourceDirectory

@@ -1,3 +1,9 @@
+1.3.3 (unreleased)
+------------------
+
+- #110: Moved all viewlets to senaite.core
+
+
 1.3.2.1 (2019-11-06)
 --------------------
 

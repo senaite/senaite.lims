@@ -46,14 +46,6 @@
       permission="plone.app.controlpanel.Overview"
       layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
-  <!-- Viewlet Manager -->
-  <browser:viewletManager
-      name="senaite.belownavbarsections"
-      provides=".interfaces.IBelowNavbarSections"
-      permission="zope2.View"
-      class="plone.app.viewletmanager.manager.OrderedViewletManager"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Content Menu -->
   <adapter
       name="plone.contentmenu"
@@ -64,143 +56,8 @@
       provides="zope.contentprovider.interfaces.IContentProvider"
       />
 
-  <!-- Logo Viewlet -->
-  <browser:viewlet
-      name="plone.logo"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaiteLogoViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Language Selector -->
-  <browser:viewlet
-      name="plone.app.i18n.locales.languageselector"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class="plone.app.i18n.locales.browser.selector.LanguageSelector"
-      permission="zope2.View"
-      template="templates/plone.app.i18n.locales.browser.languageselector.pt"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Global sections -->
-  <browser:viewlet
-      name="plone.global_sections"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaiteGlobalSectionsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Sections Dropdown -->
-  <browser:viewlet
-      name="senaite.sections_dropdown"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaiteSectionsDropdownViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Needed for bika.lims.ManageBika permission -->
-  <include package="bika.lims" file="permissions.zcml" />
-
-  <!-- Content views (tabs) -->
-  <browser:viewlet
-      name="plone.contentviews"
-      manager="plone.app.layout.viewlets.interfaces.IContentViews"
-      class=".viewlets.SenaiteContentViewsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Site Actions -->
-  <browser:viewlet
-      name="plone.site_actions"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.SenaiteSiteActionsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Document actions -->
-  <browser:viewlet
-      name="plone.abovecontenttitle.documentactions"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
-      class=".viewlets.SenaiteDocumentActionsViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Breadcrumbs -->
-  <browser:viewlet
-      name="plone.path_bar"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-      class=".viewlets.SenaitePathBarViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Personal bar -->
-  <browser:viewlet
-      name="plone.personal_bar"
-      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-      class=".viewlets.SenaitePersonalBarViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- SENAITE Personal Navigation Bar -->
-  <browser:viewlet
-      name="senaite.personal_nav_bar"
-      manager=".interfaces.IBelowNavbarSections"
-      class=".viewlets.SenaitePersonalNavBarViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Colophon Viewlet -->
-  <browser:viewlet
-      name="plone.colophon"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.SenaiteColophonViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Footer Viewlet -->
-  <browser:viewlet
-      name="plone.footer"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
-      class=".viewlets.SenaiteFooterViewlet"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Viewlet Traverser View -->
-  <browser:page
-      for="*"
-      name="viewlets"
-      class=".viewlets.ViewletView"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Navigation Portlet -->
   <include package="plone.app.portlets"/>
-
-  <!-- Bika Instrument QC failures viewlet -->
-  <browser:viewlet
-      for="*"
-      name="bika.lims.instrument_qc_failures_viewlet"
-      class=".viewlets.SenaiteInstrumentQCFailuresViewlet"
-      manager="plone.app.layout.viewlets.interfaces.IAboveContent"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Bika AR Attachments viewlet -->
-  <browser:viewlet
-      for="bika.lims.interfaces.IAnalysisRequest"
-      name="bika.lims.viewlets.attachments"
-      class=".viewlets.SenaiteAttachmentsViewlet"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Bika WS Attachments viewlet -->
-  <browser:viewlet
-      for="bika.lims.interfaces.IWorksheet"
-      name="bika.lims.viewlets.worksheet_attachments"
-      class=".viewlets.SenaiteWorksheetAttachmentsViewlet"
-      manager="plone.app.layout.viewlets.interfaces.IBelowContentTitle"
-      permission="zope2.View"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
 
   <plone:portletRenderer
       portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"

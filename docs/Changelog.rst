@@ -1,6 +1,7 @@
 1.3.3 (unreleased)
 ------------------
 
+- #111: Moved navigation portlet to core
 - #110: Moved all viewlets to senaite.core
 
 

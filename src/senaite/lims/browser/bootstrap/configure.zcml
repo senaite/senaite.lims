@@ -56,14 +56,6 @@
       provides="zope.contentprovider.interfaces.IContentProvider"
       />
 
-  <!-- Navigation Portlet -->
-  <include package="plone.app.portlets"/>
-
-  <plone:portletRenderer
-      portlet="plone.app.portlets.portlets.navigation.INavigationPortlet"
-      class=".portlets.SenaiteNavigationPortletRenderer"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Register static directory for STATIC files-->
   <browser:resourceDirectory
       name="senaite.lims.bootstrap.static"

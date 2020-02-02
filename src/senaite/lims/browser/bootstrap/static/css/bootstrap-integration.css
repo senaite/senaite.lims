@@ -1,3 +1,25 @@
+/* Ajax Loader */
+body #loader { display: none; }
+body.loading #loader {
+    position: fixed;
+    display: block;
+    top: 0em;
+    left: 49%;
+    width: 7em;
+    height: 2em;
+    z-index: 1000;
+    font-size: 1em;
+    color: #383d41;
+    background-color: #e2e3e5;
+    border-color: #d6d8db;
+    border-style: none;
+    text-align: center;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    opacity: 0.8;
+}
+
+
 /* Plone Style overwrites */
 .hiddenStructure {
     display: none;
@@ -43,27 +65,6 @@ div.field label {
 }
 /* /Plone Style overwrites */
 
-
-/* Loader */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-}
-#loader {
-    top: 50%;
-    left: 50%;
-    position: fixed;
-    text-align: center;
-    padding: 0.5em;
-}
-#bika-spinner {
-    display: none!important;
-}
 .bika-tooltip {
     opacity: 1;
     border: none!important;
@@ -86,7 +87,6 @@ div.field label {
 .bika-tooltip td:hover {
     color: #337ab7;
 }
-/* /Loader */
 
 
 /* Bika Style overwrites */

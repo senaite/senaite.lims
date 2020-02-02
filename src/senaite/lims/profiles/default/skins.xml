@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_skins">
 
-  <object name="senaite_templates"
-          meta_type="Filesystem Directory View"
-          directory="senaite.lims:skins/senaite_templates"/>
-
   <object name="senaite_images"
           meta_type="Filesystem Directory View"
           directory="senaite.lims:skins/senaite_images"/>

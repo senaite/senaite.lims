@@ -1,6 +1,7 @@
 1.3.3 (unreleased)
 ------------------
 
+- #114 Better Ajax Loader for Sample Add Form
 - #111: Moved navigation portlet to core
 - #110: Moved all viewlets to senaite.core
 

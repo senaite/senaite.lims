@@ -11,8 +11,6 @@ class Bootstrap
   ###
 
   constructor: ->
-    # Remove default Bika spinner (Replaced with the modal spinner above)
-    $("bika-spinner").remove()
 
     $("h1").next("p").addClass "text-info"
     $("div.documentDescription").addClass "text-info"
@@ -44,11 +42,6 @@ class Bootstrap
 
     $("button").not(".navbar-toggle").addClass "btn btn-default"
     $("input[type='submit']").addClass "btn btn-default"
-
-    # Remove the "Add" menu
-    # $("#plone-contentmenu-factories").remove()
-    # Remove the "Display" menu
-    # $("#plone-contentmenu-display").remove()
 
     return @
 
@@ -264,18 +257,3 @@ $(document).ready ->
   # Fix manage viewlets
   $(".template-manage-viewlets").each ->
     bs.fix_manage_viewlets this
-
-  # Show new loader on Ajax events
-  $(document).on
-    ajaxStart: ->
-      $("body").addClass "loading"
-      $(".modal").show()
-      return
-    ajaxStop: ->
-      $("body").removeClass "loading"
-      $(".modal").hide()
-      return
-    ajaxError: ->
-      $("body").removeClass "loading"
-      $(".modal").hide()
-      return

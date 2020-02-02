@@ -15,7 +15,6 @@
      * Bootstrap Fixtures for SENAITE
      */
     function Bootstrap() {
-      $("bika-spinner").remove();
       $("h1").next("p").addClass("text-info");
       $("div.documentDescription").addClass("text-info");
       $("table").not(".ordered-selection-field").not(".recordswidget").addClass("table table-condensed table-bordered table-striped");
@@ -215,22 +214,8 @@
     $("div#edit-bar ul").each(function() {
       return bs.fix_form_tabs(this);
     });
-    $(".template-manage-viewlets").each(function() {
+    return $(".template-manage-viewlets").each(function() {
       return bs.fix_manage_viewlets(this);
-    });
-    return $(document).on({
-      ajaxStart: function() {
-        $("body").addClass("loading");
-        $(".modal").show();
-      },
-      ajaxStop: function() {
-        $("body").removeClass("loading");
-        $(".modal").hide();
-      },
-      ajaxError: function() {
-        $("body").removeClass("loading");
-        $(".modal").hide();
-      }
     });
   });
 

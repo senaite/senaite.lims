@@ -48,11 +48,13 @@ class SimpleTestLayer(PloneSandboxLayer):
         import senaite.lims
         import senaite.impress
         import senaite.core.listing
+        import senaite.core.spotlight
 
         self.loadZCML(package=bika.lims)
         self.loadZCML(package=senaite.lims)
         self.loadZCML(package=senaite.impress)
         self.loadZCML(package=senaite.core.listing)
+        self.loadZCML(package=senaite.core.spotlight)
 
         # Install product and call its initialize() function
         z2.installProduct(app, "senaite.lims")

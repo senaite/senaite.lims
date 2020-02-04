@@ -42,6 +42,7 @@ setup(
     install_requires=[
         "senaite.api<2.0.0",
         "senaite.core.listing<2.0.0",
+        "senaite.core.spotlight<2.0.0",
         "senaite.core<2.0.0",
         "senaite.impress<2.0.0",
         "senaite.jsonapi<2.0.0",

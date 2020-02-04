@@ -1,6 +1,7 @@
 1.3.3 (unreleased)
 ------------------
 
+- #116 Moved spotlight to separate add-on
 - #115 Moved setupview into core
 - #114 Better Ajax Loader for Sample Add Form
 - #111: Moved navigation portlet to core

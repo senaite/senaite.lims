@@ -5,6 +5,5 @@
     <dependency>profile-senaite.lims:default</dependency>
     <dependency>profile-senaite.impress:default</dependency>
     <dependency>profile-senaite.core.listing:default</dependency>
-    <dependency>profile-senaite.core.spotlight:default</dependency>
   </dependencies>
 </metadata>

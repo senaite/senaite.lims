@@ -69,7 +69,7 @@
    <element value="Bordered|table-bordered"/>
   </tablestyles>
   <content_css
-     value="++resource++senaite.lims.bootstrap.vendor/css/bootstrap.min.css"/>
+     value="++resource++senaite.core.bootstrap.static/css/bootstrap.min.css"/>
   <editor_height value="600"/>
   <editor_width value="100%"/>
   <contextmenu value="True"/>

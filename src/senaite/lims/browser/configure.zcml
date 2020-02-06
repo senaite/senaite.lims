@@ -6,7 +6,6 @@
   <!-- Package Includes -->
   <include package=".bootstrap"/>
   <include package=".fontawesome"/>
-  <include package=".jquery"/>
   <include package=".overwrites"/>
 
   <!-- Register static directory for image files -->

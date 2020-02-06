@@ -1,20 +1,6 @@
 <?xml version="1.0"?>
 <object name="portal_javascripts">
 
-  <!-- jQuery -->
-  <javascript
-      id="++resource++senaite.lims.jquery.js/jquery-2.2.4.min.js"
-      cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="default"
-      insert-before="*"/>
-
-  <!-- jQuery Migration -->
-  <javascript
-      id="++resource++senaite.lims.jquery.js/jquery-migrate-1.4.1.min.js"
-      cacheable="True" compression="none" cookable="True"
-      enabled="True" inline="False" expression="" bundle="default"
-      insert-after="++resource++senaite.lims.jquery.js/jquery-2.2.4.min.js"/>
-
   <!-- Bootstrap -->
   <javascript
       id="++resource++senaite.lims.bootstrap.vendor/js/bootstrap.min.js"

@@ -5,7 +5,6 @@
 
   <!-- Package Includes -->
   <include package=".bootstrap"/>
-  <include package=".fontawesome"/>
   <include package=".overwrites"/>
 
   <!-- Register static directory for image files -->
@@ -25,9 +24,5 @@
   <browser:resource
       file="images/favicon.ico"
       name="favicon.ico"/>
-
-  <browser:resource
-      file="bootstrap/vendor/css/bootstrap.min.css"
-      name="bootstrap.min.css"/>
 
 </configure>

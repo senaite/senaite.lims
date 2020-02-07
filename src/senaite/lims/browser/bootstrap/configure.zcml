@@ -39,18 +39,6 @@
       provides="zope.contentprovider.interfaces.IContentProvider"
       />
 
-  <!-- Register static directory for STATIC files-->
-  <browser:resourceDirectory
-      name="senaite.lims.bootstrap.static"
-      directory="static"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <!-- Register static directory for VENDOR files -->
-  <browser:resourceDirectory
-      name="senaite.lims.bootstrap.vendor"
-      directory="vendor"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
   <!-- Filesystem directory view -->
   <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
 

@@ -7,22 +7,4 @@
   <include package=".bootstrap"/>
   <include package=".overwrites"/>
 
-  <!-- Register static directory for image files -->
-  <browser:resourceDirectory
-      name="senaite.lims.images"
-      directory="images"
-      layer="senaite.lims.interfaces.ISenaiteLIMS"/>
-
-  <browser:resource
-      file="images/logo.png"
-      name="senaite-logo.png"/>
-
-  <browser:resource
-      file="images/icon.png"
-      name="senaite-icon.png"/>
-
-  <browser:resource
-      file="images/favicon.ico"
-      name="favicon.ico"/>
-
 </configure>

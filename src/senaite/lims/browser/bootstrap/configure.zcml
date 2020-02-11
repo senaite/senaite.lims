@@ -1,21 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:cmf="http://namespaces.zope.org/cmf"
     i18n_domain="senaite.lims">
-
-  <include package="plone.app.controlpanel" file="permissions.zcml" />
-
-  <!-- Content Menu -->
-  <adapter
-      name="plone.contentmenu"
-      for="*
-           senaite.lims.interfaces.ISenaiteLIMS
-           *"
-      factory=".adapters.SenaiteContentMenuProvider"
-      provides="zope.contentprovider.interfaces.IContentProvider"
-      />
 
   <!-- Filesystem directory view -->
   <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>

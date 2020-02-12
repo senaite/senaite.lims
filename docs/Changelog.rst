@@ -1,6 +1,7 @@
 1.3.3 (unreleased)
 ------------------
 
+- #121 Move all browser resources to core
 - #120 Moved content menu provider to core
 - #119 Moved install screens to senaite.core 
 - #117 Moved all JS/CSS resources to core

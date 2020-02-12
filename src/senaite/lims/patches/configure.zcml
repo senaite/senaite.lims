@@ -1,8 +1,0 @@
-<configure
-    xmlns="http://namespaces.zope.org/zope"
-    xmlns:monkey="http://namespaces.plone.org/monkey"
-    i18n_domain="senaite.lims">
-
-    <include package="collective.monkeypatcher" />
-
-</configure>

@@ -11,12 +11,7 @@
   <five:registerPackage package="." initialize=".initialize"/>
 
   <!-- Package Includes -->
-  <include package=".browser"/>
   <include package=".upgrades"/>
-  <include package=".patches" />
-
-  <!-- Filesystem directory view -->
-  <cmf:registerDirectory name="skins" directory="skins" recursive="True"/>
 
   <!-- Generic Setup *INSTALL* Profile -->
   <genericsetup:registerProfile

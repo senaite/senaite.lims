@@ -23,15 +23,6 @@
       post_handler="senaite.lims.setuphandlers.post_install"
       provides="Products.GenericSetup.interfaces.EXTENSION"/>
 
-  <!-- Generic Setup *UNINSTALL* Profile -->
-  <genericsetup:registerProfile
-      name="uninstall"
-      title="SENAITE LIMS"
-      directory="profiles/uninstall"
-      description="SENAITE LIMS Add-on"
-      post_handler="senaite.lims.setuphandlers.post_uninstall"
-      provides="Products.GenericSetup.interfaces.EXTENSION"/>
-
   <!-- Generic Setup *IMPORT STEP* -->
   <genericsetup:importStep
       name="senaite.lims.setupHandler"

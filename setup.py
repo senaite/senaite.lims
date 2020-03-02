@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-version = "1.3.2.1"
+version = "1.3.3"
 
 with open("docs/About.rst", "r") as fh:
     long_description = fh.read()
@@ -17,7 +17,7 @@ with open("docs/Changelog.rst", "r") as fh:
 setup(
     name="senaite.lims",
     version=version,
-    description="SENAITE LIMS - Meta Package for Core and UI/UX Components",
+    description="SENAITE LIMS - Meta Package",
     long_description=long_description,
     # long_description_content_type="text/markdown",
     # Get more strings from
@@ -30,8 +30,8 @@ setup(
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
     keywords="",
-    author="SENAITE Foundation",
-    author_email="hello@senaite.com",
+    author="RIDING BYTES & NARALABS",
+    author_email="senaite@senaite.com",
     url="https://github.com/senaite/senaite.lims",
     license="GPLv2",
     packages=find_packages("src", exclude=["ez_setup"]),
@@ -40,12 +40,11 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        "senaite.api<2.0.0",
-        "senaite.core.listing<2.0.0",
-        "senaite.core.spotlight<2.0.0",
-        "senaite.core<2.0.0",
-        "senaite.impress<2.0.0",
-        "senaite.jsonapi<2.0.0",
+        "senaite.core==1.3.3",
+        "senaite.core.listing==1.4.0",
+        "senaite.core.spotlight==1.0.2",
+        "senaite.impress==1.2.3",
+        "senaite.jsonapi==1.2.1",
         "setuptools",
     ],
     extras_require={

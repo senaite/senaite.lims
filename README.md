@@ -45,9 +45,8 @@ the LIMS, while providing a modern, intuitive and friendly [UI](https://en.wikip
 **SENAITE.LIMS** Copyright (C) 2017-2020 RIDING BYTES & NARALABS
 
 This program is free software; you can redistribute it and/or modify it under
-the terms of the `GNU General Public License version 2
-<https://github.com/senaite/senaite.queue/blob/master/LICENSE>`_ as published
-by the Free Software Foundation.
+the terms of the [GNU General Public License version 2](https://github.com/senaite/senaite.lims/blob/master/LICENSE) as published by
+the Free Software Foundation.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of

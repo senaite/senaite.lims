@@ -23,8 +23,8 @@ from senaite.impress import logger
 PROFILE_ID = "profile-senaite.lims:default"
 
 
-def to_1000(portal_setup):
-    """Initial version to 1000
+def to_latest(portal_setup):
+    """Update to latest version
 
     :param portal_setup: The portal_setup tool
     """

@@ -44,7 +44,7 @@ setup(
         "senaite.core.listing==1.4.0",
         "senaite.core.spotlight==1.0.2",
         "senaite.impress==1.2.3",
-        "senaite.jsonapi==1.2.1",
+        "senaite.jsonapi==1.2.2",
         "setuptools",
     ],
     extras_require={

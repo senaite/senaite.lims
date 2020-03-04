@@ -3,7 +3,7 @@
    :alt: senaite.lims
    :height: 128
 
-- **SENAITE.LIMS**: *Meta Package*
+- **SENAITE.LIMS**: *Meta Installation Package*
 
 .. image:: https://img.shields.io/pypi/v/senaite.lims.svg?style=flat-square
    :target: https://pypi.python.org/pypi/senaite.lims

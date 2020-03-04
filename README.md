@@ -8,7 +8,7 @@
     </a>
   </h1>
 
-  <p>SENAITE LIMS Meta Package</p>
+  <p>SENAITE LIMS Meta Installation Package</p>
 
   <div>
     <a href="https://pypi.python.org/pypi/senaite.lims">

@@ -1,5 +1,5 @@
 1.3.3.1 (2020-03-04)
--------------------
+--------------------
 
 - Fixed metadata version for upgrade step
 

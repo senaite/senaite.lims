@@ -5,9 +5,9 @@
 
   <genericsetup:upgradeStep
       title="Upgrade SENAITE LIMS"
-      description="Version 1.3.3.1"
+      description="Version 1.3.3.2"
       source="*"
-      destination="1331"
+      destination="1332"
       handler="senaite.lims.upgrades.handlers.to_latest"
       profile="senaite.lims:default" />
 

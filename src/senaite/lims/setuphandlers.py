@@ -25,7 +25,7 @@ def setup_handler(context):
     """Generic setup handler
     """
 
-    if context.readDataFile('senaite.lims.txt') is None:
+    if context.readDataFile("senaite.lims.txt") is None:
         return
 
     logger.info("SENAITE setup handler [BEGIN]")
@@ -50,8 +50,9 @@ def pre_install(portal_setup):
 
     # Only install the core once!
     qi = portal.portal_quickinstaller
-    if not qi.isProductInstalled("bika.lims"):
-        portal_setup.runAllImportStepsFromProfile("profile-bika.lims:default")
+    if not qi.isProductInstalled("senaite.core"):
+        profile_id = "profile-senaite.core:default"
+        portal_setup.runAllImportStepsFromProfile(profile_id)
 
     logger.info("SENAITE LIMS pre-install handler [DONE]")
 

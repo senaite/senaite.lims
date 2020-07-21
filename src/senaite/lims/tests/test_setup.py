@@ -18,6 +18,7 @@
 # Copyright 2018-2020 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
+from Products.CMFPlone.utils import get_installer
 from senaite.lims.tests.base import SimpleTestCase
 
 
@@ -25,21 +26,21 @@ class TestPackagesInstalled(SimpleTestCase):
     """Test if all dependent packages are installed
     """
 
-    def test_is_senaite_lims_installed(self):
-        qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled("senaite.lims"))
-
     def test_is_senaite_core_installed(self):
-        qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled("bika.lims"))
+        qi = get_installer(self.portal)
+        self.assertTrue(qi.is_product_installed("senaite.core"))
+
+    def test_is_senaite_lims_installed(self):
+        qi = get_installer(self.portal)
+        self.assertTrue(qi.is_product_installed("senaite.lims"))
 
     def test_is_senaite_impress_installed(self):
-        qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled("senaite.impress"))
+        qi = get_installer(self.portal)
+        self.assertTrue(qi.is_product_installed("senaite.impress"))
 
     def test_is_senaite_core_listing_installed(self):
-        qi = self.portal.portal_quickinstaller
-        self.assertTrue(qi.isProductInstalled("senaite.core.listing"))
+        qi = get_installer(self.portal)
+        self.assertTrue(qi.is_product_installed("senaite.core.listing"))
 
 
 def test_suite():

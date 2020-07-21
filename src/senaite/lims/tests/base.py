@@ -18,84 +18,72 @@
 # Copyright 2018-2020 by it's authors.
 # Some rights reserved, see README and LICENSE.
 
-import unittest2 as unittest
+import os
 
-from plone.testing import z2
-
-from plone.app.testing import setRoles
-from plone.app.testing import applyProfile
-from plone.app.testing import TEST_USER_ID
+import transaction
 from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import SITE_OWNER_NAME
-from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import TEST_USER_PASSWORD
 from plone.app.testing import FunctionalTesting
-from plone.app.testing import login
-from plone.app.testing import logout
-
-from bika.lims.testing import BASE_TESTING
+from plone.app.testing.bbb_at import PloneTestCase
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
+from plone.app.testing import setRoles
+from plone.protect.authenticator import createToken
+from plone.testing import zope
+from plone.testing.zope import Browser
 
 
 class SimpleTestLayer(PloneSandboxLayer):
     """Setup Plone with installed AddOn only
     """
-    defaultBases = (BASE_TESTING, PLONE_FIXTURE,)
+    defaultBases = (PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
         super(SimpleTestLayer, self).setUpZope(app, configurationContext)
 
         # Load ZCML
+        import Products.TextIndexNG3
         import bika.lims
+        import senaite.core
         import senaite.lims
         import senaite.impress
         import senaite.core.listing
         import senaite.core.spotlight
 
+        # XXX Hack to avoid this bug:
+        # IOError: [Errno 2] No such file or directory:
+        #          '.../senaite.core.supermodel/src/senaite/core/configure.zcml'
+        # Call Stack:
+        # plone.app.testing.helpers.loadZCML
+        # zope.configuration.xmlconfig.file
+        # zope.configuration.xmlconfig.include
+        # zope.configuration.config.ConfigurationContext.path
+        # zope.configuration.config.ConfigurationContext.processxmlfile
+        senaite.core.__path__ = [os.path.dirname(senaite.core.__file__)]
+
+        self.loadZCML(package=Products.TextIndexNG3)
         self.loadZCML(package=bika.lims)
+        self.loadZCML(package=senaite.core)
         self.loadZCML(package=senaite.lims)
         self.loadZCML(package=senaite.impress)
         self.loadZCML(package=senaite.core.listing)
         self.loadZCML(package=senaite.core.spotlight)
 
         # Install product and call its initialize() function
-        z2.installProduct(app, "senaite.lims")
+        zope.installProduct(app, "Products.TextIndexNG3")
+        zope.installProduct(app, "bika.lims")
+        zope.installProduct(app, "senaite.core")
+        zope.installProduct(app, "senaite.core.listing")
+        zope.installProduct(app, "senaite.core.spotlight")
+        zope.installProduct(app, "senaite.impress")
+        zope.installProduct(app, "senaite.lims")
 
     def setUpPloneSite(self, portal):
-        super(SimpleTestLayer, self).setUpPloneSite(portal)
-
-        # Apply Setup Profile (portal_quickinstaller)
+        # Install into Plone site using portal_setup
         applyProfile(portal, "senaite.lims:default")
-
-        login(portal.aq_parent, SITE_OWNER_NAME)
-
-        # Add some test users
-        ROLES = ["LabManager", "LabClerk", "Analyst"]
-        for role in ROLES:
-
-            for user_nr in range(2):
-                username = "test_%s_%s" % (role.lower(), user_nr)
-                try:
-                    member = portal.portal_registration.addMember(
-                        username,
-                        username,
-                        properties={
-                            "username": username,
-                            "email": username + "@example.com",
-                            "fullname": username})
-                    # Add user to all specified groups
-                    group_id = role + "s"
-                    group = portal.portal_groups.getGroupById(group_id)
-                    if group:
-                        group.addMember(username)
-                    # Add user to all specified roles
-                    member._addRole(role)
-                except ValueError:
-                    pass  # user exists
-
-        logout()
-
-    def tearDownZope(self, app):
-        # Uninstall product
-        z2.uninstallProduct(app, "senaite.lims")
+        transaction.commit()
 
 
 ###
@@ -108,14 +96,39 @@ SIMPLE_TESTING = FunctionalTesting(
 )
 
 
-class SimpleTestCase(unittest.TestCase):
+class SimpleTestCase(PloneTestCase):
     layer = SIMPLE_TESTING
 
     def setUp(self):
         super(SimpleTestCase, self).setUp()
-
-        self.app = self.layer["app"]
-        self.portal = self.layer["portal"]
+        # Fixing CSRF protection
+        # https://github.com/plone/plone.protect/#fixing-csrf-protection-failures-in-tests
         self.request = self.layer["request"]
-        self.request["ACTUAL_URL"] = self.portal.absolute_url()
+        # Disable plone.protect for these tests
+        self.request.form["_authenticator"] = createToken()
+        # Eventuelly you find this also useful
+        self.request.environ["REQUEST_METHOD"] = "POST"
+
         setRoles(self.portal, TEST_USER_ID, ["LabManager", "Manager"])
+
+        # Default skin is set to "Sunburst Theme"!
+        # => This causes an `AttributeError` when we want to access
+        #    e.g. 'guard_handler' FSPythonScript
+        self.portal.changeSkin("Plone Default")
+
+    def getBrowser(self,
+                   username=TEST_USER_NAME,
+                   password=TEST_USER_PASSWORD,
+                   loggedIn=True):
+
+        # Instantiate and return a testbrowser for convenience
+        browser = Browser(self.portal)
+        browser.addHeader("Accept-Language", "en-US")
+        browser.handleErrors = False
+        if loggedIn:
+            browser.open(self.portal.absolute_url())
+            browser.getControl("Login Name").value = username
+            browser.getControl("Password").value = password
+            browser.getControl("Log in").click()
+            self.assertTrue("You are now logged in" in browser.contents)
+        return browser

@@ -10,3 +10,7 @@ dist
 build
 *.pyc
 *.egg-info
+/.Python
+/lib
+/pyvenv.cfg
+/include

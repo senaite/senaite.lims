@@ -52,17 +52,6 @@ class SimpleTestLayer(PloneSandboxLayer):
         import senaite.app.listing
         import senaite.app.spotlight
 
-        # XXX Hack to avoid this bug:
-        # IOError: [Errno 2] No such file or directory:
-        #          '.../senaite.core.supermodel/src/senaite/core/configure.zcml'
-        # Call Stack:
-        # plone.app.testing.helpers.loadZCML
-        # zope.configuration.xmlconfig.file
-        # zope.configuration.xmlconfig.include
-        # zope.configuration.config.ConfigurationContext.path
-        # zope.configuration.config.ConfigurationContext.processxmlfile
-        senaite.core.__path__ = [os.path.dirname(senaite.core.__file__)]
-
         self.loadZCML(package=Products.TextIndexNG3)
         self.loadZCML(package=bika.lims)
         self.loadZCML(package=senaite.core)

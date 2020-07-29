@@ -49,8 +49,8 @@ class SimpleTestLayer(PloneSandboxLayer):
         import senaite.core
         import senaite.lims
         import senaite.impress
-        import senaite.core.listing
-        import senaite.core.spotlight
+        import senaite.app.listing
+        import senaite.app.spotlight
 
         # XXX Hack to avoid this bug:
         # IOError: [Errno 2] No such file or directory:
@@ -68,15 +68,15 @@ class SimpleTestLayer(PloneSandboxLayer):
         self.loadZCML(package=senaite.core)
         self.loadZCML(package=senaite.lims)
         self.loadZCML(package=senaite.impress)
-        self.loadZCML(package=senaite.core.listing)
-        self.loadZCML(package=senaite.core.spotlight)
+        self.loadZCML(package=senaite.app.listing)
+        self.loadZCML(package=senaite.app.spotlight)
 
         # Install product and call its initialize() function
         zope.installProduct(app, "Products.TextIndexNG3")
         zope.installProduct(app, "bika.lims")
         zope.installProduct(app, "senaite.core")
-        zope.installProduct(app, "senaite.core.listing")
-        zope.installProduct(app, "senaite.core.spotlight")
+        zope.installProduct(app, "senaite.app.listing")
+        zope.installProduct(app, "senaite.app.spotlight")
         zope.installProduct(app, "senaite.impress")
         zope.installProduct(app, "senaite.lims")
 

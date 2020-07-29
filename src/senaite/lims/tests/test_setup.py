@@ -38,9 +38,9 @@ class TestPackagesInstalled(SimpleTestCase):
         qi = get_installer(self.portal)
         self.assertTrue(qi.is_product_installed("senaite.impress"))
 
-    def test_is_senaite_core_listing_installed(self):
+    def test_is_senaite_app_listing_installed(self):
         qi = get_installer(self.portal)
-        self.assertTrue(qi.is_product_installed("senaite.core.listing"))
+        self.assertTrue(qi.is_product_installed("senaite.app.listing"))
 
 
 def test_suite():

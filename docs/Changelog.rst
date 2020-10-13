@@ -17,7 +17,7 @@
 
   https://github.com/senaite/senaite.app.listing/releases/tag/2.0.0rc2
 
-- senaite.core.spotlight 2.0.0rc1 → 2.0.0rc2
+- senaite.app.spotlight 2.0.0rc1 → 2.0.0rc2
 
   https://github.com/senaite/senaite.app.spotlight/releases/tag/2.0.0rc2
 

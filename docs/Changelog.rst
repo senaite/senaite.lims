@@ -1,3 +1,27 @@
+2.0.0rc2 (2020-10-13)
+---------------------
+
+- senaite.core 2.0.0rc1 → 2.0.0rc2
+
+  https://github.com/senaite/senaite.core/releases/tag/v2.0.0rc2
+
+- senaite.impress 2.0.0rc1 → 2.0.0rc2
+
+  https://github.com/senaite/senaite.impress/releases/tag/2.0.0rc2
+
+- senaite.app.supermodel 2.0.0rc1 → 2.0.0rc2
+
+  https://github.com/senaite/senaite.app.supermodel/releases/tag/2.0.0rc2
+
+- senaite.app.listing 2.0.0rc1 → 2.0.0rc2
+
+  https://github.com/senaite/senaite.app.listing/releases/tag/2.0.0rc2
+
+- senaite.core.spotlight 2.0.0rc1 → 2.0.0rc2
+
+  https://github.com/senaite/senaite.app.spotlight/releases/tag/2.0.0rc2
+
+
 2.0.0rc1 (2020-08-06)
 ---------------------
 

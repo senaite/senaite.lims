@@ -26,6 +26,11 @@ import unittest2 as unittest
 
 
 def test_suite():
+    """
+    Return a list of test suite suite.
+
+    Args:
+    """
     suite = unittest.TestSuite()
     suite.addTests([
         # ztc.ZopeDocFileSuite(

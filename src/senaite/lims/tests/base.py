@@ -41,6 +41,14 @@ class SimpleTestLayer(PloneSandboxLayer):
     defaultBases = (BASE_TESTING, PLONE_FIXTURE,)
 
     def setUpZope(self, app, configurationContext):
+        """
+        Set the zope package.
+
+        Args:
+            self: (todo): write your description
+            app: (todo): write your description
+            configurationContext: (todo): write your description
+        """
         super(SimpleTestLayer, self).setUpZope(app, configurationContext)
 
         # Load ZCML
@@ -60,6 +68,13 @@ class SimpleTestLayer(PloneSandboxLayer):
         z2.installProduct(app, "senaite.lims")
 
     def setUpPloneSite(self, portal):
+        """
+        Sets the role for the group
+
+        Args:
+            self: (todo): write your description
+            portal: (int): write your description
+        """
         super(SimpleTestLayer, self).setUpPloneSite(portal)
 
         # Apply Setup Profile (portal_quickinstaller)
@@ -94,6 +109,13 @@ class SimpleTestLayer(PloneSandboxLayer):
         logout()
 
     def tearDownZope(self, app):
+        """
+        Tear down the image.
+
+        Args:
+            self: (todo): write your description
+            app: (todo): write your description
+        """
         # Uninstall product
         z2.uninstallProduct(app, "senaite.lims")
 
@@ -112,6 +134,12 @@ class SimpleTestCase(unittest.TestCase):
     layer = SIMPLE_TESTING
 
     def setUp(self):
+        """
+        This method is called when a layer is in.
+
+        Args:
+            self: (todo): write your description
+        """
         super(SimpleTestCase, self).setUp()
 
         self.app = self.layer["app"]

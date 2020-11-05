@@ -155,6 +155,12 @@ if version is None and not options.accept_buildout_test_releases:
     _final_parts = '*final-', '*final'
 
     def _final_version(parsed_version):
+        """
+        Return true if a version is valid.
+
+        Args:
+            parsed_version: (str): write your description
+        """
         try:
             return not parsed_version.is_prerelease
         except AttributeError:

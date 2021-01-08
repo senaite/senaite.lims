@@ -3,7 +3,7 @@
 
 - senaite.core 2.0.0rc2 → 2.0.0rc3
 
-  https://github.com/senaite/senaite.core/releases/tag/v2.0.0rc3
+  https://github.com/senaite/senaite.core/releases/tag/2.0.0rc3
 
 - senaite.impress 2.0.0rc2 → 2.0.0rc3
 

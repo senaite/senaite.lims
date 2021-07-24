@@ -1,3 +1,27 @@
+1.3.5 (2021-07-24)
+------------------
+
+- senaite.core 1.3.4 → 1.3.5
+
+  https://github.com/senaite/senaite.core/releases/tag/v1.3.5
+
+- senaite.impress 1.2.4 → 1.2.5
+
+  https://github.com/senaite/senaite.impress/releases/tag/1.2.5
+
+- senaite.core.supermodel 1.2.4 → 1.2.5
+
+  https://github.com/senaite/senaite.core.supermodel/releases/tag/1.2.5
+
+- senaite.core.listing 1.5.2 → 1.5.3
+
+  https://github.com/senaite/senaite.core.listing/releases/tag/1.5.3
+
+- senaite.core.spotlight 1.0.3 → 1.0.4
+
+  https://github.com/senaite/senaite.core.spotlight/releases/tag/1.0.4
+
+
 1.3.4 (2020-08-11)
 ------------------
 

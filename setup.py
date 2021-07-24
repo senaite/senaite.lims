@@ -41,6 +41,7 @@ setup(
     zip_safe=False,
     install_requires=[
         "senaite.core>=1.3.5",
+        "senaite.core<2.0.0",
         "senaite.core.listing>=1.5.3",
         "senaite.core.spotlight>=1.0.4",
         "senaite.impress>=1.2.5",

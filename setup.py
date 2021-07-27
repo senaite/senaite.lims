@@ -46,6 +46,7 @@ setup(
         "senaite.app.spotlight>=2.0.0",
         "senaite.app.supermodel>=2.0.0",
         "senaite.impress>=2.0.0",
+        "senaite.jsonapi>=2.0.0",
         "setuptools",
     ],
     extras_require={

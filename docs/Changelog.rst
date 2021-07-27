@@ -1,7 +1,25 @@
-2.0.0 (unreleased)
+2.0.0 (2021-07-27)
 ------------------
 
-- no changes yet
+- senaite.core 2.0.0rc3 → 2.0.0
+
+  https://github.com/senaite/senaite.core/releases/tag/2.0.0
+
+- senaite.impress 2.0.0rc3 → 2.0.0
+
+  https://github.com/senaite/senaite.impress/releases/tag/2.0.0
+
+- senaite.app.supermodel 2.0.0rc3 → 2.0.0
+
+  https://github.com/senaite/senaite.app.supermodel/releases/tag/2.0.0
+
+- senaite.app.listing 2.0.0rc3 → 2.0.0
+
+  https://github.com/senaite/senaite.app.listing/releases/tag/2.0.0
+
+- senaite.app.spotlight 2.0.0rc3 → 2.0.0
+
+  https://github.com/senaite/senaite.app.spotlight/releases/tag/2.0.0
 
 
 2.0.0rc3 (2020-10-13)

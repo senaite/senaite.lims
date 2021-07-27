@@ -40,11 +40,12 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        "senaite.core>=2.0.0rc3",
-        "senaite.app.listing>=2.0.0rc3",
-        "senaite.app.spotlight>=2.0.0rc3",
-        "senaite.app.supermodel>=2.0.0rc3",
-        "senaite.impress>=2.0.0rc3",
+        "Plone==5.2.4"
+        "senaite.core==2.0.0",
+        "senaite.app.listing==2.0.0",
+        "senaite.app.spotlight==2.0.0",
+        "senaite.app.supermodel==2.0.0",
+        "senaite.impress==2.0.0",
         "setuptools",
     ],
     extras_require={

@@ -25,6 +25,10 @@
 
   https://github.com/senaite/senaite.jsonapi/releases/tag/2.1.0
 
+- Plone 5.2.4 → 5.2.6
+
+  https://dist.plone.org/release/5.2.6/RELEASE-NOTES.txt
+
 
 2.0.0 (2021-07-27)
 ------------------

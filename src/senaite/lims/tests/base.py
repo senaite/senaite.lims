@@ -42,7 +42,6 @@ class SimpleTestLayer(PloneSandboxLayer):
         super(SimpleTestLayer, self).setUpZope(app, configurationContext)
 
         # Load ZCML
-        import Products.TextIndexNG3
         import bika.lims
         import senaite.core
         import senaite.lims
@@ -50,7 +49,6 @@ class SimpleTestLayer(PloneSandboxLayer):
         import senaite.app.listing
         import senaite.app.spotlight
 
-        self.loadZCML(package=Products.TextIndexNG3)
         self.loadZCML(package=bika.lims)
         self.loadZCML(package=senaite.core)
         self.loadZCML(package=senaite.lims)
@@ -59,7 +57,6 @@ class SimpleTestLayer(PloneSandboxLayer):
         self.loadZCML(package=senaite.app.spotlight)
 
         # Install product and call its initialize() function
-        zope.installProduct(app, "Products.TextIndexNG3")
         zope.installProduct(app, "bika.lims")
         zope.installProduct(app, "senaite.core")
         zope.installProduct(app, "senaite.app.listing")

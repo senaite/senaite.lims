@@ -1,7 +1,33 @@
-2.3.0 (unreleased)
+2.3.0 (2022-10-04)
 ------------------
 
-- #132 Remove dependency to Products.TextIndexNG3 (test layer)
+- senaite.core 2.2.0 → 2.3.0
+
+  https://github.com/senaite/senaite.core/releases/tag/v2.3.0
+
+- senaite.impress 2.2.0 → 2.3.0
+
+  https://github.com/senaite/senaite.impress/releases/tag/2.3.0
+
+- senaite.app.supermodel 2.2.0 → 2.3.0
+
+  https://github.com/senaite/senaite.app.supermodel/releases/tag/2.3.0
+
+- senaite.app.listing 2.2.0 → 2.3.0
+
+  https://github.com/senaite/senaite.app.listing/releases/tag/2.3.0
+
+- senaite.app.spotlight 2.2.0 → 2.3.0
+
+  https://github.com/senaite/senaite.app.spotlight/releases/tag/2.3.0
+
+- senaite.jsonapi 2.2.0 → 2.3.0
+
+  https://github.com/senaite/senaite.jsonapi/releases/tag/2.3.0
+
+- Plone 5.2.7 → 5.2.9
+
+  https://dist.plone.org/release/5.2.9/RELEASE-NOTES.md
 
 
 2.2.0 (2022-06-11)

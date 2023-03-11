@@ -4,6 +4,38 @@
 - no changes yet
 
 
+2.4.1 (2023-03-11)
+------------------
+
+- senaite.core 2.4.0 → 2.4.1
+
+  https://github.com/senaite/senaite.core/releases/tag/v2.4.1
+
+- senaite.impress 2.3.0 → 2.4.0
+
+  https://github.com/senaite/senaite.impress/releases/tag/2.4.0
+
+- senaite.app.supermodel 2.3.0 → 2.4.0
+
+  https://github.com/senaite/senaite.app.supermodel/releases/tag/2.4.0
+
+- senaite.app.listing 2.3.0 → 2.4.0
+
+  https://github.com/senaite/senaite.app.listing/releases/tag/2.4.0
+
+- senaite.app.spotlight 2.3.0 → 2.4.0
+
+  https://github.com/senaite/senaite.app.spotlight/releases/tag/2.4.0
+
+- senaite.jsonapi 2.3.0 → 2.4.0
+
+  https://github.com/senaite/senaite.jsonapi/releases/tag/2.4.0
+
+- Plone 5.2.9 → 5.2.11
+
+  https://dist.plone.org/release/5.2.11/RELEASE-NOTES.md
+
+
 2.4.0 (2023-03-10)
 ------------------
 

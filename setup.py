@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-version = "2.4.0"
+version = "2.4.1"
 
 with open("docs/About.rst", "r") as fh:
     long_description = fh.read()
@@ -41,7 +41,7 @@ setup(
     zip_safe=False,
     install_requires=[
         "Plone==5.2.11",
-        "senaite.core==2.4.0",
+        "senaite.core==2.4.1",
         "senaite.app.listing==2.4.0",
         "senaite.app.spotlight==2.4.0",
         "senaite.app.supermodel==2.4.0",

@@ -14,12 +14,6 @@
     <a href="https://pypi.python.org/pypi/senaite.lims">
       <img src="https://img.shields.io/pypi/v/senaite.lims.svg?style=flat-square" alt="pypi-version" />
     </a>
-    <a href="https://github.com/senaite/senaite.lims/pulls">
-      <img src="https://img.shields.io/github/issues-pr/senaite/senaite.lims.svg?style=flat-square" alt="open PRs" />
-    </a>
-    <a href="https://github.com/senaite/senaite.lims/issues">
-      <img src="https://img.shields.io/github/issues/senaite/senaite.lims.svg?style=flat-square" alt="open Issues" />
-    </a>
     <a href="https://github.com/senaite/senaite.lims">
       <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="pr" />
     </a>

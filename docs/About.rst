@@ -22,7 +22,7 @@
 License
 =======
 
-**SENAITE.LIMS** Copyright (C) [RIDING BYTES](http://ridingbytes.com) & [NARALABS](https://naralabs.com)
+**SENAITE.LIMS** Copyright (C) `RIDING BYTES https://ridingbytes.com`_ & `NARALABS https://naralabs.com`_
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the `GNU General Public License version 2

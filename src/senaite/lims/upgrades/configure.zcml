@@ -5,6 +5,14 @@
 
   <genericsetup:upgradeStep
       title="Upgrade SENAITE LIMS"
+      description="Version 2.6.0"
+      source="2500"
+      destination="2600"
+      handler="senaite.lims.upgrades.handlers.to_2600"
+      profile="senaite.lims:default" />
+
+  <genericsetup:upgradeStep
+      title="Upgrade SENAITE LIMS"
       description="Version 2.5.0"
       source="2400"
       destination="2500"

@@ -42,7 +42,7 @@ the LIMS, while providing a modern, intuitive and friendly [UI](https://en.wikip
 
 ## License
 
-**SENAITE.LIMS** Copyright (C) 2017-2022 RIDING BYTES & NARALABS
+**SENAITE.LIMS** Copyright (C) [RIDING BYTES](http://ridingbytes.com) & [NARALABS](https://naralabs.com)
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the [GNU General Public License version 2](https://github.com/senaite/senaite.lims/blob/master/LICENSE) as published by

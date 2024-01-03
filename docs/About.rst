@@ -8,12 +8,6 @@
 .. image:: https://img.shields.io/pypi/v/senaite.lims.svg?style=flat-square
    :target: https://pypi.python.org/pypi/senaite.lims
 
-.. image:: https://img.shields.io/github/issues-pr/senaite/senaite.lims.svg?style=flat-square
-   :target: https://github.com/senaite/senaite.lims/pulls
-
-.. image:: https://img.shields.io/github/issues/senaite/senaite.lims.svg?style=flat-square
-   :target: https://github.com/senaite/senaite.lims/issues
-
 .. image:: https://img.shields.io/badge/README-GitHub-blue.svg?style=flat-square
    :target: https://github.com/senaite/senaite.lims#readme
 

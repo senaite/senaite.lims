@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 version = "2.7.0"
 
@@ -26,6 +26,10 @@ setup(
         "Framework :: Plone",
         "Framework :: Zope2",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
@@ -36,7 +40,6 @@ setup(
     license="GPLv2",
     packages=find_packages("src", exclude=["ez_setup"]),
     package_dir={"": "src"},
-    namespace_packages=["senaite"],
     include_package_data=True,
     zip_safe=False,
     install_requires=[

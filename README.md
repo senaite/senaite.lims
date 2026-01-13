@@ -23,28 +23,71 @@
   </div>
 </div>
 
-
 ## What does SENAITE mean?
 
-[SENAITE](https://www.senaite.com) is a beautiful trigonal, oil-green to greenish
-black [crystal](https://www.mindat.org/min-3617.html), with almost the hardness
-of a diamond. Although the crystal is described with a complex formula, it still
-has clear and straight shapes. Therefore, it reflects nicely the complexity of
-the LIMS, while providing a modern, intuitive and friendly [UI](https://en.wikipedia.org/wiki/User_interface_design)/
+[SENAITE](https://www.senaite.com) is a beautiful trigonal, oil-green to
+greenish black [crystal](https://www.mindat.org/min-3617.html), with almost the
+hardness of a diamond. Although the crystal is described with a complex formula,
+it still has clear and straight shapes. Therefore, it reflects nicely the
+complexity of the LIMS, while providing a modern, intuitive and friendly
+[UI](https://en.wikipedia.org/wiki/User_interface_design)/
 [UX](https://en.wikipedia.org/wiki/User_experience).
 
+## Installation (Modern - UV)
+
+The recommended way to install SENAITE LIMS is using
+[UV](https://docs.astral.sh/uv/), the extremely fast Python package manager.
+
+### Prerequisites
+
+- Python 3.10 or higher
+- [UV](https://docs.astral.sh/uv/) package manager
+
+### Quick Start
+
+```bash
+# Install UV (if not already installed)
+# Windows (PowerShell)
+irm https://astral.sh/uv/install.ps1 | iex
+
+# Linux/macOS
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Clone the repository
+git clone https://github.com/senaite/senaite.lims.git
+cd senaite.lims
+
+# Sync dependencies (creates .venv automatically)
+uv sync
+
+# Activate the virtual environment
+# Windows
+.\.venv\Scripts\activate
+
+# Linux/macOS
+source .venv/bin/activate
+
+# Run SENAITE instance
+uv run instance fg
+```
+
+### Alternative: Buildout Installation
+
+For traditional buildout-based installation, see the
+[Installation Guide](docs/About.rst).
 
 ## License
 
-**SENAITE.LIMS** Copyright (C) [RIDING BYTES](http://ridingbytes.com) & [NARALABS](https://naralabs.com)
+**SENAITE.LIMS** Copyright (C) [RIDING BYTES](http://ridingbytes.com) &
+[NARALABS](https://naralabs.com)
 
 This program is free software; you can redistribute it and/or modify it under
-the terms of the [GNU General Public License version 2](https://github.com/senaite/senaite.lims/blob/master/LICENSE) as published by
-the Free Software Foundation.
+the terms of the
+[GNU General Public License version 2](https://github.com/senaite/senaite.lims/blob/master/LICENSE)
+as published by the Free Software Foundation.
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fsenaite%2Fsenaite.lims.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fsenaite%2Fsenaite.lims?ref=badge_large)

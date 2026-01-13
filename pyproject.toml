@@ -1,0 +1,63 @@
+[project]
+name = "senaite.lims"
+version = "2.7.0"
+description = "SENAITE LIMS - Meta Installation Package"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "GPLv2"}
+authors = [
+    {name = "RIDING BYTES & NARALABS", email = "senaite@senaite.com"}
+]
+maintainers = [
+    {name = "RIDING BYTES & NARALABS", email = "senaite@senaite.com"}
+]
+keywords = ["lims", "laboratory", "plone", "zope"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Framework :: Plone",
+    "Framework :: Zope2",
+    "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    "Plone>=5.2.15,<6.0.0",
+    "six>=1.16.0",
+    "setuptools",
+]
+
+[project.urls]
+Homepage = "https://github.com/senaite/senaite.lims"
+Repository = "https://github.com/senaite/senaite.lims"
+Issues = "https://github.com/senaite/senaite.lims/issues"
+Documentation = "https://senaite.github.io/senaite.lims/"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["senaite"]
+package-dir = {"" = "src"}
+include-package-data = true
+zip-safe = false
+
+[tool.setuptools.package-data]
+"senaite.lims" = ["*.txt", "*.zcml", "*.py"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[tool.uv]
+# Override Pillow to use latest version with binary wheels
+# (Products.PortalTransforms pins an old version that requires source build)
+override-dependencies = [
+    "Pillow>=10.0.0",
+]

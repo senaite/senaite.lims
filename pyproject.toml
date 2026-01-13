@@ -54,3 +54,10 @@ dev = [
     "mypy>=1.0.0",
     "pre-commit>=3.0.0",
 ]
+
+[tool.uv]
+# Override Pillow to use latest version with binary wheels
+# (Products.PortalTransforms pins an old version that requires source build)
+override-dependencies = [
+    "Pillow>=10.0.0",
+]

@@ -97,8 +97,8 @@ if __name__ == "__main__":
 
             # if we reach this point, we found the first code line
             if skip:
-                print "Found first code line for file {} at {}".format(
-                    path, num)
+                print("Found first code line for file {} at {}".format(
+                    path, num))
                 skip = False
 
             # append all code lines below the new_lines
@@ -110,4 +110,4 @@ if __name__ == "__main__":
             # remove all trailing empty lines and add a single one
             new_lines[-1] = last_line.rstrip("\n") + "\n"
             f.writelines(new_lines)
-            print "Wrote header to {}".format(path)
+            print("Wrote header to {}".format(path))

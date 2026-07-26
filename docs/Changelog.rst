@@ -1,7 +1,9 @@
 2.7.0 (unreleased)
 ------------------
 
-- no changes yet
+- Require plone.jsonapi.core>=0.8.0
+
+  https://github.com/collective/plone.jsonapi.core/releases/tag/0.8.0
 
 
 2.6.0 (2025-04-04)

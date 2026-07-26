@@ -47,6 +47,7 @@ setup(
         "senaite.app.supermodel>=2.6.0",
         "senaite.impress>=2.6.0",
         "senaite.jsonapi>=2.6.0",
+        "plone.jsonapi.core>=0.8.0",
         "setuptools",
     ],
     extras_require={

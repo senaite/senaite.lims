@@ -1,7 +1,7 @@
 2.7.0 (unreleased)
 ------------------
 
-- no changes yet
+- #140 Extend core's buildout.base.cfg and drop the unused Travis config
 
 
 2.6.0 (2025-04-04)
